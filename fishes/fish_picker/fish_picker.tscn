@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0s3pi5ggdn6o"]
+
+[ext_resource type="Script" path="res://fishes/fish_picker/fish_picker.gd" id="1_qn7ta"]
+[ext_resource type="Script" path="res://fishes/fish_pool/fish_unit.gd" id="2_e2qal"]
+[ext_resource type="Script" path="res://fishes/fish_pool/base_pool.gd" id="3_lo5wk"]
+
+[sub_resource type="Resource" id="Resource_hfe5c"]
+script = ExtResource("2_e2qal")
+fish_name = "Mr_dish"
+weight = 10
+
+[sub_resource type="Resource" id="Resource_tb8ld"]
+script = ExtResource("2_e2qal")
+fish_name = "missiler"
+weight = 5
+
+[sub_resource type="Resource" id="Resource_x4kov"]
+script = ExtResource("3_lo5wk")
+pool_name = "normal"
+fish_list = Array[ExtResource("2_e2qal")]([SubResource("Resource_hfe5c"), SubResource("Resource_tb8ld")])
+
+[node name="FishPicker" type="Node"]
+script = ExtResource("1_qn7ta")
+pool_list = Array[ExtResource("3_lo5wk")]([SubResource("Resource_x4kov")])

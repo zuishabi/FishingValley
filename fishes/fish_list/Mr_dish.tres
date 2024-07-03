@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Mr_dish" load_steps=3 format=3 uid="uid://dwm555kjhyii1"]
+
+[ext_resource type="Script" path="res://fishes/fish_list/scripts/Mr_dish.gd" id="1_kcn20"]
+[ext_resource type="Texture2D" uid="uid://bqctuqn2au7g8" path="res://arts/fishes/Mr_dish.png" id="1_l4kn1"]
+
+[resource]
+script = ExtResource("1_kcn20")
+fish_name = "Mr_dish"
+fish_texture = ExtResource("1_l4kn1")

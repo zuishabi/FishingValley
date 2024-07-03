@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqef1h4y4sb5o"]
+
+[ext_resource type="Script" path="res://fishes/fish_list/FishList.gd" id="1_2nkqm"]
+[ext_resource type="Resource" uid="uid://dwm555kjhyii1" path="res://fishes/fish_list/Mr_dish.tres" id="2_y27d1"]
+[ext_resource type="Resource" uid="uid://gony58rkovlv" path="res://fishes/fish_list/missiler.tres" id="3_kgxy6"]
+
+[node name="FishList" type="Node"]
+script = ExtResource("1_2nkqm")
+fish_list = {
+"Mr_dish": ExtResource("2_y27d1"),
+"missiler": ExtResource("3_kgxy6")
+}

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Missiler" load_steps=3 format=3 uid="uid://gony58rkovlv"]
+
+[ext_resource type="Texture2D" uid="uid://db75fgf7ep8aw" path="res://arts/fishes/missiler.png" id="1_6tsph"]
+[ext_resource type="Script" path="res://fishes/fish_list/scripts/missiler.gd" id="1_m5pt4"]
+
+[resource]
+script = ExtResource("1_m5pt4")
+fish_name = "missiler"
+fish_texture = ExtResource("1_6tsph")

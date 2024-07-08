@@ -17,12 +17,19 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Ui="*res://scene/ui/ui.tscn"
 FishPicker="*res://fishes/fish_picker/fish_picker.tscn"
 FishList="*res://fishes/fish_list/fish_list.tscn"
+EventBus="*res://global/event_bus.gd"
+Inventory="*res://global/inventory.gd"
+ObjectList="*res://objects/object_list/object_list.tscn"
+Ui="*res://scene/ui/ui.tscn"
 
 [display]
 
+window/size/viewport_width=256
+window/size/viewport_height=144
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [input]
@@ -50,6 +57,21 @@ right={
 left_mouse={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(196, 31),"global_position":Vector2(201, 81),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+wheel_up={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(310, 21),"global_position":Vector2(315, 71),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+wheel_down={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(182, 25),"global_position":Vector2(187, 75),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+show_op={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":79,"echo":false,"script":null)
 ]
 }
 

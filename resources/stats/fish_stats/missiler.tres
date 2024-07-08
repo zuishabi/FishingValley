@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="fish_stats" load_steps=2 format=3 uid="uid://bffmil8kia7f0"]
+
+[ext_resource type="Script" path="res://resources/stats/fish_stats/fish_stats.gd" id="1_st605"]
+
+[resource]
+script = ExtResource("1_st605")
+max_health = 50

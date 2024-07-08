@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtix5pa33d84"]
+
+[ext_resource type="Script" path="res://scene/ui/slot.gd" id="1_e8dit"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(16, 16)
+script = ExtResource("1_e8dit")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1

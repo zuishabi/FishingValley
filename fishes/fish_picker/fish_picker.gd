@@ -35,4 +35,5 @@ func get_fish(pool_name:String)->Fish:
 			if(current_fish.exist()):
 				target_fish=current_fish
 				break
-	return target_fish
+	return target_fish.duplicate(true)
+

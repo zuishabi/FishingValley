@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7gtj310kuc37"]
+
+[ext_resource type="Script" path="res://objects/object_list/ObjectList.gd" id="1_5joor"]
+[ext_resource type="Resource" uid="uid://u5mlpkyixkn" path="res://objects/fishing_pole/bamboo_pole.tres" id="2_uyrcq"]
+
+[node name="ObjectList" type="Node"]
+script = ExtResource("1_5joor")
+fishing_pole_list = {
+"bamboo_pole": ExtResource("2_uyrcq")
+}

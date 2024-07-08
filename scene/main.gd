@@ -3,54 +3,17 @@ extends Node2D
 @onready var tile_map = $TileMap
 @onready var player = $Player
 @onready var mouse_texture = $MouseTexture
-@onready var line_2d = $Line2D
-@onready var progress_bar = $Player/ProgressBar
-@onready var fishing_timer = $FishingTimer
-@onready var texture_rect = $TextureRect
+@onready var ding = $Ui/Ding
+@onready var wait_time = $Timers/WaitTime
+@onready var can_catch_time = $Timers/CanCatchTime
 
-var mouse_pos_in_tile:Vector2
-var is_fishing:bool=false
-var adding:bool=true
-var next_fish:Fish
-var target_pos:Vector2#钓鱼竿落点的位置
+var next_fish:Fish#下一条鱼
+var fishing_pos:Vector2#鱼竿落点的位置
 
-func _process(delta):
-	mouse_pos_in_tile=tile_map.local_to_map(get_global_mouse_position())
-	if(get_tile_data(mouse_pos_in_tile,0,"can_fishing")):
-		mouse_texture.global_position=get_global_mouse_position()
-		mouse_texture.show()
-	else:
-		mouse_texture.hide()
-	if(mouse_texture.visible&&Input.is_action_pressed("left_mouse")&&player.is_moving==false):
-		player.can_move=false
-		progress_bar.show()
-		if(adding):
-			progress_bar.value+=0.5
-			if(progress_bar.value==100):	
-				adding=false
-		else:
-			progress_bar.value-=0.5
-			if(progress_bar.value==0):
-				adding=true
-	if(mouse_texture.visible&&Input.is_action_just_released("left_mouse")):
-		is_fishing=true
-		player.can_move=true
-		line_2d.clear_points()
-		var dir:Vector2=(get_global_mouse_position()-player.global_position).normalized()
-		target_pos=player.global_position+dir*progress_bar.value*1.5
-		var target_tile_pos:Vector2=tile_map.local_to_map(target_pos)
-		line_2d.add_point(player.global_position)
-		line_2d.add_point(target_pos)
-		if(!get_tile_data(target_tile_pos,0,"can_fishing")):
-			var timer=get_tree().create_timer(0.5)
-			await timer.timeout
-			leave()
-		progress_bar.hide()
-		progress_bar.value=0
-		get_next_fish(target_tile_pos)
-		update_fishing_timer()
-	if(is_fishing&&player.is_moving):
-		leave()
+func _ready():
+	player.fishing_request.connect(process_fishing_request)
+	player.cancel_fishing.connect(cancel_fishing)
+	player.catch_fish.connect(on_fish_caught)
 
 func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
 	var tile_data:TileData=tile_map.get_cell_tile_data(layer,target_position)
@@ -59,24 +22,44 @@ func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
 	else:
 		return false
 
-func leave():
-	line_2d.clear_points()
-	is_fishing=false
-	fishing_timer.stop()
-	texture_rect.hide()
-
 func get_next_fish(pos:Vector2):
 	var pool:String=get_tile_data(pos,0,"pool")
 	next_fish=FishPicker.get_fish(pool)
 
-func update_fishing_timer():
-	var await_time:float=randf_range(5,10)
-	fishing_timer.wait_time=await_time
-	fishing_timer.start()
+func process_fishing_request(target_pos:Vector2):
+	fishing_pos=target_pos
+	if(get_tile_data(tile_map.local_to_map(target_pos),0,"can_fishing")):
+		get_next_fish(tile_map.local_to_map(target_pos))
+		var rand_time:float=randf_range(5,10)
+		wait_time.wait_time=rand_time
+		wait_time.start()
+	else:
+		var timer=get_tree().create_timer(1.5)
+		await timer.timeout
+		player.leave_fishing()
 
-func _on_fishing_timer_timeout():
-	texture_rect.texture=next_fish.fish_texture
+func _on_wait_time_timeout():
+	catch_fish()
+
+func catch_fish():
+	player.can_catch=true
+	can_catch_time.start()
 	var tween:Tween=create_tween()
-	texture_rect.global_position=target_pos
-	texture_rect.show()
-	tween.tween_property(texture_rect,"global_position",target_pos+Vector2.UP*20,0.5)
+	ding.position=fishing_pos
+	ding.show()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(ding,"position",fishing_pos+Vector2.UP*10,0.2)
+
+func cancel_fishing():
+	wait_time.stop()
+
+func _on_can_catch_time_timeout():
+	ding.hide()
+	player.can_catch=false
+	process_fishing_request(fishing_pos)
+
+func on_fish_caught():
+	can_catch_time.stop()
+	ding.hide()
+	EventBus.load_fight(player.player_stats,next_fish)
+	Ui.prepare_fishing.emit()

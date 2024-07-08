@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishingPole" load_steps=3 format=3 uid="uid://u5mlpkyixkn"]
+
+[ext_resource type="Texture2D" uid="uid://b7s38wwp873e0" path="res://arts/tools/fishing_pole/竹鱼竿.png" id="1_2tubt"]
+[ext_resource type="Script" path="res://objects/fishing_pole/fishing_pole.gd" id="2_5ot4u"]
+
+[resource]
+script = ExtResource("2_5ot4u")
+using_description = "长摁左键丢出鱼竿"
+object_texture = ExtResource("1_2tubt")
+object_name = "竹鱼竿"
+object_description = "用竹子制成的鱼竿，适合初学者使用"

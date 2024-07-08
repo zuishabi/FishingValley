@@ -1,11 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciggg0qhoo6ap"]
+[gd_scene load_steps=10 format=3 uid="uid://ciggg0qhoo6ap"]
 
 [ext_resource type="Script" path="res://scene/ui/ui.gd" id="1_dlvsp"]
+[ext_resource type="Script" path="res://scene/ui/Inventory.gd" id="2_de5v5"]
 [ext_resource type="Script" path="res://scene/ui/Tips.gd" id="2_wa7nt"]
 [ext_resource type="Texture2D" uid="uid://b7fbyf3pni4x5" path="res://arts/gui/press_e.png" id="3_v22bv"]
+[ext_resource type="Script" path="res://scene/ui/StartMenu.gd" id="4_2bgk7"]
+[ext_resource type="PackedScene" uid="uid://dvtix5pa33d84" path="res://scene/ui/slot.tscn" id="5_utta7"]
+[ext_resource type="Texture2D" uid="uid://b3smt5iob6itm" path="res://arts/gui/highlight.png" id="7_serum"]
+[ext_resource type="Script" path="res://scene/ui/Description.gd" id="8_3fwtn"]
+[ext_resource type="Script" path="res://scene/ui/OpManager.gd" id="9_hccyp"]
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_dlvsp")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 47.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_de5v5")
+
+[node name="Inventory" type="PanelContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -19.0
+offset_right = 68.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InventorySlots" type="HBoxContainer" parent="Inventory/Inventory"]
+layout_mode = 2
+
+[node name="Slot" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot2" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot3" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot4" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot5" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot6" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="Slot7" parent="Inventory/Inventory/InventorySlots" instance=ExtResource("5_utta7")]
+layout_mode = 2
+
+[node name="HighLight" type="TextureRect" parent="Inventory"]
+layout_mode = 2
+offset_left = -16.0
+offset_bottom = 16.0
+texture = ExtResource("7_serum")
 
 [node name="Tips" type="Control" parent="."]
 visible = false
@@ -27,3 +92,147 @@ offset_bottom = 40.0
 layout_mode = 2
 texture = ExtResource("3_v22bv")
 expand_mode = 1
+
+[node name="StartMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_2bgk7")
+
+[node name="Player" type="PanelContainer" parent="StartMenu"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 40.0
+offset_bottom = 88.0
+
+[node name="PlayerTexture" type="TextureRect" parent="StartMenu/Player"]
+layout_mode = 2
+
+[node name="Fish" type="PanelContainer" parent="StartMenu"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 88.0
+
+[node name="FishTexture" type="TextureRect" parent="StartMenu/Fish"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = 96.0
+offset_right = 66.0
+offset_bottom = 161.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 1
+
+[node name="Confirm" type="Button" parent="StartMenu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+text = "开始战斗"
+
+[node name="Cancel" type="Button" parent="StartMenu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "丢弃"
+
+[node name="Description" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 98.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_3fwtn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Description"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Description/VBoxContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="ObjectTexture" type="TextureRect" parent="Description/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="ObjectName" type="RichTextLabel" parent="Description/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ObjectDescription" type="RichTextLabel" parent="Description/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+fit_content = true
+scroll_active = false
+
+[node name="UsingDescription" type="RichTextLabel" parent="Description/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="OpManager" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_hccyp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OpManager"]
+layout_mode = 0
+offset_right = 233.0
+offset_bottom = 163.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OpManager/VBoxContainer"]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OpManager/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="LineEdit" type="LineEdit" parent="OpManager/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "请输入指令"
+
+[node name="Button" type="Button" parent="OpManager/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(41, 0)
+layout_mode = 2
+text = "确认"
+
+[connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
+[connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]
+[connection signal="focus_entered" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_exited"]
+[connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]

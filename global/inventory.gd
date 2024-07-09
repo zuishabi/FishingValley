@@ -17,6 +17,8 @@ func change_index(direction:int):
 	focused_index=(focused_index+direction)%7
 
 func add_item(object:BaseObject)->bool:
+	if(object==null):
+		return false
 	if(current_size==7):
 		return false
 	else:

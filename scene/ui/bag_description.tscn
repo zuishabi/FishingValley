@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs1ig6k2mi7e7"]
+
+[ext_resource type="Script" path="res://scene/ui/bag_description.gd" id="1_ofhfd"]
+
+[node name="BagDescription" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 114)
+offset_right = 100.0
+offset_bottom = 114.0
+script = ExtResource("1_ofhfd")

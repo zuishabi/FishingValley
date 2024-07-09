@@ -32,7 +32,10 @@ func add_information(text:String):
 	rich_text_label.newline()
 
 func add_item(object:String):
-	Inventory.add_item(ObjectList.find_fish_pole(object))
+	if(Inventory.add_item(ObjectList.find_object(object))):
+		add_information("成功添加"+object)
+	else:
+		add_information("添加失败")
 
 func _on_button_pressed():
 	process_command(line_edit.text)

@@ -25,10 +25,10 @@ grow_vertical = 2
 
 [node name="Fish" type="PanelContainer" parent="Main"]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 72.0
-offset_right = 200.0
-offset_bottom = 112.0
+offset_left = 712.0
+offset_top = 408.0
+offset_right = 840.0
+offset_bottom = 536.0
 
 [node name="FishTexure" type="TextureRect" parent="Main/Fish"]
 layout_mode = 2

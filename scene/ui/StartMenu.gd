@@ -23,8 +23,8 @@ func start_prepare():
 	var tween:Tween=create_tween()
 	tween.set_parallel()
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(player,"position",Vector2(56,40),0.5).from(Vector2(-48,40))
-	tween.tween_property(fish,"position",Vector2(152,40),0.5).from(Vector2(256,40))
+	tween.tween_property(player,"position",Vector2(406,260),0.5).from(Vector2(0,260))
+	tween.tween_property(fish,"position",Vector2(616,260),0.5).from(Vector2(1024,260))
 	await tween.finished
 	buttons.show()
 

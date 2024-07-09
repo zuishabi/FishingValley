@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/ui/slot.gd" id="1_e8dit"]
 
 [node name="Slot" type="PanelContainer"]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(48, 48)
 script = ExtResource("1_e8dit")
 
 [node name="TextureRect" type="TextureRect" parent="."]

@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7gtj310kuc37"]
+[gd_scene load_steps=7 format=3 uid="uid://b7gtj310kuc37"]
 
 [ext_resource type="Script" path="res://objects/object_list/ObjectList.gd" id="1_5joor"]
 [ext_resource type="Resource" uid="uid://u5mlpkyixkn" path="res://objects/fishing_pole/bamboo_pole.tres" id="2_uyrcq"]
 [ext_resource type="Resource" uid="uid://bcdykfu533tlg" path="res://objects/buckets/barrel.tres" id="3_cgb6t"]
 [ext_resource type="Resource" uid="uid://clfif3y11ve40" path="res://objects/biat_bag/initial_bag.tres" id="4_m76c0"]
+[ext_resource type="Resource" uid="uid://bvujg760rcwm4" path="res://objects/items/biats/biat.tres" id="5_0m8ig"]
+[ext_resource type="Resource" uid="uid://d1a8isa6nx405" path="res://objects/items/biats/panties.tres" id="6_4lcpl"]
 
 [node name="ObjectList" type="Node"]
 script = ExtResource("1_5joor")
 object_list = {
 "bamboo_pole": ExtResource("2_uyrcq"),
 "barrel": ExtResource("3_cgb6t"),
-"biat_bag": ExtResource("4_m76c0")
+"biat": ExtResource("5_0m8ig"),
+"biat_bag": ExtResource("4_m76c0"),
+"panties": ExtResource("6_4lcpl")
 }

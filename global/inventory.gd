@@ -16,15 +16,22 @@ func _ready():
 func change_index(direction:int):
 	focused_index=(focused_index+direction)%7
 
-func add_item(object:BaseObject)->bool:
+func add_item(object:BaseObject,amount=1)->bool:
 	if(object==null):
-		return false
-	if(current_size==7):
+		print("物品为空")
 		return false
 	else:
-		inventory[current_size+1]=object
-		current_size+=1
-		inventory_changed.emit(current_size)
-		focus_changed.emit()
-		return true
-
+		if(object is Biat):
+			for i in inventory:
+				if(i is BiatBag):
+					return i.add_item(object,amount)
+			return false
+		elif(object is Tool):
+			if(current_size==7):
+				return false
+			inventory[current_size+1]=object
+			current_size+=1
+			inventory_changed.emit(current_size)
+			focus_changed.emit()
+			return true
+		return false

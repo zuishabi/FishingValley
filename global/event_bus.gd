@@ -8,5 +8,4 @@ func load_fight(player:PlayerStats,fish:Fish):
 	current_fish=fish
 
 func start_fisht():
-	Ui.hide()
 	get_tree().change_scene_to_file("res://scene/battle.tscn")

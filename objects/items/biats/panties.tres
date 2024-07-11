@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Biat" load_steps=3 format=3 uid="uid://d1a8isa6nx405"]
+
+[ext_resource type="Texture2D" uid="uid://dsc4kewn1ffgt" path="res://arts/items/biats/panties.png" id="1_0j0yc"]
+[ext_resource type="Script" path="res://objects/items/biats/base_biat.gd" id="1_yofkp"]
+
+[resource]
+script = ExtResource("1_yofkp")
+value = 800
+object_texture = ExtResource("1_0j0yc")
+object_name = "哥哥的内裤"
+object_description = "偷来的哥哥的内裤，有特殊的气味，不知道能吸引来什么鱼"

@@ -1,9 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs1ig6k2mi7e7"]
+[gd_scene load_steps=3 format=3 uid="uid://bs1ig6k2mi7e7"]
 
 [ext_resource type="Script" path="res://scene/ui/bag_description.gd" id="1_ofhfd"]
+[ext_resource type="Texture2D" uid="uid://bd04kajiffuy3" path="res://arts/items/biats/biat.png" id="2_kjgja"]
 
 [node name="BagDescription" type="PanelContainer"]
 custom_minimum_size = Vector2(100, 114)
 offset_right = 100.0
 offset_bottom = 114.0
 script = ExtResource("1_ofhfd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 41
+theme_override_constants/margin_right = 41
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("2_kjgja")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "初级鱼饵"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1

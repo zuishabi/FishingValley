@@ -17,7 +17,7 @@ weight = 10
 [sub_resource type="Resource" id="Resource_x4kov"]
 script = ExtResource("3_lo5wk")
 pool_name = "normal"
-fish_list = Array[Resource]([SubResource("Resource_8enob"), SubResource("Resource_hdie0")])
+fish_list = Array[ExtResource("2_fp1sx")]([SubResource("Resource_8enob"), SubResource("Resource_hdie0")])
 
 [node name="FishPicker" type="Node"]
 script = ExtResource("1_qn7ta")

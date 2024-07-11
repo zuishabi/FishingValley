@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciggg0qhoo6ap"]
+[gd_scene load_steps=16 format=3 uid="uid://ciggg0qhoo6ap"]
 
 [ext_resource type="Script" path="res://scene/ui/ui.gd" id="1_dlvsp"]
 [ext_resource type="Script" path="res://scene/ui/Inventory.gd" id="2_de5v5"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://scene/ui/Bucket.gd" id="10_pyoun"]
 [ext_resource type="PackedScene" uid="uid://bs1ig6k2mi7e7" path="res://scene/ui/bag_description.tscn" id="11_ujup4"]
 [ext_resource type="PackedScene" uid="uid://b3qeb0chuwyjq" path="res://scene/ui/bag_slot.tscn" id="11_x01gm"]
+[ext_resource type="Texture2D" uid="uid://2ppcmgvmi3p6" path="res://arts/gui/hover.png" id="13_g53n8"]
+[ext_resource type="Script" path="res://scene/ui/SelectMenu.gd" id="14_ea3xn"]
+[ext_resource type="Texture2D" uid="uid://df6wmwwnjxyxv" path="res://arts/gui/equiped.png" id="14_l30rx"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -20,7 +23,6 @@ script = ExtResource("1_dlvsp")
 [node name="Label" type="Label" parent="."]
 offset_right = 47.0
 offset_bottom = 23.0
-scale = Vector2(0.5, 0.5)
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 3
@@ -164,6 +166,7 @@ size_flags_vertical = 3
 text = "丢弃"
 
 [node name="Description" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 anchors_preset = 1
 anchor_left = 1.0
@@ -196,6 +199,9 @@ theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+
+[node name="InformationContainer" type="VBoxContainer" parent="Description/VBoxContainer"]
+layout_mode = 2
 
 [node name="ObjectDescription" type="RichTextLabel" parent="Description/VBoxContainer"]
 layout_mode = 2
@@ -248,7 +254,6 @@ layout_mode = 2
 text = "确认"
 
 [node name="ContainerInventory" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,9 +301,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 2
 
 [node name="TextureRect" type="TextureRect" parent="ContainerInventory/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ToolTexture"]
 custom_minimum_size = Vector2(80, 80)
@@ -371,8 +376,65 @@ layout_mode = 2
 [node name="BagSlot20" parent="ContainerInventory/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" instance=ExtResource("11_x01gm")]
 layout_mode = 2
 
+[node name="Hover" type="TextureRect" parent="ContainerInventory"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("13_g53n8")
+
+[node name="Select" type="TextureRect" parent="ContainerInventory"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("7_serum")
+
+[node name="Equiped" type="TextureRect" parent="ContainerInventory"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("14_l30rx")
+
+[node name="SelectMenu" type="PanelContainer" parent="ContainerInventory"]
+layout_mode = 1
+offset_right = 48.0
+offset_bottom = 60.0
+script = ExtResource("14_ea3xn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContainerInventory/SelectMenu"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Equip" type="Button" parent="ContainerInventory/SelectMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="Details" type="Button" parent="ContainerInventory/SelectMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "详情"
+
+[node name="Throw" type="Button" parent="ContainerInventory/SelectMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "丢弃"
+
+[node name="Cancel" type="Button" parent="ContainerInventory/SelectMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "取消"
+
+[node name="Change" type="Timer" parent="ContainerInventory"]
+wait_time = 0.1
+
 [connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]
 [connection signal="focus_entered" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_exited"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
+[connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Details" to="ContainerInventory/SelectMenu" method="_on_details_pressed"]
+[connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Throw" to="ContainerInventory/SelectMenu" method="_on_throw_pressed"]
+[connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Cancel" to="ContainerInventory/SelectMenu" method="_on_cancel_pressed"]
+[connection signal="timeout" from="ContainerInventory/Change" to="ContainerInventory" method="_on_change_timeout"]

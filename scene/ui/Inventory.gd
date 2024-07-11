@@ -11,7 +11,7 @@ func _ready():
 	Inventory.inventory_changed.connect(update_slot)
 
 func _input(event:InputEvent):
-	if(Ui.focus_array.front()=="Inventory"):
+	if(get_parent().focus_array.front()=="Inventory"):
 		var direction=int(event.is_action_pressed("wheel_down"))-int(event.is_action_pressed("wheel_up"))
 		if(direction!=0):
 			Inventory.change_index(direction)

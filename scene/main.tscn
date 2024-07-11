@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn0wxgaj2bk7c"]
+[gd_scene load_steps=11 format=3 uid="uid://dn0wxgaj2bk7c"]
 
 [ext_resource type="Texture2D" uid="uid://d3g68uhrodlux" path="res://arts/tileset/gentle forest v01.png" id="1_3eyjs"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_ml7cu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bobvc005tyxax" path="res://scene/player.tscn" id="3_65381"]
 [ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="4_355em"]
 [ext_resource type="Texture2D" uid="uid://jurpy7itnymx" path="res://arts/gui/ding.png" id="6_rq5qe"]
+[ext_resource type="PackedScene" uid="uid://ciggg0qhoo6ap" path="res://scene/ui/ui.tscn" id="7_1p0ws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s10uv"]
 texture = ExtResource("1_3eyjs")
@@ -1034,6 +1035,8 @@ one_shot = true
 
 [node name="WaitTime" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="UI" parent="." instance=ExtResource("7_1p0ws")]
 
 [connection signal="timeout" from="Timers/CanCatchTime" to="." method="_on_can_catch_time_timeout"]
 [connection signal="timeout" from="Timers/WaitTime" to="." method="_on_wait_time_timeout"]

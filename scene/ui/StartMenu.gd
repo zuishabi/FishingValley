@@ -5,6 +5,7 @@ extends Control
 @onready var player_texture = $Player/PlayerTexture
 @onready var fish_texture = $Fish/FishTexture
 @onready var buttons = $Buttons
+@onready var Ui = $".."
 
 func _ready():
 	self.hide()
@@ -29,8 +30,8 @@ func start_prepare():
 	buttons.show()
 
 func _on_confirm_pressed():
-	EventBus.start_fisht()
 	Ui.update_ui("StartMenu")
+	EventBus.start_fisht()
 
 func _on_cancel_pressed():
 	Ui.update_ui("StartMenu")

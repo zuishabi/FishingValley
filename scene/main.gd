@@ -6,6 +6,7 @@ extends Node2D
 @onready var ding = $Ui/Ding
 @onready var wait_time = $Timers/WaitTime
 @onready var can_catch_time = $Timers/CanCatchTime
+@onready var ui = $UI
 
 var next_fish:Fish#下一条鱼
 var fishing_pos:Vector2#鱼竿落点的位置
@@ -62,4 +63,4 @@ func on_fish_caught():
 	can_catch_time.stop()
 	ding.hide()
 	EventBus.load_fight(player.player_stats,next_fish)
-	Ui.prepare_fishing.emit()
+	ui.prepare_fishing.emit()

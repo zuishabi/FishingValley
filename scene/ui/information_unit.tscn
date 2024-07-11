@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkkat6ws4a87n"]
+
+[ext_resource type="Script" path="res://scene/ui/information_unit.gd" id="1_l6fy0"]
+
+[node name="InformationUnit" type="HBoxContainer"]
+offset_right = 144.0
+offset_bottom = 16.0
+script = ExtResource("1_l6fy0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 44
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2

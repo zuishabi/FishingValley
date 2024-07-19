@@ -6,6 +6,7 @@ extends Control
 @onready var fish_texture = $Fish/FishTexture
 @onready var buttons = $Buttons
 @onready var Ui = $".."
+var can_esc:bool=false
 
 func _ready():
 	self.hide()
@@ -20,7 +21,7 @@ func hide_ui():
 	self.hide()
 
 func start_prepare():
-	fish_texture.texture=EventBus.current_fish.fish_texture
+	fish_texture.texture=BattleManager.current_fish.fish_texture
 	var tween:Tween=create_tween()
 	tween.set_parallel()
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -31,7 +32,7 @@ func start_prepare():
 
 func _on_confirm_pressed():
 	Ui.update_ui("StartMenu")
-	EventBus.start_fisht()
+	BattleManager.start_fish()
 
 func _on_cancel_pressed():
 	Ui.update_ui("StartMenu")

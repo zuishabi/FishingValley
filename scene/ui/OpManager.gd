@@ -2,16 +2,19 @@ extends Control
 
 @onready var line_edit = $VBoxContainer/HBoxContainer/LineEdit
 @onready var rich_text_label = $VBoxContainer/RichTextLabel
+@onready var ui = $".."
+var can_esc:bool=true
 
 func _input(event):
-	if(event.is_action_pressed("show_op")):
-		if(visible):
-			self.hide()
-			get_tree().paused=false
-		else:
-			get_tree().paused=true
-			self.show()
+	if(event.is_action_pressed("show_op")&&(ui.focus_array.front()=="Inventory"||ui.focus_array.front()=="OpManager")):
+		ui.update_ui("OpManager")
 
+func show_ui():
+	self.show()
+	get_tree().paused=true
+
+func hide_ui():
+	self.hide()
 func process_command(command:String):
 	if(command!=""):
 		var parts=command.split(" ")

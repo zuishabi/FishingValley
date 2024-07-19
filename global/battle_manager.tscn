@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5r2lrhahyqnq"]
+
+[ext_resource type="Script" path="res://global/BattleManager.gd" id="1_ashxr"]
+
+[node name="BattleManager" type="Node"]
+script = ExtResource("1_ashxr")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Timer_1" type="Timer" parent="Timers"]

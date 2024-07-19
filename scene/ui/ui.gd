@@ -2,15 +2,17 @@ extends CanvasLayer
 
 signal prepare_fishing
 
-@onready var label = $Label
+@onready var label = $Inventory/Label
 
 var focus_array:Array[String]
- 
+
 func _process(delta):
 	label.text=focus_array.front()
 
 func _ready():
-	focus_array.push_front("Inventory")
+	for i in get_children():
+		i.hide()
+	update_ui("Inventory")
 	prepare_fishing.connect(update_ui.bind("StartMenu"))
 
 func update_ui(_name:String):
@@ -21,3 +23,8 @@ func update_ui(_name:String):
 		get_node(focus_array.front()).hide_ui()
 		focus_array.pop_front()
 		get_node(focus_array.front()).show_ui()
+
+func _unhandled_input(event):
+	if(event.is_action_pressed("esc")):
+		if(get_node(focus_array.front()).can_esc):
+			update_ui(focus_array.front())

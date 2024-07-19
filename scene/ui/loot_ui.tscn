@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://sj878n86ijhu"]
+
+[ext_resource type="Script" path="res://scene/ui/loot_ui.gd" id="1_nqxxm"]
+
+[node name="LootUi" type="HBoxContainer"]
+custom_minimum_size = Vector2(440, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_nqxxm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 86
+theme_override_constants/margin_right = 86
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(169, 40)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(51, 40)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

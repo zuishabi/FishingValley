@@ -15,6 +15,7 @@ func _ready():
 	player.fishing_request.connect(process_fishing_request)
 	player.cancel_fishing.connect(cancel_fishing)
 	player.catch_fish.connect(on_fish_caught)
+	BattleManager.main_prepared.emit()
 
 func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
 	var tile_data:TileData=tile_map.get_cell_tile_data(layer,target_position)
@@ -25,7 +26,7 @@ func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
 
 func get_next_fish(pos:Vector2):
 	var pool:String=get_tile_data(pos,0,"pool")
-	next_fish=FishPicker.get_fish(pool)
+	next_fish=Picker.get_fish(pool)
 
 func process_fishing_request(target_pos:Vector2):
 	fishing_pos=target_pos
@@ -62,5 +63,11 @@ func _on_can_catch_time_timeout():
 func on_fish_caught():
 	can_catch_time.stop()
 	ding.hide()
-	EventBus.load_fight(player.player_stats,next_fish)
+	BattleManager.load_fight(player.player_stats,next_fish)
 	ui.prepare_fishing.emit()
+	save_scene()
+
+func save_scene():
+	var packed_scene:PackedScene=PackedScene.new()
+	packed_scene.pack($".")
+	ResourceSaver.save(packed_scene,"res://saved_scene/saved_main.tscn")

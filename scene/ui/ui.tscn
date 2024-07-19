@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ciggg0qhoo6ap"]
+[gd_scene load_steps=19 format=3 uid="uid://ciggg0qhoo6ap"]
 
 [ext_resource type="Script" path="res://scene/ui/ui.gd" id="1_dlvsp"]
 [ext_resource type="Script" path="res://scene/ui/Inventory.gd" id="2_de5v5"]
@@ -15,14 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://2ppcmgvmi3p6" path="res://arts/gui/hover.png" id="13_g53n8"]
 [ext_resource type="Script" path="res://scene/ui/SelectMenu.gd" id="14_ea3xn"]
 [ext_resource type="Texture2D" uid="uid://df6wmwwnjxyxv" path="res://arts/gui/equiped.png" id="14_l30rx"]
+[ext_resource type="Script" path="res://scene/ui/WinMenu.gd" id="16_1cqyh"]
+[ext_resource type="Script" path="res://scene/ui/LoseMenu.gd" id="17_2it11"]
+[ext_resource type="Texture2D" uid="uid://db75fgf7ep8aw" path="res://arts/fishes/missiler.png" id="17_puuw4"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_dlvsp")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 47.0
-offset_bottom = 23.0
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 3
@@ -32,6 +31,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_de5v5")
+
+[node name="Label" type="Label" parent="Inventory"]
+offset_right = 47.0
+offset_bottom = 23.0
 
 [node name="Inventory" type="PanelContainer" parent="Inventory"]
 layout_mode = 1
@@ -254,6 +257,7 @@ layout_mode = 2
 text = "确认"
 
 [node name="ContainerInventory" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -429,6 +433,252 @@ text = "取消"
 [node name="Change" type="Timer" parent="ContainerInventory"]
 wait_time = 0.1
 
+[node name="WinMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_1cqyh")
+
+[node name="PanelContainer" type="PanelContainer" parent="WinMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -231.0
+offset_right = 220.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Information" type="MarginContainer" parent="WinMenu/PanelContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Main" type="VBoxContainer" parent="WinMenu/PanelContainer/Information"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+text = "~胜利~"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="HBoxContainer" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WinMenu/PanelContainer/Information/Main/Texture"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 61
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 61
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="WinMenu/PanelContainer/Information/Main/Texture/MarginContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("17_puuw4")
+
+[node name="MarginContainer2" type="MarginContainer" parent="WinMenu/PanelContainer/Information/Main/Texture"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WinMenu/PanelContainer/Information/Main/Texture/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "成功啦"
+
+[node name="Weight" type="HBoxContainer" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/Information/Main/Weight"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+text = "重量"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="WinMenu/PanelContainer/Information/Main/Weight"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="HBoxContainer" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/Information/Main/Value"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+text = "价值"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="WinMenu/PanelContainer/Information/Main/Value"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/Information/Main/Time"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+text = "花费时间"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="WinMenu/PanelContainer/Information/Main/Time"]
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinMenu/PanelContainer/Information/Main"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WinMenu/PanelContainer/Information/Main/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 20
+
+[node name="Right" type="Button" parent="WinMenu/PanelContainer/Information/Main/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "->"
+
+[node name="Loots" type="MarginContainer" parent="WinMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMenu/PanelContainer/Loots"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinMenu/PanelContainer/Loots/VBoxContainer"]
+layout_mode = 2
+text = "战利品"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="NinePatchRect" parent="WinMenu"]
+visible = false
+custom_minimum_size = Vector2(440, 40)
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 40.0
+texture = ExtResource("7_serum")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Button" type="Button" parent="WinMenu"]
+visible = false
+layout_mode = 0
+offset_left = 764.0
+offset_top = 98.0
+offset_right = 789.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 12
+text = "x"
+
+[node name="LoseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_2it11")
+
+[node name="PanelContainer" type="PanelContainer" parent="LoseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -172.0
+offset_right = 152.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LoseMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoseMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "！失败！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 104
+theme_override_constants/margin_right = 104
+
+[node name="TextureRect" type="TextureRect" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]opps!失败了"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "花费时长："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="LoseMenu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="LoseMenu"]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 162.0
+offset_right = 718.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 12
+text = "x"
+
 [connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]
 [connection signal="focus_entered" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_entered"]
@@ -438,3 +688,6 @@ wait_time = 0.1
 [connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Throw" to="ContainerInventory/SelectMenu" method="_on_throw_pressed"]
 [connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Cancel" to="ContainerInventory/SelectMenu" method="_on_cancel_pressed"]
 [connection signal="timeout" from="ContainerInventory/Change" to="ContainerInventory" method="_on_change_timeout"]
+[connection signal="pressed" from="WinMenu/PanelContainer/Information/Main/HBoxContainer/MarginContainer/Right" to="WinMenu" method="_on_right_pressed"]
+[connection signal="pressed" from="WinMenu/Button" to="WinMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="LoseMenu/Button" to="LoseMenu" method="_on_button_pressed"]

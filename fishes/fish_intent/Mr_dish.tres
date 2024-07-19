@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Mr_dish" load_steps=2 format=3 uid="uid://dl5f2oovixdtx"]
+
+[ext_resource type="Script" path="res://fishes/fish_intent/Mr_dish.gd" id="1_5b4bx"]
+
+[resource]
+script = ExtResource("1_5b4bx")
+change_direction = 0.3
+max_speed = 100.0
+min_speed = 50.0
+max_length = 200.0
+min_length = 100.0
+b_on_b = false
+max_hp = 50.0

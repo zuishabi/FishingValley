@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishItem" load_steps=3 format=3 uid="uid://djd1twpdpeceg"]
+
+[ext_resource type="Script" path="res://objects/items/fishes/base_fish.gd" id="1_0eocn"]
+[ext_resource type="Texture2D" uid="uid://db75fgf7ep8aw" path="res://arts/fishes/missiler.png" id="1_k67en"]
+
+[resource]
+script = ExtResource("1_0eocn")
+max_weight = 50
+min_weight = 10
+base_value = 5
+value = 0
+object_texture = ExtResource("1_k67en")
+object_name = "missiler"
+object_description = "导弹鱼"

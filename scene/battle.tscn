@@ -1,36 +1,383 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ymjtwjuyb0n"]
+[gd_scene load_steps=23 format=3 uid="uid://c4ymjtwjuyb0n"]
 
 [ext_resource type="Script" path="res://scene/battle.gd" id="1_b7ntx"]
 [ext_resource type="Texture2D" uid="uid://swwhhmcje4py" path="res://arts/gui/battlebackground.png" id="2_7g6kh"]
+[ext_resource type="Script" path="res://scene/battle_ui.gd" id="2_apoj8"]
+[ext_resource type="Script" path="res://scene/FishingContainer.gd" id="4_briba"]
+[ext_resource type="Texture2D" uid="uid://byvw3jjfytvt" path="res://arts/gui/fishing_container.png" id="4_knoly"]
+[ext_resource type="Script" path="res://scene/RigidBody2D.gd" id="4_ywejo"]
+[ext_resource type="Texture2D" uid="uid://7pu33uudfr6a" path="res://arts/gui/精灵-0002.png" id="6_vxxpr"]
+[ext_resource type="Texture2D" uid="uid://d0dhgnik5fvy0" path="res://arts/gui/fish.png" id="7_4mrpr"]
+[ext_resource type="Script" path="res://scene/Fish.gd" id="8_p8786"]
+[ext_resource type="Texture2D" uid="uid://ravf1hcnyncw" path="res://arts/skills/missiler_skill.png" id="10_8ifmc"]
+[ext_resource type="Texture2D" uid="uid://cmj2fqityemc0" path="res://arts/skills/Mr_dish_skill.png" id="10_yjp23"]
+[ext_resource type="Script" path="res://scene/SkillSprite.gd" id="12_p0fme"]
 
-[node name="Battle" type="CanvasLayer"]
-process_mode = 3
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhcyb"]
+bounce = 0.8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2op1"]
+size = Vector2(210, 18)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n7ipf"]
+friction = 0.0
+bounce = 0.04
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpjr1"]
+size = Vector2(44, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkt31"]
+size = Vector2(59, 20)
+
+[sub_resource type="Animation" id="Animation_mvr5s"]
+resource_name = "Mr_dish"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_yjp23")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 2.46229),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkillSprite")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_position"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SkillSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 3.03143),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(10, 10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SkillSprite:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_xjmj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/SkillSprite_1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/SkillSprite_1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/SkillSprite_1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/SkillSprite_1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SkillSprite:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_yjp23")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SkillSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SkillSprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SkillSprite:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_epxv0"]
+resource_name = "missiler"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/SkillSprite_1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8ifmc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/SkillSprite_1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/SkillSprite_1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/SkillSprite_1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_6kh85"]
+resource_name = "null"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2r74"]
+_data = {
+"Mr_dish": SubResource("Animation_mvr5s"),
+"RESET": SubResource("Animation_xjmj5"),
+"missiler": SubResource("Animation_epxv0"),
+"null": SubResource("Animation_6kh85")
+}
+
+[node name="Battle" type="Node2D"]
 script = ExtResource("1_b7ntx")
 
 [node name="BackGroound" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7g6kh")
 
-[node name="Main" type="Control" parent="."]
+[node name="BattleUI" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 0
+script = ExtResource("2_apoj8")
+
+[node name="Main" type="Control" parent="BattleUI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
-[node name="Fish" type="PanelContainer" parent="Main"]
+[node name="Fish" type="PanelContainer" parent="BattleUI/Main"]
 layout_mode = 0
 offset_left = 712.0
 offset_top = 408.0
 offset_right = 840.0
 offset_bottom = 536.0
 
-[node name="FishTexure" type="TextureRect" parent="Main/Fish"]
+[node name="FishTexure" type="TextureRect" parent="BattleUI/Main/Fish"]
 layout_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleUI"]
+
+[node name="FishingContainer" type="Node2D" parent="."]
+script = ExtResource("4_briba")
+
+[node name="Sprite2D" type="Sprite2D" parent="FishingContainer"]
+position = Vector2(568, 304)
+scale = Vector2(10, 10)
+texture = ExtResource("4_knoly")
+
+[node name="Up" type="StaticBody2D" parent="FishingContainer"]
+position = Vector2(568, 504)
+physics_material_override = SubResource("PhysicsMaterial_dhcyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingContainer/Up"]
+shape = SubResource("RectangleShape2D_c2op1")
+
+[node name="Down" type="StaticBody2D" parent="FishingContainer"]
+position = Vector2(568, 104)
+physics_material_override = SubResource("PhysicsMaterial_n7ipf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingContainer/Down"]
+shape = SubResource("RectangleShape2D_c2op1")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="FishingContainer"]
+position = Vector2(568, 453)
+mass = 0.8
+lock_rotation = true
+script = ExtResource("4_ywejo")
+
+[node name="Sprite2D" type="Sprite2D" parent="FishingContainer/RigidBody2D"]
+position = Vector2(0, 1.52588e-05)
+scale = Vector2(7.368, 5)
+texture = ExtResource("6_vxxpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingContainer/RigidBody2D"]
+shape = SubResource("RectangleShape2D_cpjr1")
+
+[node name="Fish" type="Area2D" parent="FishingContainer"]
+position = Vector2(568, 473)
+script = ExtResource("8_p8786")
+
+[node name="FishTexture" type="Sprite2D" parent="FishingContainer/Fish"]
+z_index = 1
+scale = Vector2(2, 2)
+texture = ExtResource("7_4mrpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingContainer/Fish"]
+shape = SubResource("RectangleShape2D_xkt31")
+
+[node name="SkillSprite_1" type="Sprite2D" parent="FishingContainer/Fish"]
+visible = false
+
+[node name="UI" type="Control" parent="FishingContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="FishingContainer/UI"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 94.0
+offset_right = 693.0
+offset_bottom = 504.0
+fill_mode = 3
+
+[node name="EnduranceBar" type="ProgressBar" parent="FishingContainer/UI"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 104.0
+offset_right = 456.0
+offset_bottom = 504.0
+step = 0.1
+fill_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FishingContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_i2r74")
+}
+
+[node name="SkillSprite" type="Sprite2D" parent="FishingContainer"]
+visible = false
+position = Vector2(568, 321)
+scale = Vector2(10, 10)
+texture = ExtResource("10_yjp23")
+script = ExtResource("12_p0fme")

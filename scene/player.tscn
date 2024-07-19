@@ -369,9 +369,9 @@ tracks/3/interp = 4
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1.62451, 1.10957),
+"transitions": PackedFloat32Array(2.21915, 1.10957),
 "update": 0,
-"values": [-2.71399, -0.76969]
+"values": [-2.71399, -0.767945]
 }
 tracks/4/type = "method"
 tracks/4/imported = false

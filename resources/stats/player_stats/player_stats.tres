@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="player_stats" load_steps=2 format=3 uid="uid://lsjqw8a1qn15"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://lsjqw8a1qn15"]
 
 [ext_resource type="Script" path="res://resources/stats/player_stats/player_stats.gd" id="1_ls61n"]
 
 [resource]
 script = ExtResource("1_ls61n")
+max_endurance = 100.0
 max_health = 0

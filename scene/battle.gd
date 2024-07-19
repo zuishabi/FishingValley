@@ -1,5 +1,3 @@
-extends CanvasLayer
-@onready var fish_texure = $Main/Fish/FishTexure
+extends Node2D
 
-func _ready():
-	fish_texure.texture=EventBus.current_fish.fish_texture
+@onready var fishing_container = $FishingContainer

@@ -14,6 +14,7 @@ extends Control
 var current_container:BaseContainer
 var selected:bool=false
 var selected_id:int
+var can_esc:bool=true
 
 func _input(event):
 	if((Ui.focus_array.front()=="Inventory"||Ui.focus_array.front()=="ContainerInventory")&&Inventory.inventory[Inventory.focused_index] is BaseContainer):

@@ -1,6 +1,7 @@
 extends Node
 
 @export var pool_list:Array[FishPool]
+@export var loot_list:Array[Loot]
 
 var current_pool:String
 
@@ -10,14 +11,14 @@ func find_pool(pool_name:String)->int:
 			return i
 	return 0
 
-func sort_ascending(a:FishUnit, b:FishUnit):
+func fish_sort_ascending(a:FishUnit, b:FishUnit):
 	if a.weight < b.weight:
 		return true
 	return false
 
 func get_fish(pool_name:String)->Fish:
 	var target_pool:FishPool=pool_list[find_pool(pool_name)]
-	target_pool.fish_list.sort_custom(sort_ascending)
+	target_pool.fish_list.sort_custom(fish_sort_ascending)
 	var temp_array:Array[int]
 	var sum_weight:int=0
 	temp_array.resize(target_pool.fish_list.size())
@@ -37,3 +38,20 @@ func get_fish(pool_name:String)->Fish:
 				break
 	return target_fish.duplicate(true)
 
+func loot_sort_ascending(a:LootUnit,b:LootUnit):
+	if a.weight < b.weight:
+		return true
+	return false
+
+func find_loot(loot_name:String)->Loot:
+	for i in loot_list:
+		if i.loot_name==loot_name:
+			return i
+	return null
+
+func get_loot(loot_name:String)->Item:
+	var current_loot:Loot=find_loot(loot_name)
+	if(current_loot==null):
+		return null
+	else:
+		return null

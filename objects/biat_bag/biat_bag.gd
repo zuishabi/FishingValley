@@ -14,14 +14,13 @@ func add_item(item:Biat,amount:int)->bool:
 			print("找到相同鱼饵")
 			return true
 	print("未找到相同鱼饵")
-	if(current_size==max_size):
+	if(get_current_size()==max_size):
 		print("背包已到达最大值")
 		return false
 	else:
 		print("背包有空余，成功添加")
-		current_size+=1
 		item.amount=amount
-		inventory[current_size-1]=item
+		inventory[get_available_inventory()]=item
 		return true
 
 func equip_biat(id:int):

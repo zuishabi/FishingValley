@@ -17,7 +17,6 @@ func change_index(direction:int):
 
 func add_item(object:BaseObject,amount:int=1)->bool:
 	if(object==null):
-		print("物品为空")
 		return false
 	else:
 		if(object is Biat):
@@ -33,6 +32,15 @@ func add_item(object:BaseObject,amount:int=1)->bool:
 			focus_changed.emit()
 			return true
 		return false
+
+func get_card_inventory()->Array[Card]:
+	var array:Array[Card]
+	for i in inventory:
+		if i is CardsBag:
+			return i.inventory.duplicate(true)
+	return array
+
+#--------------------------------------------辅助函数-----------------------------------------------#
 
 func add_biat(biat:Biat,amount:int)->bool:
 	for i in inventory:

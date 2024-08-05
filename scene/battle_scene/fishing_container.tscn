@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmrwqrh23475j"]
+
+[ext_resource type="Script" path="res://scene/battle_scene/FishingContainer.gd" id="1_fxtxo"]
+[ext_resource type="Texture2D" uid="uid://byvw3jjfytvt" path="res://arts/gui/fishing_container.png" id="2_1ldr8"]
+[ext_resource type="Script" path="res://scene/pole/pole_body.gd" id="3_0c8na"]
+[ext_resource type="Texture2D" uid="uid://7pu33uudfr6a" path="res://arts/gui/精灵-0002.png" id="4_exka7"]
+[ext_resource type="PackedScene" uid="uid://cbmp4lrnd7lq2" path="res://scene/pole/pole_shape/shape_list/speed_down.tscn" id="5_wlx84"]
+[ext_resource type="Script" path="res://scene/battle_scene/Fish.gd" id="6_8jk45"]
+[ext_resource type="Texture2D" uid="uid://d0dhgnik5fvy0" path="res://arts/gui/fish.png" id="7_6wbg8"]
+[ext_resource type="Script" path="res://scene/skills/SkillManager.gd" id="8_up31p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhcyb"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2op1"]
+size = Vector2(210, 18)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n7ipf"]
+friction = 0.0
+bounce = 0.04
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkt31"]
+size = Vector2(60, 20)
+
+[node name="FishingContainer" type="Node2D" groups=["FishingContainer"]]
+script = ExtResource("1_fxtxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 304)
+scale = Vector2(10, 10)
+texture = ExtResource("2_1ldr8")
+
+[node name="Up" type="StaticBody2D" parent="."]
+position = Vector2(568, 504)
+physics_material_override = SubResource("PhysicsMaterial_dhcyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("RectangleShape2D_c2op1")
+
+[node name="Down" type="StaticBody2D" parent="."]
+position = Vector2(568, 104)
+physics_material_override = SubResource("PhysicsMaterial_n7ipf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+shape = SubResource("RectangleShape2D_c2op1")
+
+[node name="PoleBody" type="RigidBody2D" parent="."]
+position = Vector2(568, 454)
+mass = 0.5
+lock_rotation = true
+script = ExtResource("3_0c8na")
+
+[node name="Sprites" type="Node2D" parent="PoleBody"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PoleBody/Sprites"]
+scale = Vector2(5, 5)
+texture = ExtResource("4_exka7")
+
+[node name="SpeedDown" parent="PoleBody" instance=ExtResource("5_wlx84")]
+
+[node name="Fish" type="Area2D" parent="."]
+position = Vector2(568, 286)
+script = ExtResource("6_8jk45")
+
+[node name="FishTexture" type="Sprite2D" parent="Fish"]
+z_index = 1
+scale = Vector2(2, 2)
+texture = ExtResource("7_6wbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+shape = SubResource("RectangleShape2D_xkt31")
+
+[node name="SkillManager" type="Node" parent="."]
+script = ExtResource("8_up31p")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 94.0
+offset_right = 693.0
+offset_bottom = 504.0
+fill_mode = 3
+
+[node name="EnduranceBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 104.0
+offset_right = 456.0
+offset_bottom = 504.0
+step = 0.1
+fill_mode = 3
+
+[node name="PoleManager" type="Node2D" parent="."]
+
+[connection signal="body_shape_entered" from="Fish" to="." method="_on_fish_body_shape_entered"]
+[connection signal="body_shape_exited" from="Fish" to="." method="_on_fish_body_shape_exited"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0nhjllpmuiex"]
+
+[node name="TempCard" type="Panel"]
+custom_minimum_size = Vector2(120, 140)
+offset_right = 40.0
+offset_bottom = 40.0

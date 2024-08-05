@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_ls61n")
-max_endurance = 100.0
+base_max_endurance = 100.0
+base_max_force = 0.0
+base_max_mana = 10
 max_health = 0

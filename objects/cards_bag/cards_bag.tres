@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardsBag" load_steps=3 format=3 uid="uid://cebbyfmfb1lnp"]
+
+[ext_resource type="Script" path="res://objects/cards_bag/base_cards_bag.gd" id="1_0bei6"]
+[ext_resource type="Texture2D" uid="uid://b3smt5iob6itm" path="res://arts/gui/highlight.png" id="1_uwy0k"]
+
+[resource]
+script = ExtResource("1_0bei6")
+max_size = 10
+using_description = "摁e打开"
+object_texture = ExtResource("1_uwy0k")
+object_name = "卡牌袋"
+object_description = "装卡牌的袋子"

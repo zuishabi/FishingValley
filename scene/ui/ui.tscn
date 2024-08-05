@@ -33,6 +33,7 @@ grow_vertical = 2
 script = ExtResource("2_de5v5")
 
 [node name="Label" type="Label" parent="Inventory"]
+layout_mode = 0
 offset_right = 47.0
 offset_bottom = 23.0
 
@@ -603,6 +604,7 @@ theme_override_font_sizes/font_size = 12
 text = "x"
 
 [node name="LoseMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

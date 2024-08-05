@@ -1,14 +1,11 @@
 extends Node
 
-@onready var timer_1 = $Timers/Timer_1
-
-var global_position:float
-var size:float
 var player_stats:PlayerStats
 var current_fish:Fish
 var final_loots:Array[Item]
 var start_time:int
 var end_time:int
+var cards_inventory:Array[Card]
 
 signal battle_win
 signal battle_lose
@@ -21,15 +18,8 @@ func load_fight(player:PlayerStats,fish:Fish):
 func start_fish():
 	final_loots.clear()
 	start_time=Time.get_ticks_msec()
-	get_tree().change_scene_to_file("res://scene/battle.tscn")
-
-func update_position(new_pos:float):
-	global_position=new_pos
-
-func get_timer(time:float)->Timer:
-	timer_1.wait_time=time
-	timer_1.start()
-	return timer_1
+	cards_inventory=Inventory.get_card_inventory()
+	get_tree().change_scene_to_file("res://scene/battle_scene/battle.tscn")
 
 func on_battle_win():
 	end_time=Time.get_ticks_msec()

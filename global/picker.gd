@@ -3,8 +3,6 @@ extends Node
 @export var pool_list:Array[FishPool]
 @export var loot_list:Array[Loot]
 
-var current_pool:String
-
 func find_pool(pool_name:String)->int:
 	for i in pool_list.size():
 		if(pool_list[i].pool_name==pool_name):

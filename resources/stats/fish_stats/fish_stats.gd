@@ -1,2 +1,2 @@
 class_name FishStats
-extends stats
+extends Stats

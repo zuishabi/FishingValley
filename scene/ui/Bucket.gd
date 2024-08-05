@@ -51,7 +51,7 @@ func update_ui(container:BaseContainer):
 	current_container=container
 	label.text=container.object_name
 	texture_rect.texture=container.object_texture
-	##如果是鱼饵袋，就更新当前装备信息
+	#如果是鱼饵袋，就更新当前装备信息
 	if(container is BiatBag):
 		update_equiped()
 	for i in grid_container.get_children():

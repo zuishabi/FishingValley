@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="Mr_dish" load_steps=2 format=3 uid="uid://dl5f2oovixdtx"]
+[gd_resource type="Resource" script_class="Intent" load_steps=2 format=3 uid="uid://dtaqib4y6btfw"]
 
-[ext_resource type="Script" path="res://fishes/fish_intent/Mr_dish.gd" id="1_5b4bx"]
+[ext_resource type="Script" path="res://fishes/fish_intent/base_intent.gd" id="1_i7ky3"]
 
 [resource]
-script = ExtResource("1_5b4bx")
-change_direction = 0.3
+script = ExtResource("1_i7ky3")
+change_direction = 0.05
 max_speed = 100.0
 min_speed = 50.0
 max_length = 200.0
 min_length = 100.0
 b_on_b = false
 max_hp = 50.0
+skill_node = ""

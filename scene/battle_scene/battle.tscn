@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ymjtwjuyb0n"]
+
+[ext_resource type="Script" path="res://scene/battle_scene/battle.gd" id="1_vui34"]
+[ext_resource type="Texture2D" uid="uid://swwhhmcje4py" path="res://arts/gui/battlebackground.png" id="2_jldal"]
+[ext_resource type="Script" path="res://scene/battle_scene/battle_ui.gd" id="3_ghyxn"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_vui34")
+
+[node name="BackGroound" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jldal")
+metadata/_edit_lock_ = true
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 0
+script = ExtResource("3_ghyxn")
+
+[node name="Main" type="Control" parent="BattleUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Fish" type="PanelContainer" parent="BattleUI/Main"]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 408.0
+offset_right = 840.0
+offset_bottom = 536.0
+
+[node name="FishTexure" type="TextureRect" parent="BattleUI/Main/Fish"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleUI"]
+
+[node name="PlayerHealth" type="ProgressBar" parent="BattleUI"]
+offset_left = 34.0
+offset_top = 27.0
+offset_right = 288.0
+offset_bottom = 54.0
+
+[node name="FishHealth" type="ProgressBar" parent="BattleUI"]
+offset_left = 852.0
+offset_top = 27.0
+offset_right = 1106.0
+offset_bottom = 54.0

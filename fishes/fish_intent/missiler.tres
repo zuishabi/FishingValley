@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="missiler" load_steps=2 format=3 uid="uid://c1m0lhswbtr6d"]
+[gd_resource type="Resource" script_class="Intent" load_steps=2 format=3 uid="uid://3t04q46rk8v"]
 
-[ext_resource type="Script" path="res://fishes/fish_intent/missiler.gd" id="1_3tdaf"]
+[ext_resource type="Script" path="res://fishes/fish_intent/base_intent.gd" id="1_ivea7"]
 
 [resource]
-script = ExtResource("1_3tdaf")
+script = ExtResource("1_ivea7")
 change_direction = 0.7
-max_speed = 200.0
-min_speed = 101.0
-max_length = 200.0
+max_speed = 250.0
+min_speed = 200.0
+max_length = 150.0
 min_length = 100.0
 b_on_b = true
 max_hp = 100.0
+skill_node = ""

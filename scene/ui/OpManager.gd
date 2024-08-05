@@ -44,6 +44,7 @@ func rookie():
 	Inventory.add_item(ObjectList.find_object("bamboo_pole"))
 	Inventory.add_item(ObjectList.find_object("biat_bag"))
 	Inventory.add_item(ObjectList.find_object("barrel"))
+	Inventory.add_item(ObjectList.find_object("cards_bag"))
 
 func _on_button_pressed():
 	process_command(line_edit.text)

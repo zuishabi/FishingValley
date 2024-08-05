@@ -1,18 +1,18 @@
 [gd_scene load_steps=14 format=3]
 
-[ext_resource type="Script" path="res://scene/main.gd" id="1_8bhol"]
-[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_1cfip"]
-[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_g5n1r"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="4_4d1rv"]
-[ext_resource type="PackedScene" path="res://scene/player.tscn" id="5_gchsx"]
-[ext_resource type="Script" path="res://scene/Player.gd" id="6_jsxxk"]
-[ext_resource type="Resource" path="res://resources/stats/player_stats/player_stats.tres" id="7_tfgkx"]
-[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="8_o3fyf"]
-[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="9_3f22n"]
-[ext_resource type="Script" path="res://scene/ui/ui.gd" id="10_eebgw"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_sqtgc"]
+[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_alucy"]
+[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_ldqw0"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="4_q7xc6"]
+[ext_resource type="PackedScene" path="res://scene/player.tscn" id="5_eqxkh"]
+[ext_resource type="Script" path="res://scene/Player.gd" id="6_a746b"]
+[ext_resource type="Resource" path="res://resources/stats/player_stats/player_stats.tres" id="7_8lj43"]
+[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="8_6bwl3"]
+[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="9_eekoh"]
+[ext_resource type="Script" path="res://scene/ui/ui.gd" id="10_u1mnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s10uv"]
-texture = ExtResource("2_1cfip")
+texture = ExtResource("2_alucy")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -957,7 +957,7 @@ texture = ExtResource("2_1cfip")
 15:15/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3krv1"]
-texture = ExtResource("3_g5n1r")
+texture = ExtResource("3_ldqw0")
 0:0/animation_frame_0/duration = 0.5
 0:0/animation_frame_1/duration = 0.5
 0:0/animation_frame_2/duration = 0.5
@@ -992,7 +992,7 @@ sources/0 = SubResource("TileSetAtlasSource_s10uv")
 sources/1 = SubResource("TileSetAtlasSource_3krv1")
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_8bhol")
+script = ExtResource("1_sqtgc")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_etb5f")
@@ -1006,18 +1006,18 @@ metadata/_edit_lock_ = true
 [node name="MouseTexture" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("4_4d1rv")
+texture = ExtResource("4_q7xc6")
 metadata/_edit_lock_ = true
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("5_gchsx")]
-position = Vector2(1712, 278.667)
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("5_eqxkh")]
+position = Vector2(1712, 292)
 scale = Vector2(0.7, 0.7)
 collision_mask = 3
-script = ExtResource("6_jsxxk")
+script = ExtResource("6_a746b")
 speed = 200
 face_direction = Vector2(1, 0)
-fishing_point = Vector2(140.25, 0)
-player_stats = ExtResource("7_tfgkx")
+fishing_point = Vector2(147.75, 0)
+player_stats = ExtResource("7_8lj43")
 metadata/_edit_lock_ = true
 
 [node name="Ui" type="Control" parent="."]
@@ -1029,12 +1029,12 @@ offset_bottom = 40.0
 [node name="Ding" type="TextureRect" parent="Ui"]
 visible = false
 layout_mode = 0
-offset_left = 1852.25
-offset_top = 268.667
-offset_right = 1892.25
-offset_bottom = 308.667
+offset_left = 1859.75
+offset_top = 282.0
+offset_right = 1899.75
+offset_bottom = 322.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_o3fyf")
+texture = ExtResource("8_6bwl3")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -1043,12 +1043,12 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WaitTime" type="Timer" parent="Timers"]
-wait_time = 6.56795
+wait_time = 9.35678
 one_shot = true
 
-[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("9_3f22n")]
+[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("9_eekoh")]
 process_mode = 3
-script = ExtResource("10_eebgw")
+script = ExtResource("10_u1mnl")
 
 [connection signal="timeout" from="Timers/CanCatchTime" to="." method="_on_can_catch_time_timeout"]
 [connection signal="timeout" from="Timers/WaitTime" to="." method="_on_wait_time_timeout"]

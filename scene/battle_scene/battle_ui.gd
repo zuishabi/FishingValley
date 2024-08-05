@@ -4,3 +4,4 @@ extends CanvasLayer
 
 func _ready():
 	fish_texure.texture=BattleManager.current_fish.fish_texture
+	

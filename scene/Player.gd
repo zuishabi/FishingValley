@@ -26,7 +26,6 @@ signal catch_fish
 func _ready():
 	progress_bar.hide()
 	if(face_direction!=Vector2.ZERO):
-		print(face_direction)
 		direction=face_direction
 		animation_tree["parameters/idle/blend_position"]=direction
 

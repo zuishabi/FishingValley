@@ -1,3 +1,4 @@
+class_name FishArea
 extends Area2D
 
 @onready var fishing_container = $".."

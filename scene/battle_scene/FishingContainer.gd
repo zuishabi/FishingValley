@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var fish = $Fish
 @onready var progress_bar = $UI/ProgressBar
-@onready var battle = $".."
+var battle:Battle
 @onready var pole_body = $PoleBody
 @onready var endurance_bar = $UI/EnduranceBar
 
@@ -17,6 +17,7 @@ var length:float
 var overlapping_list:Array[PoleShape]
 
 func _ready():
+	battle=get_parent()
 	current_intent=BattleManager.current_fish.intent
 	current_intent.update_length.connect(func(len:float):length=len)
 	current_intent.update_speed.connect(func(speed:float):target_speed=speed)

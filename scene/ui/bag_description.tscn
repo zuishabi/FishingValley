@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs1ig6k2mi7e7"]
+[gd_scene load_steps=2 format=3 uid="uid://bs1ig6k2mi7e7"]
 
 [ext_resource type="Script" path="res://scene/ui/bag_description.gd" id="1_ofhfd"]
-[ext_resource type="Texture2D" uid="uid://db75fgf7ep8aw" path="res://arts/fishes/missiler.png" id="2_7w3ms"]
 
 [node name="BagDescription" type="PanelContainer"]
 custom_minimum_size = Vector2(100, 114)
@@ -27,7 +26,6 @@ theme_override_constants/margin_right = 41
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_7w3ms")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]

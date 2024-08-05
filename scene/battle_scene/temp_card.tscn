@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b0nhjllpmuiex"]
+[gd_scene format=3 uid="uid://y4set8b60pgl"]
 
 [node name="TempCard" type="Panel"]
 custom_minimum_size = Vector2(120, 140)

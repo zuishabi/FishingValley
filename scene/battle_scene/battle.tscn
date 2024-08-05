@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4ymjtwjuyb0n"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/battle.gd" id="1_vui34"]
-[ext_resource type="Texture2D" uid="uid://swwhhmcje4py" path="res://arts/gui/battlebackground.png" id="2_jldal"]
+[ext_resource type="Texture2D" uid="uid://dw2h5qndojpoq" path="res://arts/gui/battlebackground.png" id="2_jldal"]
 [ext_resource type="Script" path="res://scene/battle_scene/battle_ui.gd" id="3_ghyxn"]
 
 [node name="Battle" type="Node2D"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://cmrwqrh23475j"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/FishingContainer.gd" id="1_fxtxo"]
-[ext_resource type="Texture2D" uid="uid://byvw3jjfytvt" path="res://arts/gui/fishing_container.png" id="2_1ldr8"]
+[ext_resource type="Texture2D" uid="uid://dqsna5k4lib5b" path="res://arts/gui/fishing_container.png" id="2_1ldr8"]
 [ext_resource type="Script" path="res://scene/pole/pole_body.gd" id="3_0c8na"]
-[ext_resource type="Texture2D" uid="uid://7pu33uudfr6a" path="res://arts/gui/精灵-0002.png" id="4_exka7"]
+[ext_resource type="Texture2D" uid="uid://d1vepo7lx6qhe" path="res://arts/gui/精灵-0002.png" id="4_exka7"]
 [ext_resource type="PackedScene" uid="uid://cbmp4lrnd7lq2" path="res://scene/pole/pole_shape/shape_list/speed_down.tscn" id="5_wlx84"]
 [ext_resource type="Script" path="res://scene/battle_scene/Fish.gd" id="6_8jk45"]
-[ext_resource type="Texture2D" uid="uid://d0dhgnik5fvy0" path="res://arts/gui/fish.png" id="7_6wbg8"]
+[ext_resource type="Texture2D" uid="uid://pod2doehtquo" path="res://arts/gui/fish.png" id="7_6wbg8"]
 [ext_resource type="Script" path="res://scene/skills/SkillManager.gd" id="8_up31p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhcyb"]

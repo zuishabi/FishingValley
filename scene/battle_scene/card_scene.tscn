@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvhyqmha7bman"]
+[gd_scene load_steps=6 format=3 uid="uid://bvhyqmha7bman"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/card_scene.gd" id="1_1m48e"]
-[ext_resource type="PackedScene" uid="uid://br6o2asvb3hxs" path="res://scene/cards/card_ui.tscn" id="2_7gv6t"]
 [ext_resource type="Script" path="res://scene/battle_scene/Hand.gd" id="2_jcxtu"]
-[ext_resource type="Resource" uid="uid://d1sfxow2k6t7y" path="res://cards/test.tres" id="4_furov"]
 [ext_resource type="Script" path="res://scene/battle_scene/Tips.gd" id="5_n22ek"]
 [ext_resource type="Script" path="res://scene/battle_scene/Mana.gd" id="6_0n753"]
 
@@ -36,26 +34,6 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("2_jcxtu")
-
-[node name="CardUi" parent="CardUi/Hand" instance=ExtResource("2_7gv6t")]
-layout_mode = 2
-card = ExtResource("4_furov")
-
-[node name="CardUi2" parent="CardUi/Hand" instance=ExtResource("2_7gv6t")]
-layout_mode = 2
-card = ExtResource("4_furov")
-
-[node name="CardUi3" parent="CardUi/Hand" instance=ExtResource("2_7gv6t")]
-layout_mode = 2
-card = ExtResource("4_furov")
-
-[node name="CardUi4" parent="CardUi/Hand" instance=ExtResource("2_7gv6t")]
-layout_mode = 2
-card = ExtResource("4_furov")
-
-[node name="CardUi5" parent="CardUi/Hand" instance=ExtResource("2_7gv6t")]
-layout_mode = 2
-card = ExtResource("4_furov")
 
 [node name="NextRound" type="Button" parent="CardUi"]
 offset_left = 984.0

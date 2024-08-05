@@ -18,7 +18,7 @@ func on_round_changed(target_round:int):
 		var new_scene=fishing_container.instantiate()
 		add_child(new_scene)
 	else:
-		var current_scene=get_tree().get_first_node_in_group("FIshingContainer")
+		var current_scene=get_tree().get_first_node_in_group("FishingContainer")
 		if(current_scene != null):
 			current_scene.queue_free()
 		var new_scene=card_scene.instantiate()

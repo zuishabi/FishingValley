@@ -1,6 +1,7 @@
 extends Node
 
 @export var object_list:Dictionary
+@export var card_list:Array[Card]
 
 func find_object(object_name:String)->BaseObject:
 	if(object_list.has(object_name)):
@@ -16,3 +17,6 @@ func get_item(item_name:String,amount:int=1)->Item:
 		return new_item
 	else:
 		return null
+
+func get_card(id:int)->Card:
+	return card_list[id]

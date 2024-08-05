@@ -13,9 +13,7 @@ var local_mouse_position:Vector2
 var initial_position:Vector2=Vector2.ZERO
 var pivot:Vector2
 
-@export var card:Card:
-	set(value):
-		card=value.duplicate(1)
+@export var card:Card
 
 func _ready():
 	cost_label.text=str(card.cost)

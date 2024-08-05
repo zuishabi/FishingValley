@@ -6,6 +6,7 @@ var final_loots:Array[Item]
 var start_time:int
 var end_time:int
 var cards_inventory:Array[Card]
+var discard_hands:Array[Card]
 
 signal battle_win
 signal battle_lose
@@ -19,6 +20,7 @@ func start_fish():
 	final_loots.clear()
 	start_time=Time.get_ticks_msec()
 	cards_inventory=Inventory.get_card_inventory()
+	print(1)
 	get_tree().change_scene_to_file("res://scene/battle_scene/battle.tscn")
 
 func on_battle_win():

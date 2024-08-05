@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var tile_map = $TileMap
 @onready var player = $Player
-@onready var mouse_texture = $MouseTexture
 @onready var ding = $Ui/Ding
 @onready var wait_time = $Timers/WaitTime
 @onready var can_catch_time = $Timers/CanCatchTime

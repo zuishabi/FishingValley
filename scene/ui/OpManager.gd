@@ -40,11 +40,22 @@ func add_item(object:String,amount:String="1"):
 	else:
 		add_information("添加失败")
 
+func add_card(id:String):
+	if(Inventory.add_card(ObjectList.get_card(int(id)))):
+		add_information("成功添加")
+	else:
+		add_information("添加失败")
+
 func rookie():
 	Inventory.add_item(ObjectList.find_object("bamboo_pole"))
 	Inventory.add_item(ObjectList.find_object("biat_bag"))
 	Inventory.add_item(ObjectList.find_object("barrel"))
 	Inventory.add_item(ObjectList.find_object("cards_bag"))
+	Inventory.add_card(ObjectList.get_card(0))
+	Inventory.add_card(ObjectList.get_card(0))
+	Inventory.add_card(ObjectList.get_card(0))
+	Inventory.add_card(ObjectList.get_card(1))
+	Inventory.add_card(ObjectList.get_card(1))
 
 func _on_button_pressed():
 	process_command(line_edit.text)

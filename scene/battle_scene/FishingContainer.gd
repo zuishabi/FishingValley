@@ -53,12 +53,14 @@ func _physics_process(delta):
 	if(!flag):
 		progress_bar.value-=0.2
 	if(progress_bar.value==progress_bar.max_value):
-		BattleManager.on_battle_win()
+		battle.on_round_changed(0)
+		#BattleManager.on_battle_win()
 
 func update_endurance(value:float):
 	endurance_bar.value-=value
 	if(endurance_bar.value==0):
-		BattleManager.on_battle_lose()
+		#BattleManager.on_battle_lose()
+		battle.on_round_changed(0)
 
 func _on_fish_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	overlapping_list.push_front(pole_body.get_child(body_shape_index+1))

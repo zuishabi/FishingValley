@@ -33,11 +33,19 @@ func add_item(object:BaseObject,amount:int=1)->bool:
 			return true
 		return false
 
+func add_card(card:Card)->bool:
+	for i in inventory:
+		if i is CardsBag:
+			return i.add_card(card)
+	return false
+
 func get_card_inventory()->Array[Card]:
 	var array:Array[Card]
 	for i in inventory:
 		if i is CardsBag:
-			return i.inventory.duplicate(true)
+			for j in i.inventory:
+				if(j!=null):
+					array.append(j.duplicate(1))
 	return array
 
 #--------------------------------------------辅助函数-----------------------------------------------#

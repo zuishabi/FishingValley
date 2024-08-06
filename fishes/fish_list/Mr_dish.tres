@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Mr_dish" load_steps=5 format=3 uid="uid://dwm555kjhyii1"]
 
 [ext_resource type="Script" path="res://fishes/fish_list/scripts/Mr_dish.gd" id="1_kcn20"]
-[ext_resource type="Texture2D" uid="uid://bqctuqn2au7g8" path="res://arts/fishes/Mr_dish.png" id="1_l4kn1"]
-[ext_resource type="Resource" uid="uid://bcmgtglwqhcds" path="res://resources/stats/fish_stats/Mr_dish.tres" id="1_nsdoo"]
+[ext_resource type="Texture2D" uid="uid://dpsdx02lv0uoo" path="res://arts/fishes/Mr_dish.png" id="1_l4kn1"]
+[ext_resource type="Resource" uid="uid://bcmgtglwqhcds" path="res://stats/fish_stats/Mr_dish.tres" id="1_nsdoo"]
 [ext_resource type="Resource" uid="uid://dtaqib4y6btfw" path="res://fishes/fish_intent/Mr_dish.tres" id="3_ctr6q"]
 
 [resource]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/Player.gd" id="1_7t6c3"]
 [ext_resource type="Texture2D" uid="uid://dafm8un4s8bm0" path="res://arts/player/Download54884.png" id="2_2pg7n"]
-[ext_resource type="Resource" uid="uid://lsjqw8a1qn15" path="res://resources/stats/player_stats/player_stats.tres" id="2_x4lqw"]
+[ext_resource type="Resource" uid="uid://lsjqw8a1qn15" path="res://stats/player_stats/player_stats.tres" id="2_x4lqw"]
 [ext_resource type="Texture2D" uid="uid://bo74qdq7o3tyg" path="res://arts/items/fishing_pole.png" id="3_7t66a"]
 
 [sub_resource type="Animation" id="Animation_pbjen"]

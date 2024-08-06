@@ -20,7 +20,6 @@ func start_fish():
 	final_loots.clear()
 	start_time=Time.get_ticks_msec()
 	cards_inventory=Inventory.get_card_inventory()
-	print(1)
 	get_tree().change_scene_to_file("res://scene/battle_scene/battle.tscn")
 
 func on_battle_win():

@@ -96,7 +96,5 @@ offset_bottom = 504.0
 step = 0.1
 fill_mode = 3
 
-[node name="PoleManager" type="Node2D" parent="."]
-
 [connection signal="body_shape_entered" from="Fish" to="." method="_on_fish_body_shape_entered"]
 [connection signal="body_shape_exited" from="Fish" to="." method="_on_fish_body_shape_exited"]

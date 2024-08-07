@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Biat" load_steps=3 format=3 uid="uid://d1a8isa6nx405"]
 
-[ext_resource type="Texture2D" uid="uid://dsc4kewn1ffgt" path="res://arts/items/biats/panties.png" id="1_0j0yc"]
+[ext_resource type="Texture2D" uid="uid://dj8sbgssu1gl" path="res://arts/items/biats/panties.png" id="1_0j0yc"]
 [ext_resource type="Script" path="res://objects/items/biats/base_biat.gd" id="1_yofkp"]
 
 [resource]

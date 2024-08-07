@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="BiatBag" load_steps=3 format=3 uid="uid://clfif3y11ve40"]
 
-[ext_resource type="Texture2D" uid="uid://oi4g7n8whxfe" path="res://arts/tools/biat_bag/bait_bag.png" id="1_pl6qg"]
+[ext_resource type="Texture2D" uid="uid://b3pkbqbw5e4vd" path="res://arts/tools/biat_bag/bait_bag.png" id="1_pl6qg"]
 [ext_resource type="Script" path="res://objects/biat_bag/biat_bag.gd" id="1_pr071"]
 
 [resource]
 script = ExtResource("1_pr071")
 max_size = 3
 using_description = "摁e打开鱼饵袋"
-shortcut = "e"
 object_texture = ExtResource("1_pl6qg")
 object_name = "初级鱼饵袋"
 object_description = "用于装填钓鱼用的鱼饵，容量比较小"

@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="fish_stats" load_steps=2 format=3 uid="uid://bffmil8kia7f0"]
+[gd_resource type="Resource" script_class="FishStats" load_steps=2 format=3 uid="uid://bffmil8kia7f0"]
 
 [ext_resource type="Script" path="res://stats/fish_stats/fish_stats.gd" id="1_st605"]
 
 [resource]
 script = ExtResource("1_st605")
+base_max_strength = 100.0
 max_health = 50
+base_armor = 0
+base_attack = 10

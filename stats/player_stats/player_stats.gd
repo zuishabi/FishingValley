@@ -15,6 +15,7 @@ var current_mana:int:
 		mana_changed.emit(value,base_max_mana)
 
 func reload():
+	super.reload()
 	current_mana=base_max_mana
 	current_force=base_force
 	current_max_endurance=base_max_endurance

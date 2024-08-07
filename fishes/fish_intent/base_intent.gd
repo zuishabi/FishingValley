@@ -11,13 +11,11 @@ signal update_direction
 @export var max_length:float
 @export var min_length:float
 @export var b_on_b:bool
-@export var max_hp:float
 @export_file() var skill_node:String
 
 var current_direction:int=-1
 var length:float
 var target_speed:float
-var current_hp:float
 
 func update_intent():
 	if(randf_range(0,1)>change_direction):

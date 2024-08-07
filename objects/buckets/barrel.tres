@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Bucket" load_steps=3 format=3 uid="uid://bcdykfu533tlg"]
 
-[ext_resource type="Texture2D" uid="uid://c7pn8miht5bvb" path="res://arts/tools/bucket/barrel.png" id="1_fwl8j"]
+[ext_resource type="Texture2D" uid="uid://ddlqbnsrh6e7t" path="res://arts/tools/bucket/barrel.png" id="1_fwl8j"]
 [ext_resource type="Script" path="res://objects/buckets/base_bucket.gd" id="1_imlq3"]
 
 [resource]
 script = ExtResource("1_imlq3")
 max_size = 5
 using_description = "使用e键打开木桶"
-shortcut = "e"
 object_texture = ExtResource("1_fwl8j")
 object_name = "木桶"
 object_description = "最简易的木桶，能装少量的鱼，适合能力低下的初学者使用"

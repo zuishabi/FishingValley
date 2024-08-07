@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Biat" load_steps=3 format=3 uid="uid://bvujg760rcwm4"]
 
 [ext_resource type="Script" path="res://objects/items/biats/base_biat.gd" id="1_6i161"]
-[ext_resource type="Texture2D" uid="uid://bd04kajiffuy3" path="res://arts/items/biats/biat.png" id="1_ekwfu"]
+[ext_resource type="Texture2D" uid="uid://b5k3b3eq581pf" path="res://arts/items/biats/biat.png" id="1_ekwfu"]
 
 [resource]
 script = ExtResource("1_6i161")

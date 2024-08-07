@@ -13,6 +13,7 @@ func _ready():
 	player_stats=BattleManager.player_stats
 	player_stats.mana_changed.connect(mana._on_mana_changed)
 	player_stats.reload()#重新载入玩家统计信息，例如当前魔力，力量和最大耐力等
+	fish_stats.reload()
 	get_cards()
 	hand.get_cards()
 
@@ -35,9 +36,10 @@ func process_use_request(card_ui:CardUi):
 		card_ui.back_to_hand()
 
 func _on_next_round_pressed():
-	battle.on_round_changed(1)
 	for i in hand_cards.size():
 		BattleManager.discard_hands.append(hand_cards.pop_front())
+	battle.round_change(1)
+
 
 func get_cards():
 	for i in 5:

@@ -11,6 +11,8 @@ var discard_hands:Array[Card]
 signal battle_win
 signal battle_lose
 signal main_prepared
+signal update_player_stats_ui
+signal update_buff_ui
 
 func load_fight(player:PlayerStats,fish:Fish):
 	player_stats=player

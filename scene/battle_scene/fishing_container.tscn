@@ -73,22 +73,16 @@ shape = SubResource("RectangleShape2D_xkt31")
 [node name="SkillManager" type="Node" parent="."]
 script = ExtResource("8_up31p")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Ui" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-layout_mode = 0
+[node name="ProgressBar" type="ProgressBar" parent="Ui"]
 offset_left = 660.0
 offset_top = 94.0
 offset_right = 693.0
 offset_bottom = 504.0
 fill_mode = 3
 
-[node name="EnduranceBar" type="ProgressBar" parent="UI"]
-layout_mode = 0
+[node name="EnduranceBar" type="ProgressBar" parent="Ui"]
 offset_left = 420.0
 offset_top = 104.0
 offset_right = 456.0

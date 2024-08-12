@@ -2,9 +2,9 @@ class_name FishingContainer
 extends Node2D
 
 @onready var fish = $Fish
-@onready var progress_bar = $UI/ProgressBar
+@onready var progress_bar = $Ui/ProgressBar
 @onready var pole_body = $PoleBody
-@onready var endurance_bar = $UI/EnduranceBar
+@onready var endurance_bar = $Ui/EnduranceBar
 
 var battle:Battle
 var flag:bool=false
@@ -25,12 +25,14 @@ func _ready():
 	current_intent.update_direction.connect(func(direction:int):target_direction=direction)
 	player_stats=BattleManager.player_stats
 	fish_stats=BattleManager.current_fish.fish_stats
-	load_effects()
-	progress_bar.max_value=fish_stats.current_strength
+	player_stats.process_buff()
+	fish_stats.process_buff()
+	BattleManager.update_player_stats_ui.emit()
+	BattleManager.update_buff_ui.emit()
+	progress_bar.max_value=fish_stats.current_max_strength
 	endurance_bar.max_value=player_stats.current_max_endurance
 	endurance_bar.value=endurance_bar.max_value
 	progress_bar.value=0
-	print(progress_bar.max_value)
 
 func _process(delta):
 	if(!is_moving):
@@ -45,7 +47,6 @@ func _process(delta):
 		length-=abs(target_speed)*delta
 	else:
 		is_moving=false
-	fish_stats.current_strength=progress_bar.value
 
 func _physics_process(delta):
 	flag=false
@@ -71,17 +72,18 @@ func _on_fish_body_shape_entered(body_rid, body, body_shape_index, local_shape_i
 func _on_fish_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	overlapping_list.erase(pole_body.get_child(body_shape_index+1))
 
-func load_effects():
-	pass
-
 func battle_account():
-	var stantard_attack:float = fish_stats.current_strength/2 + fish_stats.current_armor - player_stats.current_armor
-	if fish_stats.current_strength >= stantard_attack :
-		var new_effect = Effect.new(Effect.TYPE.ATTACK,player_stats.current_attack)
-		fish_stats.process_effect(player_stats,new_effect)
-		print("fish is attacked,health:"+str(fish_stats.health))
-	else:
+	var stantard_attack:float = fish_stats.current_max_strength/2 - fish_stats.current_armor + player_stats.current_armor
+	if fish_stats.current_max_strength-progress_bar.value >= stantard_attack :
 		var new_effect = Effect.new(Effect.TYPE.ATTACK,fish_stats.current_attack)
-		player_stats.process_effect(fish_stats,new_effect)
+		player_stats.process_effect(new_effect)
 		print("player is attacked,health:"+str(player_stats.health))
+	else:
+		var new_effect = Effect.new(Effect.TYPE.ATTACK,player_stats.current_attack)
+		fish_stats.process_effect(new_effect)
+		print("fish is attacked,health:"+str(fish_stats.health))
+	if player_stats.health == 0 :
+		BattleManager.on_battle_lose()
+	elif fish_stats.health == 0:
+		BattleManager.on_battle_win()
 	battle.round_change(0)

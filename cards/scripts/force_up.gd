@@ -1,7 +1,8 @@
-class_name ForceUp
+class_name C_ForceUp
 extends Card
 
-func effect(player_stats:Stats):
-	player_stats=player_stats as PlayerStats
-	player_stats.current_force+=2
+var buff:Buff = preload("res://battle_elements/buff/force_up.tres")
+
+func effect():
+	BattleManager.player_stats.add_buff(buff)
 	emit_tips.emit("增加2点力量")

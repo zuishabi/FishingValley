@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ForceUp" load_steps=2 format=3 uid="uid://dwegx7oknwfdc"]
+[gd_resource type="Resource" script_class="ForceUp" load_steps=3 format=3 uid="uid://dwegx7oknwfdc"]
 
 [ext_resource type="Script" path="res://cards/scripts/force_up.gd" id="1_7tn36"]
+[ext_resource type="Texture2D" uid="uid://biclq6grp4h5l" path="res://arts/cards/force_up.png" id="1_7x0cr"]
 
 [resource]
 script = ExtResource("1_7tn36")
@@ -9,5 +10,6 @@ card_type = 0
 use_time = -1
 target = 0
 value = 0
+object_texture = ExtResource("1_7x0cr")
 object_name = "force_up"
 object_description = "使自己的力量提升"

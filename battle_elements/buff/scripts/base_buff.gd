@@ -6,5 +6,5 @@ extends Resource
 @export var texture:Texture2D
 @export_multiline var description:String
 
-func apply_effect(object:Stats,value:Effect=null):
+func apply_buff(object:Stats,value:Effect=null):
 	pass

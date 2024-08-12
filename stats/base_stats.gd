@@ -25,12 +25,24 @@ func reload():
 	current_armor=base_armor
 	current_attack=base_attack
 
-func process_effect(object:Stats,value:Effect):
+func process_effect(value:Effect):
 	for i:Buff in buff_array:
-		i.apply_effect(object,value)
+		i.apply_buff(self,value)
 	if value.effect_type==Effect.TYPE.ATTACK:
 		health -= value.effect_value
 		attack.emit(value.effect_value)
 	elif(value.effect_type==Effect.TYPE.HEAL):
 		health += value.effect_value
 		heal.emit(value.effect_value)
+
+func process_buff():
+	for i:Buff in buff_array:
+		i.apply_buff(self)
+
+func add_buff(buff:Buff):
+	var new_buff:Buff = buff.duplicate(1)
+	for i:Buff in buff_array:
+		if i.name == new_buff.name:
+			i.use_time += 1
+			return
+	buff_array.append(new_buff)

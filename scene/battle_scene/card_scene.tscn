@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scene/battle_scene/Mana.gd" id="6_0n753"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5qwv"]
-size = Vector2(1152, 343)
+size = Vector2(1152, 312)
 
 [node name="CardScene" type="Node2D" groups=["CardScene"]]
 script = ExtResource("1_1m48e")
@@ -14,7 +14,7 @@ script = ExtResource("1_1m48e")
 [node name="PutArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PutArea"]
-position = Vector2(576, 171.5)
+position = Vector2(576, 156)
 shape = SubResource("RectangleShape2D_a5qwv")
 
 [node name="CardUi" type="CanvasLayer" parent="."]
@@ -81,6 +81,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 426.0
 grow_horizontal = 2
 grow_vertical = 2
 

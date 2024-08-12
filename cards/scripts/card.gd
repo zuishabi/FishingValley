@@ -11,12 +11,12 @@ signal emit_tips(content:String)
 @export var use_time:int
 @export var target:TARGET
 
-func can_use(player_stats:PlayerStats)->bool:
-	if player_stats.current_mana-cost >= 0:
+func can_use()->bool:
+	if BattleManager.player_stats.current_mana-cost >= 0:
 		return true
 	else:
 		emit_tips.emit("法力值不足")
 		return false
 
-func effect(stats:Stats):
+func effect():
 	pass

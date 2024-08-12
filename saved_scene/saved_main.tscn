@@ -1,17 +1,17 @@
 [gd_scene load_steps=13 format=3]
 
-[ext_resource type="Script" path="res://scene/main.gd" id="1_0kct4"]
-[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_ds3u0"]
-[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_5fqam"]
-[ext_resource type="PackedScene" path="res://scene/player.tscn" id="4_mqdsm"]
-[ext_resource type="Script" path="res://scene/Player.gd" id="5_v0gn2"]
-[ext_resource type="Resource" path="res://stats/player_stats/player_stats.tres" id="6_fygl6"]
-[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="7_p60nj"]
-[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="8_aa44q"]
-[ext_resource type="Script" path="res://scene/ui/ui.gd" id="9_dto55"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_sgq2d"]
+[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_ooheq"]
+[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_biv5j"]
+[ext_resource type="PackedScene" path="res://scene/player.tscn" id="4_3vxxg"]
+[ext_resource type="Script" path="res://scene/Player.gd" id="5_21cko"]
+[ext_resource type="Resource" path="res://stats/player_stats/player_stats.tres" id="6_rp21h"]
+[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="7_t8fwe"]
+[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="8_ea2b3"]
+[ext_resource type="Script" path="res://scene/ui/ui.gd" id="9_i77pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s10uv"]
-texture = ExtResource("2_ds3u0")
+texture = ExtResource("2_ooheq")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -956,7 +956,7 @@ texture = ExtResource("2_ds3u0")
 15:15/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3krv1"]
-texture = ExtResource("3_5fqam")
+texture = ExtResource("3_biv5j")
 0:0/animation_frame_0/duration = 0.5
 0:0/animation_frame_1/duration = 0.5
 0:0/animation_frame_2/duration = 0.5
@@ -991,7 +991,7 @@ sources/0 = SubResource("TileSetAtlasSource_s10uv")
 sources/1 = SubResource("TileSetAtlasSource_3krv1")
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_0kct4")
+script = ExtResource("1_sgq2d")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_etb5f")
@@ -1002,15 +1002,15 @@ layer_1/name = "add"
 layer_1/tile_data = PackedInt32Array(393327, 1, 0, 458863, 1, 0, 524399, 1, 0, 589935, 1, 0, 655471, 1, 0, 721007, 1, 0, 721006, 1, 0, 786542, 1, 0, 852078, 1, 0, 852077, 1, 0, 917613, 1, 0, 983149, 1, 0, 1048685, 1, 0, 1114221, 1, 0, 786541, 1, 0, 1179757, 1, 0, 1179758, 1, 0, 1245294, 1, 0, 1245293, 1, 0, 1114222, 1, 0, 1048686, 1, 0, 983150, 1, 0, 917614, 1, 0, 1310829, 1, 0, 1310830, 1, 0, 1376366, 1, 0, 1376365, 1, 0, 1441901, 1, 0, 1441902, 1, 0, 1507438, 1, 0, 1507439, 1, 0, 1441903, 1, 0, 1376367, 1, 0, 1310831, 1, 0, 1245295, 1, 0, 1179759, 1, 0, 1114223, 1, 0, 1048687, 1, 0, 983151, 1, 0, 917615, 1, 0, 852079, 1, 0, 786543, 1, 0, 655476, 1, 0, 721012, 1, 0, 721013, 1, 0, 786550, 1, 0, 852086, 1, 0, 917622, 1, 0, 917621, 1, 0, 917620, 1, 0, 852084, 1, 0, 852083, 1, 0, 786547, 1, 0, 721011, 1, 0, 786549, 1, 0, 852085, 1, 0, 721014, 1, 0, 786548, 1, 0, 655477, 1, 0, 589941, 1, 0, 589942, 1, 0, 589943, 1, 0, 655479, 1, 0, 655478, 1, 0, 524405, 1, 0, 524406, 1, 0, 524407, 1, 0, 589944, 1, 0, 655480, 1, 0, 524408, 1, 0, 524409, 1, 0, 589945, 1, 0, 655481, 1, 0, 721017, 1, 0, 721016, 1, 0, 786552, 1, 0, 786551, 1, 0, 721015, 1, 0, 852088, 1, 0, 852080, 1, 0, 786544, 1, 0, 721008, 1, 0, 655472, 1, 0, 589936, 1, 0, 524400, 1, 0, 458864, 1, 0, 393328, 1, 1, 327792, 1, 1, 917616, 1, 0, 983152, 1, 0, 1048688, 1, 0, 1114224, 1, 0, 1179760, 1, 0, 1245296, 1, 0, 1310832, 1, 0, 1376368, 1, 0, 1441904, 1, 0, 1507440, 1, 0, 1572976, 1, 0, 1572975, 1, 2, 458865, 1, 0, 524401, 1, 0, 589937, 1, 0, 655473, 1, 0, 721009, 1, 0, 786545, 1, 0, 393329, 1, 0, 458866, 1, 0, 524402, 1, 0, 524403, 1, 0, 589939, 1, 0, 655475, 1, 0, 655474, 1, 0, 721010, 1, 0, 589938, 1, 0, 786546, 1, 0, 589940, 1, 0, 524404, 1, 0, 852082, 1, 0, 917618, 1, 0, 917617, 1, 0, 983153, 1, 0, 852081, 1, 0, 983154, 1, 0, 1048689, 1, 0, 1114225, 1, 0, 1179761, 1, 0, 1245297, 1, 0, 1310833, 1, 0, 1376369, 1, 0, 1441905, 1, 0, 1507441, 1, 0, 1572977, 1, 0, 1638513, 1, 0, 1638514, 1, 0, 1572978, 1, 0, 1507442, 1, 0, 1572979, 1, 0, 1507443, 1, 0, 1441907, 1, 0, 1441906, 1, 0, 1376370, 1, 0, 1310834, 1, 0, 1245298, 1, 0, 1179762, 1, 0, 1114226, 1, 0, 1048690, 1, 0, 1048691, 1, 0, 1114227, 1, 0, 1179763, 1, 0, 1245299, 1, 0, 983155, 1, 0, 917619, 1, 0, 327793, 1, 0, 327794, 1, 0, 393330, 1, 0, 393331, 1, 0, 458867, 1, 0, 458868, 1, 0, 458869, 1, 0, 458870, 1, 0, 458871, 1, 0, 393332, 1, 0, 393333, 1, 0, 393334, 1, 0, 393335, 1, 0, 327798, 1, 0, 327797, 1, 0, 327799, 1, 0, 327800, 1, 0, 393336, 1, 0, 458872, 1, 0, 983156, 1, 0, 1048692, 1, 0, 852087, 1, 0, 983157, 1, 0, 1114228, 1, 0)
 metadata/_edit_lock_ = true
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("4_mqdsm")]
-position = Vector2(1702, 272)
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("4_3vxxg")]
+position = Vector2(1677.69, 286.31)
 scale = Vector2(0.7, 0.7)
 collision_mask = 3
-script = ExtResource("5_v0gn2")
+script = ExtResource("5_21cko")
 speed = 200
 face_direction = Vector2(1, 0)
-fishing_point = Vector2(147.75, 0)
-player_stats = ExtResource("6_fygl6")
+fishing_point = Vector2(148.5, 0)
+player_stats = ExtResource("6_rp21h")
 metadata/_edit_lock_ = true
 
 [node name="Ui" type="Control" parent="."]
@@ -1022,12 +1022,12 @@ offset_bottom = 40.0
 [node name="Ding" type="TextureRect" parent="Ui"]
 visible = false
 layout_mode = 0
-offset_left = 1849.75
-offset_top = 262.0
-offset_right = 1889.75
-offset_bottom = 302.0
+offset_left = 1826.19
+offset_top = 276.31
+offset_right = 1866.19
+offset_bottom = 316.31
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_p60nj")
+texture = ExtResource("7_t8fwe")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -1036,12 +1036,12 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WaitTime" type="Timer" parent="Timers"]
-wait_time = 5.60679
+wait_time = 6.84916
 one_shot = true
 
-[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("8_aa44q")]
+[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("8_ea2b3")]
 process_mode = 3
-script = ExtResource("9_dto55")
+script = ExtResource("9_i77pu")
 
 [connection signal="timeout" from="Timers/CanCatchTime" to="." method="_on_can_catch_time_timeout"]
 [connection signal="timeout" from="Timers/WaitTime" to="." method="_on_wait_time_timeout"]

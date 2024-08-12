@@ -2,6 +2,8 @@ class_name CardUi
 extends Control
 
 @onready var cost_label = $CostContainer/CostLabel
+@onready var panel = $Panel
+@onready var card_texture = $CardTexture
 
 signal use_request
 
@@ -12,11 +14,14 @@ var can_released:bool=false
 var local_mouse_position:Vector2
 var initial_position:Vector2=Vector2.ZERO
 var pivot:Vector2
+var normal_theme=preload("res://themes/cards/card_panel_normal.tres")
+var can_release_theme=preload("res://themes/cards/card_panel_can_release.tres")
 
 @export var card:Card
 
 func _ready():
 	cost_label.text=str(card.cost)
+	card_texture.texture = card.object_texture
 
 func _on_panel_mouse_entered():
 	if(current_state==states.NORMAL):
@@ -51,11 +56,13 @@ func _input(event):
 
 func _on_area_2d_area_entered(area):
 	if(area.name=="PutArea"):
-		can_released=true
+		can_released = true
+		panel.theme = can_release_theme
 
 func _on_area_2d_area_exited(area):
 	if(area.name=="PutArea"):
 		can_released=false
+		panel.theme = normal_theme
 
 func back_to_hand():
 	current_state=states.HOVER

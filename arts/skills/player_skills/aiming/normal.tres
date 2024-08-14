@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cfab1n4dbhviy"]
+
+[ext_resource type="Texture2D" uid="uid://b0gle36f77lye" path="res://arts/skills/player_skills/aiming/aiming.png" id="1_13f2y"]
+
+[resource]
+atlas = ExtResource("1_13f2y")
+region = Rect2(16, 0, 16, 16)

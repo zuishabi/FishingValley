@@ -5,6 +5,7 @@ extends Node2D
 @onready var progress_bar = $Ui/ProgressBar
 @onready var pole_body = $PoleBody
 @onready var endurance_bar = $Ui/EnduranceBar
+@onready var player_skill = $PlayerSkill
 
 var battle:Battle
 var flag:bool=false
@@ -23,17 +24,30 @@ func _ready():
 	current_intent.update_length.connect(func(len:float):length=len)
 	current_intent.update_speed.connect(func(speed:float):target_speed=speed)
 	current_intent.update_direction.connect(func(direction:int):target_direction=direction)
+	
+	#----------------------------加载玩家和鱼的统计数据，并处理他们的buff---------------------------------
 	player_stats=BattleManager.player_stats
 	fish_stats=BattleManager.current_fish.fish_stats
 	player_stats.process_buff()
 	fish_stats.process_buff()
+	pole_body.update_pole(player_stats)#更新鱼竿信息
+	
+	#--------------------------------更新玩家的统计界面和鱼的统计界面------------------------------------
 	BattleManager.update_player_stats_ui.emit()
 	BattleManager.update_buff_ui.emit()
+	
+	#-----------------------------------加载鱼的进度和玩家的最大耐力------------------------------------
+	fish_stats.current_progress = 0
 	progress_bar.max_value=fish_stats.current_max_strength
 	endurance_bar.max_value=player_stats.current_max_endurance
 	endurance_bar.value=endurance_bar.max_value
 	progress_bar.value=0
+	
+	#---------------------------------------加载玩家技能----------------------------------------------
+	if player_stats.current_skill != null:
+		player_skill.load_skill(player_stats.current_skill)
 
+#处理鱼的移动
 func _process(delta):
 	if(!is_moving):
 		current_intent.update_intent()
@@ -48,14 +62,19 @@ func _process(delta):
 	else:
 		is_moving=false
 
+#处理钓竿
 func _physics_process(delta):
 	flag=false
 	if(overlapping_list.size()!=0):
-		progress_bar.value+=0.1
+		fish_stats.current_progress = clampf(fish_stats.current_progress + 0.1,0,100)
 		overlapping_list[0].process()
 		flag=true
+		print(overlapping_list)
+		print(fish_stats.current_progress)
+		print(progress_bar.value)
 	if(!flag):
-		progress_bar.value-=0.2
+		fish_stats.current_progress = clampf(fish_stats.current_progress - 0.2,0,100)
+	progress_bar.value = fish_stats.current_progress
 	if(progress_bar.value==progress_bar.max_value):
 		print("progress = 100%")
 		battle_account()

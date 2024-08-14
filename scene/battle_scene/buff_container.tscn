@@ -36,6 +36,7 @@ vertical_alignment = 1
 [node name="Description" type="RichTextLabel" parent="Control/BuffDescription/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

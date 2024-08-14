@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbmp4lrnd7lq2" path="res://scene/pole/pole_shape/shape_list/speed_down.tscn" id="5_wlx84"]
 [ext_resource type="Script" path="res://scene/battle_scene/Fish.gd" id="6_8jk45"]
 [ext_resource type="Texture2D" uid="uid://pod2doehtquo" path="res://arts/gui/fish.png" id="7_6wbg8"]
-[ext_resource type="Script" path="res://scene/skills/SkillManager.gd" id="8_up31p"]
+[ext_resource type="Script" path="res://scene/battle_scene/player_skill.gd" id="8_fp6h7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhcyb"]
 bounce = 0.5
@@ -44,7 +44,7 @@ physics_material_override = SubResource("PhysicsMaterial_n7ipf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
 shape = SubResource("RectangleShape2D_c2op1")
 
-[node name="PoleBody" type="RigidBody2D" parent="."]
+[node name="PoleBody" type="RigidBody2D" parent="." groups=["pole_body"]]
 position = Vector2(568, 454)
 mass = 0.5
 lock_rotation = true
@@ -58,7 +58,7 @@ texture = ExtResource("4_exka7")
 
 [node name="SpeedDown" parent="PoleBody" instance=ExtResource("5_wlx84")]
 
-[node name="Fish" type="Area2D" parent="."]
+[node name="Fish" type="Area2D" parent="." groups=["fish_area"]]
 position = Vector2(568, 286)
 script = ExtResource("6_8jk45")
 
@@ -70,8 +70,8 @@ texture = ExtResource("7_6wbg8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
 shape = SubResource("RectangleShape2D_xkt31")
 
-[node name="SkillManager" type="Node" parent="."]
-script = ExtResource("8_up31p")
+[node name="PlayerSkill" type="Node" parent="."]
+script = ExtResource("8_fp6h7")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 

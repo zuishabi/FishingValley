@@ -4,8 +4,11 @@ extends Control
 @onready var cost_label = $CostContainer/CostLabel
 @onready var panel = $Panel
 @onready var card_texture = $CardTexture
+@onready var show_description_timer = $ShowDescriptionTimer
 
 signal use_request
+signal mouse_enter(card:Card)
+signal mouse_exit
 
 enum states {NORMAL,HOVER,CLICKED}
 
@@ -25,6 +28,7 @@ func _ready():
 
 func _on_panel_mouse_entered():
 	if(current_state==states.NORMAL):
+		show_description_timer.start()
 		var tween:Tween=create_tween()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.tween_property(self,"scale",Vector2(1.5,1.5),0.1)
@@ -32,6 +36,8 @@ func _on_panel_mouse_entered():
 
 func _on_panel_mouse_exited():
 	if(current_state==states.HOVER):
+		show_description_timer.stop()
+		mouse_exit.emit()
 		var tween:Tween=create_tween()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.tween_property(self,"scale",Vector2(1,1),0.1)
@@ -39,6 +45,8 @@ func _on_panel_mouse_exited():
 
 func _on_panel_gui_input(event:InputEvent):
 	if(current_state==states.HOVER && event.is_action_pressed("left_mouse")):
+		show_description_timer.stop()
+		mouse_exit.emit()
 		scale=Vector2(1,1)
 		pivot=get_global_mouse_position()-global_position
 		initial_position = global_position
@@ -67,3 +75,6 @@ func _on_area_2d_area_exited(area):
 func back_to_hand():
 	current_state=states.HOVER
 	global_position=initial_position
+
+func _on_show_description_timer_timeout():
+	mouse_enter.emit(card)

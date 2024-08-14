@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Aiming" load_steps=4 format=3 uid="uid://bfgr47skcque4"]
+
+[ext_resource type="Texture2D" uid="uid://b0gle36f77lye" path="res://arts/skills/player_skills/aiming/aiming.png" id="1_g5ew7"]
+[ext_resource type="Script" path="res://cards/scripts/aiming.gd" id="1_tqlko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbqxd"]
+atlas = ExtResource("1_g5ew7")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_tqlko")
+cost = 2
+card_type = 1
+use_time = 1
+target = 0
+value = 0
+object_texture = SubResource("AtlasTexture_fbqxd")
+object_name = "瞄准你了"
+object_description = "当鱼和鱼竿在瞄准点时，摁下空格键，来给鱼一次暴击吧！"

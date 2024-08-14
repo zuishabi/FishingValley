@@ -52,8 +52,8 @@ func rookie():
 	Inventory.add_item(ObjectList.find_object("barrel"))
 	Inventory.add_item(ObjectList.find_object("cards_bag"))
 	Inventory.add_card(ObjectList.get_card(0))
-	Inventory.add_card(ObjectList.get_card(0))
-	Inventory.add_card(ObjectList.get_card(0))
+	Inventory.add_card(ObjectList.get_card(2))
+	Inventory.add_card(ObjectList.get_card(2))
 	Inventory.add_card(ObjectList.get_card(1))
 	Inventory.add_card(ObjectList.get_card(1))
 

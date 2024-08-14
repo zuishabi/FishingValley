@@ -1,7 +1,6 @@
 extends Control
 
 var player_stats:PlayerStats
-var buff_unit = preload("res://scene/battle_scene/buff_unit.tscn")
 
 @onready var stats_grid = $MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid
 @onready var stats_description = $StatsDescription

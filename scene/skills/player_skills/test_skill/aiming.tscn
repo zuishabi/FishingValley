@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://do1i2rh3jry3q"]
+
+[ext_resource type="Script" path="res://scene/skills/player_skills/test_skill/Aiming.gd" id="1_gmimt"]
+[ext_resource type="Texture2D" uid="uid://byvjavq6irrr7" path="res://arts/skills/player_skills/aiming/can_fire.tres" id="2_2wg7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld2vt"]
+size = Vector2(58, 28)
+
+[node name="Aiming" type="Node"]
+process_mode = 3
+script = ExtResource("1_gmimt")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(568, 128)
+
+[node name="Texture" type="Sprite2D" parent="Area2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_2wg7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_ld2vt")
+
+[node name="Tips" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

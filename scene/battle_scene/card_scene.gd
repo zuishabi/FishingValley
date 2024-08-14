@@ -1,5 +1,6 @@
 extends Node2D
 
+enum test {S,A}
 @onready var battle:Battle = $".."
 @onready var hand = $CardUi/Hand
 @onready var mana = $CardUi/Mana

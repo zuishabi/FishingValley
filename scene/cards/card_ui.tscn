@@ -60,8 +60,13 @@ vertical_alignment = 1
 position = Vector2(57, 73)
 shape = SubResource("RectangleShape2D_6oyew")
 
+[node name="ShowDescriptionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ShowDescriptionTimer" to="." method="_on_show_description_timer_timeout"]

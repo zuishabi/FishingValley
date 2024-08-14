@@ -660,8 +660,6 @@ text = "x"
 
 [connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]
-[connection signal="focus_entered" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_entered"]
-[connection signal="focus_exited" from="OpManager/VBoxContainer/HBoxContainer/LineEdit" to="OpManager" method="_on_line_edit_focus_exited"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
 [connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Details" to="ContainerInventory/SelectMenu" method="_on_details_pressed"]
 [connection signal="pressed" from="ContainerInventory/SelectMenu/VBoxContainer/Throw" to="ContainerInventory/SelectMenu" method="_on_throw_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7gtj310kuc37"]
+[gd_scene load_steps=13 format=3 uid="uid://b7gtj310kuc37"]
 
 [ext_resource type="Script" path="res://objects/object_list/ObjectList.gd" id="1_5joor"]
 [ext_resource type="Resource" uid="uid://u5mlpkyixkn" path="res://objects/fishing_pole/bamboo_pole.tres" id="2_uyrcq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cebbyfmfb1lnp" path="res://objects/cards_bag/cards_bag.tres" id="9_um6kt"]
 [ext_resource type="Resource" uid="uid://d1sfxow2k6t7y" path="res://cards/test.tres" id="10_0kcbn"]
 [ext_resource type="Resource" uid="uid://dwegx7oknwfdc" path="res://cards/force_up.tres" id="11_knh5a"]
+[ext_resource type="Resource" uid="uid://bfgr47skcque4" path="res://cards/aiming.tres" id="12_wohvv"]
 
 [node name="ObjectList" type="Node"]
 script = ExtResource("1_5joor")
@@ -24,4 +25,4 @@ object_list = {
 "missiler": ExtResource("7_mbgsr"),
 "panties": ExtResource("6_4lcpl")
 }
-card_list = Array[Resource("res://cards/scripts/card.gd")]([ExtResource("10_0kcbn"), ExtResource("11_knh5a")])
+card_list = Array[Resource("res://cards/scripts/card.gd")]([ExtResource("10_0kcbn"), ExtResource("11_knh5a"), ExtResource("12_wohvv")])

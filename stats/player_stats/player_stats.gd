@@ -9,6 +9,7 @@ signal mana_changed
 
 var current_max_endurance:float
 var current_force:float
+var current_skill:Skill
 var current_mana:int:
 	set(value):
 		current_mana=value
@@ -16,6 +17,17 @@ var current_mana:int:
 
 func reload():
 	super.reload()
+	if current_skill!= null:
+		current_skill.use_time -= 1
+		if current_skill.use_time == 1:
+			current_skill = null
 	current_mana=base_max_mana
 	current_force=base_force
 	current_max_endurance=base_max_endurance
+
+func add_skill(skill:Skill)->bool:
+	if current_skill != null:
+		return false
+	else:
+		current_skill = skill
+		return true

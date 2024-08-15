@@ -11,7 +11,6 @@ signal update_direction
 @export var max_length:float
 @export var min_length:float
 @export var b_on_b:bool
-@export_file() var skill_node:String
 
 var current_direction:int=-1
 var length:float

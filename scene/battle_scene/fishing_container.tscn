@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmrwqrh23475j"]
+[gd_scene load_steps=14 format=3 uid="uid://cmrwqrh23475j"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/FishingContainer.gd" id="1_fxtxo"]
 [ext_resource type="Texture2D" uid="uid://dqsna5k4lib5b" path="res://arts/gui/fishing_container.png" id="2_1ldr8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scene/battle_scene/Fish.gd" id="6_8jk45"]
 [ext_resource type="Texture2D" uid="uid://pod2doehtquo" path="res://arts/gui/fish.png" id="7_6wbg8"]
 [ext_resource type="Script" path="res://scene/battle_scene/player_skill.gd" id="8_fp6h7"]
+[ext_resource type="Script" path="res://scene/battle_scene/FishSkill.gd" id="9_71i5b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dhcyb"]
 bounce = 0.5
@@ -72,6 +73,9 @@ shape = SubResource("RectangleShape2D_xkt31")
 
 [node name="PlayerSkill" type="Node" parent="."]
 script = ExtResource("8_fp6h7")
+
+[node name="FishSkill" type="Node" parent="."]
+script = ExtResource("9_71i5b")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 

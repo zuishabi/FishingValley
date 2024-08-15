@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://copta2jk8aaer"]
+
+[ext_resource type="Script" path="res://scene/skills/base_skill.gd" id="1_cd3x0"]
+
+[resource]
+script = ExtResource("1_cd3x0")
+use_time = 0
+skill_scene = "res://scene/skills/fish_skills/missiler/missiler_skill.tscn"
+skill_name = "火箭冲刺"
+skill_description = "向前冲刺吧！"

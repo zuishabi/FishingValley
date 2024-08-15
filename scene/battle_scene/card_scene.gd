@@ -4,6 +4,7 @@ enum test {S,A}
 @onready var battle:Battle = $".."
 @onready var hand = $CardUi/Hand
 @onready var mana = $CardUi/Mana
+@onready var fish_ai = $FishAi
 
 var fish_stats:FishStats
 var player_stats:PlayerStats
@@ -17,6 +18,7 @@ func _ready():
 	fish_stats.reload()
 	BattleManager.update_player_stats_ui.emit()
 	BattleManager.update_buff_ui.emit()
+	fish_ai.set_ai()
 	get_cards()
 	hand.get_cards()
 

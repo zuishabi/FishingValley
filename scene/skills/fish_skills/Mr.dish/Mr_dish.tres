@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://b1e7j4by4wsyc"]
+
+[ext_resource type="Script" path="res://scene/skills/base_skill.gd" id="1_kvtmd"]
+
+[resource]
+script = ExtResource("1_kvtmd")
+use_time = 0
+skill_scene = "res://scene/skills/fish_skills/Mr.dish/mr_dish.tscn"
+skill_name = "喷射！"
+skill_description = "喷射出白色的液体吧"

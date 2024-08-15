@@ -14,4 +14,4 @@ func can_use()->bool:
 		return false
 
 func effect():
-	BattleManager.player_stats.add_skill(aiming_skill)
+	BattleManager.player_stats.add_skill(aiming_skill.duplicate(1))

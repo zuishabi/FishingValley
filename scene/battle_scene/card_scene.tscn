@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvhyqmha7bman"]
+[gd_scene load_steps=9 format=3 uid="uid://bvhyqmha7bman"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/card_scene.gd" id="1_1m48e"]
 [ext_resource type="Script" path="res://scene/battle_scene/Hand.gd" id="2_jcxtu"]
 [ext_resource type="Script" path="res://scene/battle_scene/CardUi.gd" id="2_kkvk2"]
+[ext_resource type="Script" path="res://scene/battle_scene/FishAi.gd" id="2_nojdj"]
 [ext_resource type="Script" path="res://scene/battle_scene/Tips.gd" id="5_n22ek"]
 [ext_resource type="Script" path="res://scene/battle_scene/Mana.gd" id="6_0n753"]
 [ext_resource type="Script" path="res://scene/battle_scene/CardDescription.gd" id="6_7xt4g"]
@@ -18,6 +19,9 @@ script = ExtResource("1_1m48e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PutArea"]
 position = Vector2(576, 156)
 shape = SubResource("RectangleShape2D_a5qwv")
+
+[node name="FishAi" type="Node" parent="."]
+script = ExtResource("2_nojdj")
 
 [node name="CardUi" type="CanvasLayer" parent="."]
 script = ExtResource("2_kkvk2")
@@ -43,7 +47,7 @@ offset_left = 984.0
 offset_top = 511.0
 offset_right = 1102.0
 offset_bottom = 579.0
-text = "下一回合"
+text = "结束回合"
 
 [node name="Tips" type="PanelContainer" parent="CardUi"]
 anchors_preset = 8

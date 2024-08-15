@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx0vnto6aauua"
-path="res://.godot/imported/Mr_dish_skill.png-0c9cd3ae7a86c59ef81364ada28421f0.ctex"
+uid="uid://cussqltsriw1"
+path="res://.godot/imported/missiler_skill.png-4f507f8947c95be256ea5cab69c72a66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/skills/Mr_dish_skill.png"
-dest_files=["res://.godot/imported/Mr_dish_skill.png-0c9cd3ae7a86c59ef81364ada28421f0.ctex"]
+source_file="res://arts/skills/fish_skills/missiler/missiler_skill.png"
+dest_files=["res://.godot/imported/missiler_skill.png-4f507f8947c95be256ea5cab69c72a66.ctex"]
 
 [params]
 

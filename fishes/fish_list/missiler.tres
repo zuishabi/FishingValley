@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="Missiler" load_steps=5 format=3 uid="uid://gony58rkovlv"]
+[gd_resource type="Resource" script_class="Missiler" load_steps=7 format=3 uid="uid://gony58rkovlv"]
 
+[ext_resource type="PackedScene" uid="uid://ctk7hgbsnlpy4" path="res://scene/ai/missiler/missiler.tscn" id="1_4fji0"]
 [ext_resource type="Texture2D" uid="uid://bbxcrep5x8nqd" path="res://arts/fishes/missiler.png" id="1_6tsph"]
 [ext_resource type="Resource" uid="uid://bffmil8kia7f0" path="res://stats/fish_stats/missiler.tres" id="1_iwnvx"]
 [ext_resource type="Script" path="res://fishes/fish_list/scripts/missiler.gd" id="1_m5pt4"]
 [ext_resource type="Resource" uid="uid://3t04q46rk8v" path="res://fishes/fish_intent/missiler.tres" id="3_41ckn"]
+[ext_resource type="Resource" uid="uid://copta2jk8aaer" path="res://scene/skills/fish_skills/missiler/missiler_skill.tres" id="5_orc3m"]
 
 [resource]
 script = ExtResource("1_m5pt4")
 fish_name = "missiler"
 fish_texture = ExtResource("1_6tsph")
+AI = ExtResource("1_4fji0")
 intent = ExtResource("3_41ckn")
 fish_stats = ExtResource("1_iwnvx")
+skill = ExtResource("5_orc3m")

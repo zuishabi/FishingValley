@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Mr_dish" load_steps=5 format=3 uid="uid://dwm555kjhyii1"]
+[gd_resource type="Resource" script_class="Mr_dish" load_steps=6 format=3 uid="uid://dwm555kjhyii1"]
 
 [ext_resource type="Script" path="res://fishes/fish_list/scripts/Mr_dish.gd" id="1_kcn20"]
 [ext_resource type="Texture2D" uid="uid://dpsdx02lv0uoo" path="res://arts/fishes/Mr_dish.png" id="1_l4kn1"]
 [ext_resource type="Resource" uid="uid://bcmgtglwqhcds" path="res://stats/fish_stats/Mr_dish.tres" id="1_nsdoo"]
 [ext_resource type="Resource" uid="uid://dtaqib4y6btfw" path="res://fishes/fish_intent/Mr_dish.tres" id="3_ctr6q"]
+[ext_resource type="Resource" uid="uid://b1e7j4by4wsyc" path="res://scene/skills/fish_skills/Mr.dish/Mr_dish.tres" id="5_b6ocr"]
 
 [resource]
 script = ExtResource("1_kcn20")
@@ -11,3 +12,4 @@ fish_name = "Mr_dish"
 fish_texture = ExtResource("1_l4kn1")
 intent = ExtResource("3_ctr6q")
 fish_stats = ExtResource("1_nsdoo")
+skill = ExtResource("5_b6ocr")

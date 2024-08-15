@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://uamir73vg1cm"]
+
+[ext_resource type="Script" path="res://scene/skills/fish_skills/Mr.dish/Mr_dish.gd" id="1_tdhk5"]
+[ext_resource type="Texture2D" uid="uid://dx0vnto6aauua" path="res://arts/skills/fish_skills/Mr_dish/Mr_dish_skill.png" id="2_mtjgb"]
+
+[node name="Mr_dish" type="Node"]
+script = ExtResource("1_tdhk5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(568, 286)
+scale = Vector2(5, 5)
+texture = ExtResource("2_mtjgb")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

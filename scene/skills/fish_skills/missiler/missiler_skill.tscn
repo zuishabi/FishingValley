@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7m6g54d1xfni"]
+
+[ext_resource type="Script" path="res://scene/skills/fish_skills/missiler/MissilerSkill.gd" id="1_ubk2e"]
+[ext_resource type="Texture2D" uid="uid://cussqltsriw1" path="res://arts/skills/fish_skills/missiler/missiler_skill.png" id="2_dnbic"]
+
+[node name="MissilerSkill" type="Node"]
+script = ExtResource("1_ubk2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 302)
+scale = Vector2(2, 2)
+texture = ExtResource("2_dnbic")
+
+[node name="Check" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Use" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Check" to="." method="_on_check_timeout"]
+[connection signal="timeout" from="Use" to="." method="_on_use_timeout"]

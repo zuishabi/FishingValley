@@ -6,6 +6,7 @@ extends Resource
 @export var AI:PackedScene
 @export var intent:Intent
 @export var fish_stats:FishStats
+@export var skill:Skill
 
 func exist()->bool:
 	return true

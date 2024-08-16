@@ -12,7 +12,6 @@ var fish_stats:FishStats
 @onready var fish_health = $BattleUI/FishHealth
 
 func _ready():
-	round_change(0)
 	player_stats = BattleManager.player_stats as PlayerStats
 	fish_stats = BattleManager.current_fish.fish_stats as FishStats
 	player_health.max_value = player_stats.max_health
@@ -21,6 +20,7 @@ func _ready():
 	fish_stats.health_changed.connect(on_fish_health_changed)
 	player_stats.health=player_stats.max_health
 	fish_stats.health=fish_stats.max_health
+	round_change(0)
 
 func round_change(target_round:int):
 	current_round=target_round

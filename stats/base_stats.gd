@@ -29,9 +29,11 @@ func process_effect(value:Effect):
 	for i:Buff in buff_array:
 		i.apply_buff(self,value)
 	if value.effect_type==Effect.TYPE.ATTACK:
+		EventBus.emit_test(["受到",str(value.effect_value),"点伤害"])
 		health -= value.effect_value
 		attack.emit(value.effect_value)
 	elif(value.effect_type==Effect.TYPE.HEAL):
+		EventBus.emit_test(["获得",str(value.effect_value),"点治疗"])
 		health += value.effect_value
 		heal.emit(value.effect_value)
 

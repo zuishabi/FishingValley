@@ -97,11 +97,9 @@ func battle_account():
 	if fish_stats.current_max_strength-progress_bar.value >= stantard_attack :
 		var new_effect = Effect.new(Effect.TYPE.ATTACK,fish_stats.current_attack)
 		player_stats.process_effect(new_effect)
-		print("player is attacked,health:"+str(player_stats.health))
 	else:
 		var new_effect = Effect.new(Effect.TYPE.ATTACK,player_stats.current_attack)
 		fish_stats.process_effect(new_effect)
-		print("fish is attacked,health:"+str(fish_stats.health))
 	if player_stats.health == 0 :
 		BattleManager.on_battle_lose()
 	elif fish_stats.health == 0:

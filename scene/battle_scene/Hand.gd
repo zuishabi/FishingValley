@@ -5,6 +5,7 @@ extends HBoxContainer
 @onready var get_cd = $"../../GetCD"
 @onready var filter = $"../Filter"
 @onready var card_description = $"../CardDescription"
+@onready var fish_turn: Button = $"../FishTurn"
 
 var card_ui=preload("res://scene/cards/card_ui.tscn")
 
@@ -21,3 +22,4 @@ func get_cards():
 		get_cd.start()
 		await get_cd.timeout
 	filter.mouse_filter=2
+	fish_turn.show()

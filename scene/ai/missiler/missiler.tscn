@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctk7hgbsnlpy4"]
+[gd_scene load_steps=3 format=3 uid="uid://ctk7hgbsnlpy4"]
 
-[ext_resource type="Script" path="res://scene/ai/missiler/Missiler.gd" id="1_jextf"]
+[ext_resource type="Script" path="res://scene/ai/missiler/missiler.gd" id="1_ubxsf"]
+[ext_resource type="Script" path="res://scene/ai/missiler/heal.gd" id="2_e2v3f"]
 
 [node name="Missiler" type="Node"]
-script = ExtResource("1_jextf")
+script = ExtResource("1_ubxsf")
 
-[node name="Node" type="Node" parent="."]
+[node name="Heal" type="Node" parent="."]
+script = ExtResource("2_e2v3f")
+cost = 2
+action_name = "治疗术"
+action_type = 1
+weight = 5
+use_time = 2

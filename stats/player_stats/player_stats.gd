@@ -20,7 +20,7 @@ func reload():
 	if current_skill!= null:
 		current_skill.use_time -= 1
 		if current_skill.use_time == 0:
-			print("清除玩家技能")
+			print("已清除玩家技能")
 			current_skill = null
 	current_mana=base_max_mana
 	current_force=base_force

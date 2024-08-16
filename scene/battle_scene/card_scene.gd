@@ -59,3 +59,8 @@ func get_discard():
 		BattleManager.cards_inventory.append(i)
 	BattleManager.discard_hands.clear()
 	BattleManager.cards_inventory.shuffle()
+
+#当进入到鱼回合时
+func _on_fish_turn_pressed() -> void:
+	fish_ai.process_actions()
+	BattleManager.fish_trun_start.emit()

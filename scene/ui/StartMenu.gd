@@ -36,3 +36,4 @@ func _on_confirm_pressed():
 
 func _on_cancel_pressed():
 	Ui.update_ui("StartMenu")
+	EventBus.leave_fishing.emit()

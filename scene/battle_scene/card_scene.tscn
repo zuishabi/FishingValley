@@ -49,6 +49,13 @@ offset_right = 1102.0
 offset_bottom = 579.0
 text = "结束回合"
 
+[node name="FishTurn" type="Button" parent="CardUi"]
+offset_left = 984.0
+offset_top = 511.0
+offset_right = 1102.0
+offset_bottom = 579.0
+text = "鱼回合"
+
 [node name="Tips" type="PanelContainer" parent="CardUi"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,12 +92,12 @@ vertical_alignment = 1
 
 [node name="Filter" type="Control" parent="CardUi"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_right = 0.847222
 anchor_bottom = 1.0
 offset_top = 426.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CardDescription" type="PanelContainer" parent="CardUi"]
 anchors_preset = 8
@@ -160,3 +167,4 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="pressed" from="CardUi/NextRound" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="CardUi/FishTurn" to="." method="_on_fish_turn_pressed"]

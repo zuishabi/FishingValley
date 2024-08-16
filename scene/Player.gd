@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var progress_bar =$Ui/ProgressBar
 @onready var line_2d = $Line2D
+@onready var hook: Sprite2D = $hook
 
 @export var speed:int=200
 @export var face_direction:Vector2
@@ -24,6 +25,8 @@ signal cancel_fishing
 signal catch_fish
 
 func _ready():
+	EventBus.leave_fishing.connect(leave_fishing)
+	leave_fishing()
 	progress_bar.hide()
 	if(face_direction!=Vector2.ZERO):
 		direction=face_direction
@@ -37,7 +40,8 @@ func _input(event):
 	if(event.is_action_pressed("left_mouse")&&is_fishing):
 		if(can_catch):
 			catch_fish.emit()
-		leave_fishing()
+		else:
+			leave_fishing()
 	if(event.is_action_released("left_mouse")&&preparing):
 		animation_tree["parameters/fishing/blend_position"]=face_direction
 		is_fishing=true
@@ -52,7 +56,7 @@ func _input(event):
 		progress_bar.value=0
 
 func _process(delta):
-	if(Input.is_action_pressed("left_mouse")&&can_fish&&Inventory.inventory[Inventory.focused_index] is FishingPole):
+	if(Input.is_action_pressed("left_mouse") && can_fish && Inventory.inventory[Inventory.focused_index] is FishingPole):
 		animation_tree["parameters/prepare/blend_position"]=face_direction
 		progress_bar.show()
 		preparing=true
@@ -80,14 +84,16 @@ func move():
 		is_moving=false
 
 func leave_fishing():
-	is_fishing=false
-	preparing=false
-	can_fish=false
+	is_fishing = false
+	preparing = false
+	can_fish = false
 	cancel_fishing.emit()
 	line_2d.clear_points()
 	var timer=get_tree().create_timer(0.3)
 	await timer.timeout
-	can_fish=true
+	can_fish = true
+	can_catch = false
 
 func add_line():
+	line_2d.add_point(Vector2(18,-45))
 	line_2d.add_point(fishing_point)

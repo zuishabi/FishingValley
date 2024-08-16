@@ -17,7 +17,8 @@ func _ready():
 	BattleManager.main_prepared.emit()
 
 func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
-	var tile_data:TileData=tile_map.get_cell_tile_data(layer,target_position)
+	var tile_layer:TileMapLayer = tile_map.get_child(layer)
+	var tile_data:TileData=tile_layer.get_cell_tile_data(target_position)
 	if tile_data:
 		return tile_data.get_custom_data(custom_data_layer)
 	else:
@@ -29,8 +30,8 @@ func get_next_fish(pos:Vector2):
 
 func process_fishing_request(target_pos:Vector2):
 	fishing_pos=target_pos
-	if(get_tile_data(tile_map.local_to_map(target_pos),0,"can_fishing")):
-		get_next_fish(tile_map.local_to_map(target_pos))
+	if(get_tile_data($TileMap/base.local_to_map(target_pos),0,"can_fishing")):
+		get_next_fish($TileMap/base.local_to_map(target_pos))
 		var rand_time:float=randf_range(5,10)
 		wait_time.wait_time=rand_time
 		wait_time.start()

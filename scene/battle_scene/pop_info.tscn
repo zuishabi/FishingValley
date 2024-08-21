@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://chyg08m163vs8"]
+
+[ext_resource type="Script" path="res://scene/battle_scene/pop_info.gd" id="1_5eteg"]
+
+[node name="PopInfo" type="PanelContainer"]
+custom_minimum_size = Vector2(140, 40)
+offset_right = 122.0
+offset_bottom = 10.0
+script = ExtResource("1_5eteg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true

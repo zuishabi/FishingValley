@@ -25,10 +25,9 @@ func _on_check_timeout():
 		sprite_2d.show()
 
 func _on_use_timeout():
-	print("stop")
 	can_effect = false
 	trigger_probability *= 0.5
-	fishing_container.current_speed = fishing_container.target_speed
+	fishing_container.is_moving = false
 	use_time -= 1
 	sprite_2d.hide()
 	if use_time > 0:
@@ -36,8 +35,7 @@ func _on_use_timeout():
 
 func effect():
 	sprite_2d.global_position = fish.global_position + Vector2.DOWN*18
-	fishing_container.current_speed = 300
-	print(fishing_container.current_speed)
+	fishing_container.target_speed = 400
 
 func _process(delta):
 	if can_effect:

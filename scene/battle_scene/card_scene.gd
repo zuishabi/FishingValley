@@ -1,6 +1,5 @@
 extends Node2D
 
-enum test {S,A}
 @onready var battle:Battle = $".."
 @onready var hand = $CardUi/Hand
 @onready var mana = $CardUi/Mana
@@ -64,3 +63,7 @@ func get_discard():
 func _on_fish_turn_pressed() -> void:
 	fish_ai.process_actions()
 	BattleManager.fish_trun_start.emit()
+
+func _on_filter_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse") && $CardUi/Filter.mouse_filter == 0:
+		BattleManager.emit_info.emit("不在你的回合内",get_global_mouse_position())

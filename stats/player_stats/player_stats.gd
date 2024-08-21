@@ -9,7 +9,8 @@ signal mana_changed
 
 var current_max_endurance:float
 var current_force:float
-var current_skill:Skill
+var main_skill:Skill
+var passiva_skills:Array[Skill]
 var current_mana:int:
 	set(value):
 		current_mana=value
@@ -17,18 +18,27 @@ var current_mana:int:
 
 func reload():
 	super.reload()
-	if current_skill!= null:
-		current_skill.use_time -= 1
-		if current_skill.use_time == 0:
-			print("已清除玩家技能")
-			current_skill = null
+	if main_skill!= null:
+		main_skill.use_time -= 1
+		if main_skill.use_time == 0:
+			print("已清除玩家主要技能")
+			main_skill = null
+	for i in passiva_skills:
+		i.use_time -= 1
+		if i.use_time == 0:
+			print("已清除玩家被动技能")
+			passiva_skills.erase(i)
 	current_mana=base_max_mana
 	current_force=base_force
 	current_max_endurance=base_max_endurance
 
 func add_skill(skill:Skill)->bool:
-	if current_skill != null:
-		return false
+	if skill.type == Skill.SKILLTYPE.MAIN:
+		if main_skill != null:
+			return false
+		else:
+			main_skill = skill
+			return true
 	else:
-		current_skill = skill
+		passiva_skills.append(skill)
 		return true

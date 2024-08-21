@@ -2,16 +2,19 @@ class_name Battle
 extends Node2D
 
 #当前回合，如果为1则是钓鱼回合，0为卡牌回合
-var current_round:int=0
-var fishing_container=load("res://scene/battle_scene/fishing_container.tscn")
-var card_scene=load("res://scene/battle_scene/card_scene.tscn")
+var current_round:int = 0
+var fishing_container = load("res://scene/battle_scene/fishing_container.tscn")
+var card_scene = load("res://scene/battle_scene/card_scene.tscn")
+var pop_info = preload("res://scene/battle_scene/pop_info.tscn")
 var player_stats:PlayerStats
 var fish_stats:FishStats
 
 @onready var player_health = $BattleUI/PlayerHealth
 @onready var fish_health = $BattleUI/FishHealth
+@onready var battle_ui: CanvasLayer = $BattleUI
 
 func _ready():
+	BattleManager.emit_info.connect(on_info_poped)
 	player_stats = BattleManager.player_stats as PlayerStats
 	fish_stats = BattleManager.current_fish.fish_stats as FishStats
 	player_health.max_value = player_stats.max_health
@@ -42,3 +45,8 @@ func on_player_health_chaned(value:int):
 
 func on_fish_health_changed(value:int):
 	fish_health.value = value
+
+func on_info_poped(info:String,pos:Vector2):
+	var new_pop = pop_info.instantiate()
+	battle_ui.add_child(new_pop)
+	new_pop.pop(info,pos)

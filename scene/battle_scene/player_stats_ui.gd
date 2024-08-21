@@ -24,9 +24,11 @@ func changed_container(id:int):
 	if id == 0:
 		buff_container.hide()
 		player_stats_container.show()
-	else:
+	elif id == 1:
 		buff_container.show()
 		player_stats_container.hide()
+	else:
+		pass
 
 func update_stats_information():
 	%StatsUnit.update_info(player_stats.base_attack,player_stats.current_attack)
@@ -47,3 +49,6 @@ func _on_player_stats_pressed():
 
 func _on_buff_pressed():
 	changed_container(1)
+
+func _on_skill_pressed() -> void:
+	changed_container(2)

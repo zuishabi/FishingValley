@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="B_PowerPropulsion" load_steps=2 format=3 uid="uid://dpfqq7esf6w47"]
+
+[ext_resource type="Script" path="res://battle_elements/buff/scripts/power_propulsion.gd" id="1_whksv"]
+
+[resource]
+script = ExtResource("1_whksv")
+use_time = 1
+name = "动力推进"
+description = "获得0.5速度加成"

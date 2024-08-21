@@ -2,9 +2,7 @@ extends BaseAi
 
 func can_use() -> bool:
 	if super.can_use():
-		if float(fish_stats.health) <= float(fish_stats.max_health) * 0.9:
-			print(fish_stats.max_health * 0.9)
-			print(fish_stats.health)
+		if float(fish_stats.health) <= float(fish_stats.max_health) * 0.5:
 			return true
 		else:
 			return false

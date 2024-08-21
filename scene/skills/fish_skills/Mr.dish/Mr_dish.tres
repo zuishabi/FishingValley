@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_kvtmd")
-use_time = 0
+use_time = -1
 skill_scene = "res://scene/skills/fish_skills/Mr.dish/mr_dish.tscn"
 skill_name = "喷射！"
 skill_description = "喷射出白色的液体吧"
+type = 0

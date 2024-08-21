@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8lojv82xtimu"]
+[gd_scene load_steps=3 format=3 uid="uid://b8lojv82xtimu"]
 
-[ext_resource type="Script" path="res://StatsUnit.gd" id="1_nrxn4"]
+[ext_resource type="Script" path="res://scene/battle_scene/stats_unit.gd" id="1_rxsi4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8op8l"]
+font_size = 10
 
 [node name="StatsUnit" type="HBoxContainer"]
 custom_minimum_size = Vector2(90, 40)
 offset_right = 90.0
 offset_bottom = 40.0
-script = ExtResource("1_nrxn4")
+script = ExtResource("1_rxsi4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
@@ -22,8 +25,8 @@ vertical_alignment = 1
 [node name="ExtraLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 10
+label_settings = SubResource("LabelSettings_8op8l")
 horizontal_alignment = 1
 vertical_alignment = 1
 

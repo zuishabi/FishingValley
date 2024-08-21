@@ -1,17 +1,17 @@
 [gd_scene load_steps=13 format=4]
 
-[ext_resource type="Script" path="res://scene/main.gd" id="1_pj58l"]
-[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_4jtf4"]
-[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_mxlkd"]
-[ext_resource type="PackedScene" path="res://scene/player.tscn" id="4_bn3rx"]
-[ext_resource type="Script" path="res://scene/Player.gd" id="5_xf2dy"]
-[ext_resource type="Resource" path="res://stats/player_stats/player_stats.tres" id="6_fcnh1"]
-[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="7_wg8cy"]
-[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="8_hvwwy"]
-[ext_resource type="Script" path="res://scene/ui/ui.gd" id="9_0sed7"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_m45nj"]
+[ext_resource type="Texture2D" path="res://arts/tileset/gentle forest v01.png" id="2_myg8m"]
+[ext_resource type="Texture2D" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="3_du0uw"]
+[ext_resource type="PackedScene" path="res://scene/player.tscn" id="4_mtifq"]
+[ext_resource type="Script" path="res://scene/Player.gd" id="5_0vyvi"]
+[ext_resource type="Resource" path="res://stats/player_stats/player_stats.tres" id="6_w10xg"]
+[ext_resource type="Texture2D" path="res://arts/gui/ding.png" id="7_em5gl"]
+[ext_resource type="PackedScene" path="res://scene/ui/ui.tscn" id="8_bu5hn"]
+[ext_resource type="Script" path="res://scene/ui/ui.gd" id="9_2vnde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s10uv"]
-texture = ExtResource("2_4jtf4")
+texture = ExtResource("2_myg8m")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
@@ -508,7 +508,7 @@ texture = ExtResource("2_4jtf4")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3krv1"]
-texture = ExtResource("3_mxlkd")
+texture = ExtResource("3_du0uw")
 0:0/animation_frame_0/duration = 0.5
 0:0/animation_frame_1/duration = 0.5
 0:0/animation_frame_2/duration = 0.5
@@ -537,7 +537,7 @@ sources/0 = SubResource("TileSetAtlasSource_s10uv")
 sources/1 = SubResource("TileSetAtlasSource_3krv1")
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_pj58l")
+script = ExtResource("1_m45nj")
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -551,15 +551,15 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AABvAAYAAQAAAAAAAABvAAcAAQAAAAAAAABvAAgAAQAAAAAAAABvAAkAAQAAAAAAAABvAAoAAQAAAAAAAABvAAsAAQAAAAAAAABuAAsAAQAAAAAAAABuAAwAAQAAAAAAAABuAA0AAQAAAAAAAABtAA0AAQAAAAAAAABtAA4AAQAAAAAAAABtAA8AAQAAAAAAAABtABAAAQAAAAAAAABtABEAAQAAAAAAAABtAAwAAQAAAAAAAABtABIAAQAAAAAAAABuABIAAQAAAAAAAABuABMAAQAAAAAAAABtABMAAQAAAAAAAABuABEAAQAAAAAAAABuABAAAQAAAAAAAABuAA8AAQAAAAAAAABuAA4AAQAAAAAAAABtABQAAQAAAAAAAABuABQAAQAAAAAAAABuABUAAQAAAAAAAABtABUAAQAAAAAAAABtABYAAQAAAAAAAABuABYAAQAAAAAAAABuABcAAQAAAAAAAABvABcAAQAAAAAAAABvABYAAQAAAAAAAABvABUAAQAAAAAAAABvABQAAQAAAAAAAABvABMAAQAAAAAAAABvABIAAQAAAAAAAABvABEAAQAAAAAAAABvABAAAQAAAAAAAABvAA8AAQAAAAAAAABvAA4AAQAAAAAAAABvAA0AAQAAAAAAAABvAAwAAQAAAAAAAAB0AAoAAQAAAAAAAAB0AAsAAQAAAAAAAAB1AAsAAQAAAAAAAAB2AAwAAQAAAAAAAAB2AA0AAQAAAAAAAAB2AA4AAQAAAAAAAAB1AA4AAQAAAAAAAAB0AA4AAQAAAAAAAAB0AA0AAQAAAAAAAABzAA0AAQAAAAAAAABzAAwAAQAAAAAAAABzAAsAAQAAAAAAAAB1AAwAAQAAAAAAAAB1AA0AAQAAAAAAAAB2AAsAAQAAAAAAAAB0AAwAAQAAAAAAAAB1AAoAAQAAAAAAAAB1AAkAAQAAAAAAAAB2AAkAAQAAAAAAAAB3AAkAAQAAAAAAAAB3AAoAAQAAAAAAAAB2AAoAAQAAAAAAAAB1AAgAAQAAAAAAAAB2AAgAAQAAAAAAAAB3AAgAAQAAAAAAAAB4AAkAAQAAAAAAAAB4AAoAAQAAAAAAAAB4AAgAAQAAAAAAAAB5AAgAAQAAAAAAAAB5AAkAAQAAAAAAAAB5AAoAAQAAAAAAAAB5AAsAAQAAAAAAAAB4AAsAAQAAAAAAAAB4AAwAAQAAAAAAAAB3AAwAAQAAAAAAAAB3AAsAAQAAAAAAAAB4AA0AAQAAAAAAAABwAA0AAQAAAAAAAABwAAwAAQAAAAAAAABwAAsAAQAAAAAAAABwAAoAAQAAAAAAAABwAAkAAQAAAAAAAABwAAgAAQAAAAAAAABwAAcAAQAAAAAAAABwAAYAAQAAAAEAAABwAAUAAQAAAAEAAABwAA4AAQAAAAAAAABwAA8AAQAAAAAAAABwABAAAQAAAAAAAABwABEAAQAAAAAAAABwABIAAQAAAAAAAABwABMAAQAAAAAAAABwABQAAQAAAAAAAABwABUAAQAAAAAAAABwABYAAQAAAAAAAABwABcAAQAAAAAAAABwABgAAQAAAAAAAABvABgAAQAAAAIAAABxAAcAAQAAAAAAAABxAAgAAQAAAAAAAABxAAkAAQAAAAAAAABxAAoAAQAAAAAAAABxAAsAAQAAAAAAAABxAAwAAQAAAAAAAABxAAYAAQAAAAAAAAByAAcAAQAAAAAAAAByAAgAAQAAAAAAAABzAAgAAQAAAAAAAABzAAkAAQAAAAAAAABzAAoAAQAAAAAAAAByAAoAAQAAAAAAAAByAAsAAQAAAAAAAAByAAkAAQAAAAAAAAByAAwAAQAAAAAAAAB0AAkAAQAAAAAAAAB0AAgAAQAAAAAAAAByAA0AAQAAAAAAAAByAA4AAQAAAAAAAABxAA4AAQAAAAAAAABxAA8AAQAAAAAAAABxAA0AAQAAAAAAAAByAA8AAQAAAAAAAABxABAAAQAAAAAAAABxABEAAQAAAAAAAABxABIAAQAAAAAAAABxABMAAQAAAAAAAABxABQAAQAAAAAAAABxABUAAQAAAAAAAABxABYAAQAAAAAAAABxABcAAQAAAAAAAABxABgAAQAAAAAAAABxABkAAQAAAAAAAAByABkAAQAAAAAAAAByABgAAQAAAAAAAAByABcAAQAAAAAAAABzABgAAQAAAAAAAABzABcAAQAAAAAAAABzABYAAQAAAAAAAAByABYAAQAAAAAAAAByABUAAQAAAAAAAAByABQAAQAAAAAAAAByABMAAQAAAAAAAAByABIAAQAAAAAAAAByABEAAQAAAAAAAAByABAAAQAAAAAAAABzABAAAQAAAAAAAABzABEAAQAAAAAAAABzABIAAQAAAAAAAABzABMAAQAAAAAAAABzAA8AAQAAAAAAAABzAA4AAQAAAAAAAABxAAUAAQAAAAAAAAByAAUAAQAAAAAAAAByAAYAAQAAAAAAAABzAAYAAQAAAAAAAABzAAcAAQAAAAAAAAB0AAcAAQAAAAAAAAB1AAcAAQAAAAAAAAB2AAcAAQAAAAAAAAB3AAcAAQAAAAAAAAB0AAYAAQAAAAAAAAB1AAYAAQAAAAAAAAB2AAYAAQAAAAAAAAB3AAYAAQAAAAAAAAB2AAUAAQAAAAAAAAB1AAUAAQAAAAAAAAB3AAUAAQAAAAAAAAB4AAUAAQAAAAAAAAB4AAYAAQAAAAAAAAB4AAcAAQAAAAAAAAB0AA8AAQAAAAAAAAB0ABAAAQAAAAAAAAB3AA0AAQAAAAAAAAB1AA8AAQAAAAAAAAB0ABEAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_etb5f")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("4_bn3rx")]
-position = Vector2(1712, 312)
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("4_mtifq")]
+position = Vector2(1695.34, 312)
 scale = Vector2(0.7, 0.7)
 collision_mask = 3
-script = ExtResource("5_xf2dy")
+script = ExtResource("5_0vyvi")
 speed = 200
 face_direction = Vector2(1, 0)
-fishing_point = Vector2(147, 0)
-player_stats = ExtResource("6_fcnh1")
+fishing_point = Vector2(91.5, 0)
+player_stats = ExtResource("6_w10xg")
 metadata/_edit_lock_ = true
 
 [node name="Ui" type="Control" parent="."]
@@ -571,12 +571,12 @@ offset_bottom = 40.0
 [node name="Ding" type="TextureRect" parent="Ui"]
 visible = false
 layout_mode = 0
-offset_left = 1859.0
+offset_left = 1786.84
 offset_top = 302.0
-offset_right = 1899.0
+offset_right = 1826.84
 offset_bottom = 342.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_wg8cy")
+texture = ExtResource("7_em5gl")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -585,12 +585,12 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WaitTime" type="Timer" parent="Timers"]
-wait_time = 5.04122
+wait_time = 8.6264
 one_shot = true
 
-[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("8_hvwwy")]
+[node name="UI" type="CanvasLayer" parent="." instance=ExtResource("8_bu5hn")]
 process_mode = 3
-script = ExtResource("9_0sed7")
+script = ExtResource("9_2vnde")
 
 [connection signal="timeout" from="Timers/CanCatchTime" to="." method="_on_can_catch_time_timeout"]
 [connection signal="timeout" from="Timers/WaitTime" to="." method="_on_wait_time_timeout"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="B_Harden" load_steps=2 format=3 uid="uid://c3rggnenncryc"]
+
+[ext_resource type="Script" path="res://battle_elements/buff/scripts/harden.gd" id="1_2u8i6"]
+
+[resource]
+script = ExtResource("1_2u8i6")
+use_time = 1
+name = "变硬"
+description = "提升自身防御值10点"

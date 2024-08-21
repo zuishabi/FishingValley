@@ -14,10 +14,12 @@ signal battle_lose
 signal main_prepared
 signal update_player_stats_ui
 signal update_buff_ui
+signal update_skill_ui
 signal fish_turn
 signal fish_trun_start
 signal fish_trun_end
 signal emit_fish_skill_info(info:String)
+signal emit_info(info:String,pos:Vector2)
 
 var fish_skill_time:Dictionary
 

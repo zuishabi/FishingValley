@@ -6,6 +6,7 @@ var min_cost:int
 var chanced_actions:Array[BaseAi]
 var conditioned_actions:Array[BaseAi]
 var final_actions:Array[BaseAi]
+var start_pos:Vector2 = Vector2(830,150)
 
 func _ready() -> void:
 	if !BattleManager.has_registered:
@@ -17,9 +18,18 @@ func _ready() -> void:
 	fish_stats.current_action_point = fish_stats.max_action_point
 	BattleManager.fish_turn.connect(process_action)
 	get_initial_actions()
+	print("初始化行为")
+	print("chanced_actions")
+	print(chanced_actions)
+	print("conditioned_actions")
+	print(conditioned_actions)
 	process_conditioned_actions()
+	print("处理条件行为")
+	print(final_actions)
 	if fish_stats.current_action_point > 0:
 		process_chanced_actions()
+		print("处理随机行为")
+		print(final_actions)
 
 func get_initial_actions():
 	for i:BaseAi in get_children():
@@ -46,25 +56,27 @@ func process_chanced_actions():
 		total_weight += i.weight
 	while (chanced_actions.size() > 0):
 		var randi:int = randi_range(0,total_weight)
+		EventBus.emit_test(["当前随机值",str(randi)," 当前总权值",str(total_weight)])
 		for i:BaseAi in chanced_actions:
 			randi -= i.weight
 			if randi <= 0:
 				final_actions.append(i)
 				fish_stats.current_action_point -= i.cost
 				chanced_actions.erase(i)
-				if i.cost == min_cost:
-					min_cost = chanced_actions.front()
+				if i.cost == min_cost && chanced_actions.size() != 0:
+					min_cost = chanced_actions.front().cost
 				if fish_stats.current_action_point < min_cost:
 					return
 				break
 
 func process_action():
 	final_actions.shuffle()
-	print(final_actions)
 	for i:BaseAi in final_actions:
-		var timer = get_tree().create_timer(0.5)
+		var timer = get_tree().create_timer(1)
 		i.effect()
 		BattleManager.emit_fish_skill_info.emit(i.action_name)
+		BattleManager.emit_info.emit(i.action_name,start_pos)
+		BattleManager.update_buff_ui.emit()
 		await timer.timeout
 	BattleManager.fish_trun_end.emit()
 

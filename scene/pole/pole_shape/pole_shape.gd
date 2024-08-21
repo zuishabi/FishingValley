@@ -5,3 +5,6 @@ extends CollisionShape2D
 
 func process():
 	pass
+
+func leave():
+	pass

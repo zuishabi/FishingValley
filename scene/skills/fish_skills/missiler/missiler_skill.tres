@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_cd3x0")
-use_time = 0
+use_time = 1
 skill_scene = "res://scene/skills/fish_skills/missiler/missiler_skill.tscn"
 skill_name = "火箭冲刺"
 skill_description = "向前冲刺吧！"
+type = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cc5t014cu6pqj"]
+
+[ext_resource type="Script" path="res://scene/skills/base_skill.gd" id="1_nlbhf"]
+
+[resource]
+script = ExtResource("1_nlbhf")
+use_time = 1
+skill_scene = "res://scene/skills/extra_skills/boom/boom.tscn"
+skill_name = "自爆警告"
+skill_description = "当有此buff时受到伤害将直接给予玩家20点攻击"

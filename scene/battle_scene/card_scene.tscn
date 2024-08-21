@@ -100,6 +100,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CardDescription" type="PanelContainer" parent="CardUi"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -168,3 +169,4 @@ one_shot = true
 
 [connection signal="pressed" from="CardUi/NextRound" to="." method="_on_next_round_pressed"]
 [connection signal="pressed" from="CardUi/FishTurn" to="." method="_on_fish_turn_pressed"]
+[connection signal="gui_input" from="CardUi/Filter" to="." method="_on_filter_gui_input"]

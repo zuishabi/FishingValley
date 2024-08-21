@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci6jrxlhscep"]
+
+[ext_resource type="Script" path="res://scene/battle_scene/skill_container.gd" id="1_lit5a"]
+
+[node name="SkillContainer" type="PanelContainer"]
+offset_right = 184.0
+offset_bottom = 128.0
+script = ExtResource("1_lit5a")
+
+[node name="SkillGrid" type="GridContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2

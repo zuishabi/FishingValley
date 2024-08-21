@@ -8,8 +8,3 @@ size = Vector2(60, 80)
 [node name="SpeedDown" type="CollisionShape2D"]
 shape = SubResource("RectangleShape2D_jvoev")
 script = ExtResource("1_hpkjc")
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

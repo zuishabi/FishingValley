@@ -24,7 +24,7 @@ func _ready():
 	battle=get_parent()
 	current_intent=BattleManager.current_fish.intent
 	current_intent.update_length.connect(func(len:float):length=len)
-	current_intent.update_speed.connect(func(speed:float):target_speed = speed ; current_speed = target_speed)
+	current_intent.update_speed.connect(func(speed:float):target_speed = speed)
 	current_intent.update_direction.connect(func(direction:int):target_direction=direction)
 	
 	#----------------------------加载玩家和鱼的统计数据，并处理他们的buff---------------------------------
@@ -50,6 +50,8 @@ func _ready():
 		player_skill.load_skill(player_stats.current_skill)
 	if BattleManager.current_fish.skill != null:
 		fish_skill.load_skill(BattleManager.current_fish.skill)
+	for i in fish_stats.extra_skills:
+		fish_skill.load_skill(i)
 
 #处理鱼的移动
 func _process(delta):
@@ -61,6 +63,7 @@ func _process(delta):
 			target_direction=1
 		is_moving=true
 	if(length>0):
+		current_speed = target_speed * fish_stats.speed_multiplier
 		fish.move(current_speed*target_direction*delta)
 		length-=abs(current_speed)*delta
 	else:
@@ -69,10 +72,12 @@ func _process(delta):
 #处理钓竿
 func _physics_process(delta):
 	flag=false
+	#吊钩有接触，更新进度条，同时调用最新覆盖的钓竿的效果
 	if(overlapping_list.size()!=0):
 		fish_stats.current_progress = clampf(fish_stats.current_progress + 0.1,0,100)
 		overlapping_list[0].process()
 		flag=true
+	#吊钩无接触
 	if(!flag):
 		fish_stats.current_progress = clampf(fish_stats.current_progress - 0.2,0,100)
 	progress_bar.value = fish_stats.current_progress
@@ -91,6 +96,7 @@ func _on_fish_body_shape_entered(body_rid, body, body_shape_index, local_shape_i
 
 func _on_fish_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	overlapping_list.erase(pole_body.get_child(body_shape_index+1))
+	pole_body.get_child(body_shape_index+1).leave()
 
 func battle_account():
 	var stantard_attack:float = fish_stats.current_max_strength/2 - fish_stats.current_armor + player_stats.current_armor

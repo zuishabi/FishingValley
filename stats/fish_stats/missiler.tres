@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_st605")
 base_max_strength = 100.0
-max_action_point = 10
+max_action_point = 5
 max_health = 50
 base_armor = 0
 base_attack = 10

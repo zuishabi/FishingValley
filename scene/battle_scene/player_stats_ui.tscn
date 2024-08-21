@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://gd5gxjt3apk7"]
+[gd_scene load_steps=11 format=3 uid="uid://gd5gxjt3apk7"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/player_stats_ui.gd" id="1_1c1qk"]
 [ext_resource type="PackedScene" uid="uid://b8lojv82xtimu" path="res://scene/battle_scene/stats_unit.tscn" id="2_rg52q"]
-[ext_resource type="Script" path="res://scene/battle_scene/stats_unit.gd" id="3_n8pin"]
 [ext_resource type="Texture2D" uid="uid://cpk3srqq37dvb" path="res://arts/gui/base_sprites.png" id="3_plbqw"]
 [ext_resource type="PackedScene" uid="uid://cyybcjd1msgce" path="res://scene/battle_scene/buff_container.tscn" id="4_cfyat"]
 [ext_resource type="Script" path="res://scene/battle_scene/Description.gd" id="4_svuod"]
@@ -30,10 +29,11 @@ region = Rect2(0, 16, 16, 16)
 [node name="PlayerStatsUi" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 50.0
-offset_top = 94.0
+offset_left = 49.0
+offset_top = 93.0
 offset_right = 234.0
 offset_bottom = 230.0
+mouse_filter = 2
 script = ExtResource("1_1c1qk")
 
 [node name="MainPanel" type="PanelContainer" parent="."]
@@ -64,6 +64,11 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "buff"
 
+[node name="Skill" type="Button" parent="MainPanel/HBoxContainer/SideBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "技能"
+
 [node name="PlayerStatsContainer" type="PanelContainer" parent="MainPanel/HBoxContainer"]
 custom_minimum_size = Vector2(184, 128)
 layout_mode = 2
@@ -77,35 +82,30 @@ columns = 2
 [node name="StatsUnit" parent="MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid" instance=ExtResource("2_rg52q")]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("3_n8pin")
 description = "攻击力"
 texture = SubResource("AtlasTexture_c2uxt")
 
 [node name="StatsUnit2" parent="MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid" instance=ExtResource("2_rg52q")]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("3_n8pin")
 description = "防御力"
 texture = SubResource("AtlasTexture_cp65k")
 
 [node name="StatsUnit3" parent="MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid" instance=ExtResource("2_rg52q")]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("3_n8pin")
 description = "力量"
 texture = SubResource("AtlasTexture_j3qbm")
 
 [node name="StatsUnit4" parent="MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid" instance=ExtResource("2_rg52q")]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("3_n8pin")
 description = "最大生命值"
 texture = SubResource("AtlasTexture_coti0")
 
 [node name="StatsUnit5" parent="MainPanel/HBoxContainer/PlayerStatsContainer/StatsGrid" instance=ExtResource("2_rg52q")]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("3_n8pin")
 description = "最大耐力"
 texture = SubResource("AtlasTexture_6myvc")
 
@@ -128,3 +128,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="MainPanel/HBoxContainer/SideBar/VBoxContainer/PlayerStats" to="." method="_on_player_stats_pressed"]
 [connection signal="pressed" from="MainPanel/HBoxContainer/SideBar/VBoxContainer/Buff" to="." method="_on_buff_pressed"]
+[connection signal="pressed" from="MainPanel/HBoxContainer/SideBar/VBoxContainer/Skill" to="." method="_on_skill_pressed"]

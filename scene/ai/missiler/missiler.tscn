@@ -1,15 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctk7hgbsnlpy4"]
+[gd_scene load_steps=7 format=3 uid="uid://ctk7hgbsnlpy4"]
 
 [ext_resource type="Script" path="res://scene/ai/missiler/missiler.gd" id="1_ubxsf"]
 [ext_resource type="Script" path="res://scene/ai/missiler/heal.gd" id="2_e2v3f"]
+[ext_resource type="Script" path="res://scene/ai/missiler/boom.gd" id="3_3tprk"]
+[ext_resource type="Script" path="res://scene/ai/missiler/power_propulsion.gd" id="4_2lybw"]
+[ext_resource type="Script" path="res://scene/ai/missiler/provoke.gd" id="5_jxde1"]
+[ext_resource type="Script" path="res://scene/ai/missiler/harden.gd" id="6_ujdii"]
 
 [node name="Missiler" type="Node"]
 script = ExtResource("1_ubxsf")
 
 [node name="Heal" type="Node" parent="."]
 script = ExtResource("2_e2v3f")
-cost = 2
+cost = 5
 action_name = "治疗术"
 action_type = 1
 weight = 5
-use_time = 2
+use_time = 1
+
+[node name="Boom" type="Node" parent="."]
+script = ExtResource("3_3tprk")
+cost = 5
+action_name = "自爆警告"
+action_type = 1
+weight = 5
+use_time = 1
+
+[node name="PowerPropulsion" type="Node" parent="."]
+script = ExtResource("4_2lybw")
+cost = 5
+action_name = "动力推进"
+weight = 2
+use_time = -1
+
+[node name="Provoke" type="Node" parent="."]
+script = ExtResource("5_jxde1")
+cost = 5
+action_name = "冲撞"
+weight = 1
+use_time = 1
+
+[node name="Harden" type="Node" parent="."]
+script = ExtResource("6_ujdii")
+cost = 5
+action_name = "硬化"
+weight = 1
+use_time = -1

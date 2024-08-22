@@ -1,14 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci6jrxlhscep"]
+[gd_scene load_steps=3 format=3 uid="uid://ci6jrxlhscep"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/skill_container.gd" id="1_lit5a"]
+[ext_resource type="Script" path="res://scene/battle_scene/skill_description.gd" id="2_oqo3g"]
 
 [node name="SkillContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(184, 128)
 offset_right = 184.0
 offset_bottom = 128.0
 script = ExtResource("1_lit5a")
 
 [node name="SkillGrid" type="GridContainer" parent="."]
 layout_mode = 2
+columns = 4
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="SkillDescription" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_oqo3g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SkillDescription"]
+layout_mode = 2
+
+[node name="SkillName" type="Label" parent="Control/SkillDescription/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="Control/SkillDescription/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 10
+fit_content = true

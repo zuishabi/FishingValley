@@ -4,4 +4,3 @@ extends CanvasLayer
 
 func _ready():
 	fish_texure.texture=BattleManager.current_fish.fish_texture
-	$BuffContainer.init(BattleManager.current_fish.fish_stats)

@@ -26,7 +26,6 @@ func update_info(base_value:float,current_value:float=-1):
 		extra_label.text = "-"+str(base_value-current_value)
 	else:
 		extra_label.text = ""
-	EventBus.emit_test(["当前id",str(id),"当前颜色",str(extra_label.label_settings.font_color)])
 
 func _on_texture_rect_mouse_entered():
 	mouse_enter.emit(id)

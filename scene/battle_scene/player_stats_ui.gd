@@ -6,10 +6,12 @@ var player_stats:PlayerStats
 @onready var stats_description = $StatsDescription
 @onready var player_stats_container = $MainPanel/HBoxContainer/PlayerStatsContainer
 @onready var buff_container = $MainPanel/HBoxContainer/BuffContainer
+@onready var skill_container = $MainPanel/HBoxContainer/SkillContainer
 
 func _ready():
 	player_stats_container.show()
 	buff_container.hide()
+	skill_container.hide()
 	player_stats = BattleManager.player_stats
 	BattleManager.update_player_stats_ui.connect(update_stats_information)
 	var id:int = 0
@@ -18,17 +20,24 @@ func _ready():
 		id += 1
 		i.mouse_enter.connect(show_stats_description)
 		i.mouse_exit.connect(hide_stats_description)
+	
+	#给buff容器和技能容器初始化给定玩家统计数据
 	buff_container.init(player_stats)
+	skill_container.init(player_stats)
 
 func changed_container(id:int):
 	if id == 0:
 		buff_container.hide()
+		skill_container.hide()
 		player_stats_container.show()
 	elif id == 1:
 		buff_container.show()
+		skill_container.hide()
 		player_stats_container.hide()
 	else:
-		pass
+		skill_container.show()
+		buff_container.hide()
+		player_stats_container.hide()
 
 func update_stats_information():
 	%StatsUnit.update_info(player_stats.base_attack,player_stats.current_attack)
@@ -50,5 +59,5 @@ func _on_player_stats_pressed():
 func _on_buff_pressed():
 	changed_container(1)
 
-func _on_skill_pressed() -> void:
+func _on_skill_pressed():
 	changed_container(2)

@@ -46,8 +46,8 @@ func _ready():
 	progress_bar.value=0
 	
 	#------------------------------------------加载技能----------------------------------------------
-	if player_stats.current_skill != null:
-		player_skill.load_skill(player_stats.current_skill)
+	if player_stats.main_skill != null:
+		player_skill.load_skill(player_stats.main_skill)
 	if BattleManager.current_fish.skill != null:
 		fish_skill.load_skill(BattleManager.current_fish.skill)
 	for i in fish_stats.extra_skills:

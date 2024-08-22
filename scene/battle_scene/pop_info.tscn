@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://scene/battle_scene/pop_info.gd" id="1_5eteg"]
 
 [node name="PopInfo" type="PanelContainer"]
+z_index = 5
 custom_minimum_size = Vector2(140, 40)
 offset_right = 122.0
 offset_bottom = 10.0
+mouse_filter = 2
 script = ExtResource("1_5eteg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

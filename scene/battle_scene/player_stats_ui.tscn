@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://gd5gxjt3apk7"]
+[gd_scene load_steps=12 format=3 uid="uid://gd5gxjt3apk7"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/player_stats_ui.gd" id="1_1c1qk"]
 [ext_resource type="PackedScene" uid="uid://b8lojv82xtimu" path="res://scene/battle_scene/stats_unit.tscn" id="2_rg52q"]
 [ext_resource type="Texture2D" uid="uid://cpk3srqq37dvb" path="res://arts/gui/base_sprites.png" id="3_plbqw"]
 [ext_resource type="PackedScene" uid="uid://cyybcjd1msgce" path="res://scene/battle_scene/buff_container.tscn" id="4_cfyat"]
 [ext_resource type="Script" path="res://scene/battle_scene/Description.gd" id="4_svuod"]
+[ext_resource type="PackedScene" uid="uid://ci6jrxlhscep" path="res://scene/battle_scene/skill_container.tscn" id="5_8wkgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2uxt"]
 atlas = ExtResource("3_plbqw")
@@ -27,6 +28,7 @@ atlas = ExtResource("3_plbqw")
 region = Rect2(0, 16, 16, 16)
 
 [node name="PlayerStatsUi" type="Control"]
+custom_minimum_size = Vector2(185, 137)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 49.0
@@ -110,7 +112,13 @@ description = "最大耐力"
 texture = SubResource("AtlasTexture_6myvc")
 
 [node name="BuffContainer" parent="MainPanel/HBoxContainer" instance=ExtResource("4_cfyat")]
+visible = false
 layout_mode = 2
+
+[node name="SkillContainer" parent="MainPanel/HBoxContainer" instance=ExtResource("5_8wkgs")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="StatsDescription" type="PanelContainer" parent="."]
 layout_mode = 2

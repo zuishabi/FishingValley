@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ymjtwjuyb0n"]
+[gd_scene load_steps=6 format=3 uid="uid://c4ymjtwjuyb0n"]
 
 [ext_resource type="Script" path="res://scene/battle_scene/battle.gd" id="1_vui34"]
 [ext_resource type="Texture2D" uid="uid://dw2h5qndojpoq" path="res://arts/gui/battlebackground.png" id="2_jldal"]
 [ext_resource type="Script" path="res://scene/battle_scene/battle_ui.gd" id="3_ghyxn"]
 [ext_resource type="PackedScene" uid="uid://gd5gxjt3apk7" path="res://scene/battle_scene/player_stats_ui.tscn" id="4_wr54i"]
+[ext_resource type="PackedScene" uid="uid://kfriwiujuk1b" path="res://scene/battle_scene/fish_stats_ui.tscn" id="5_nvw57"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_vui34")
@@ -21,7 +22,6 @@ metadata/_edit_lock_ = true
 
 [node name="BattleUI" type="CanvasLayer" parent="."]
 process_mode = 3
-layer = 0
 script = ExtResource("3_ghyxn")
 
 [node name="Main" type="Control" parent="BattleUI"]
@@ -31,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Fish" type="PanelContainer" parent="BattleUI/Main"]
@@ -62,3 +63,12 @@ offset_left = 64.0
 offset_top = 92.0
 offset_right = 248.0
 offset_bottom = 228.0
+
+[node name="FishStatsUi" parent="BattleUI" instance=ExtResource("5_nvw57")]
+offset_left = 867.0
+offset_top = 73.0
+offset_right = 867.0
+offset_bottom = 73.0
+
+[node name="TipsUi" type="CanvasLayer" parent="."]
+layer = 2

@@ -12,6 +12,7 @@ var fish_stats:FishStats
 @onready var player_health = $BattleUI/PlayerHealth
 @onready var fish_health = $BattleUI/FishHealth
 @onready var battle_ui: CanvasLayer = $BattleUI
+@onready var tips_ui = $TipsUi
 
 func _ready():
 	BattleManager.emit_info.connect(on_info_poped)
@@ -48,5 +49,5 @@ func on_fish_health_changed(value:int):
 
 func on_info_poped(info:String,pos:Vector2):
 	var new_pop = pop_info.instantiate()
-	battle_ui.add_child(new_pop)
+	tips_ui.add_child(new_pop)
 	new_pop.pop(info,pos)

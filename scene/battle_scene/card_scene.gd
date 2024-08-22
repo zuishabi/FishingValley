@@ -17,6 +17,7 @@ func _ready():
 	fish_stats.reload()
 	BattleManager.update_player_stats_ui.emit()
 	BattleManager.update_buff_ui.emit()
+	BattleManager.update_skill_ui.emit()
 	fish_ai.set_ai()
 	get_cards()
 	hand.get_cards()
@@ -37,6 +38,7 @@ func process_use_request(card_ui:CardUi):
 		hand_cards.erase(card)
 		card_ui.queue_free()
 		BattleManager.update_buff_ui.emit()
+		BattleManager.update_skill_ui.emit()
 	else:
 		card_ui.back_to_hand()
 

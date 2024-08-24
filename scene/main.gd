@@ -11,10 +11,14 @@ var next_fish:Fish#下一条鱼
 var fishing_pos:Vector2#鱼竿落点的位置
 
 func _ready():
+	Saver.load_game()
 	player.fishing_request.connect(process_fishing_request)
 	player.cancel_fishing.connect(cancel_fishing)
 	player.catch_fish.connect(on_fish_caught)
 	BattleManager.main_prepared.emit()
+	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
+	save_screen_shot()
 
 func get_tile_data(target_position:Vector2,layer:int,custom_data_layer:String):
 	var tile_layer:TileMapLayer = tile_map.get_child(layer)
@@ -68,6 +72,12 @@ func on_fish_caught():
 	save_scene()
 
 func save_scene():
-	var packed_scene:PackedScene=PackedScene.new()
-	packed_scene.pack($".")
-	ResourceSaver.save(packed_scene,"res://saved_scene/saved_main.tscn")
+	Saver.save_game()
+
+func _on_screen_shot_timeout():
+	save_screen_shot()
+
+func save_screen_shot():
+	EventBus.emit_test(["获取截图"])
+	var new_image:Image = get_viewport().get_texture().get_image()
+	Saver.current_archiving_information.game_texture = new_image

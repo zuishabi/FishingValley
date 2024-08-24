@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fishing Valley"
-run/main_scene="res://scene/main.tscn"
+run/main_scene="res://scene/ui/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,8 @@ Inventory="*res://global/inventory.gd"
 ObjectList="*res://objects/object_list/object_list.tscn"
 BattleManager="*res://global/battle_manager.tscn"
 Picker="*res://global/picker.tscn"
+Saver="*res://global/saver.gd"
+Utils="*res://global/utils.gd"
 
 [display]
 

@@ -10,6 +10,7 @@ func show_ui():
 
 func _ready():
 	high_light.global_position=inventory_slots.get_child(0).global_position
+	Saver.load_request.connect(load_game)
 	Inventory.inventory_changed.connect(update_slot)
 	for i in inventory_slots.get_children().size():
 		update_slot(i)
@@ -23,3 +24,7 @@ func _input(event:InputEvent):
 
 func update_slot(index:int):
 	inventory_slots.get_child(index).update_slot(index)
+
+func load_game(saved_game:Archiving):
+	for i in inventory_slots.get_children().size():
+		update_slot(i)

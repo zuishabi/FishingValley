@@ -11,6 +11,7 @@ var focused_index:int=0:
 
 func _ready():
 	inventory.resize(7)
+	Saver.load_request.connect(load_game)
 
 func change_index(direction:int):
 	focused_index=(focused_index+direction)%7
@@ -39,6 +40,7 @@ func add_card(card:Card)->bool:
 			return i.add_card(card)
 	return false
 
+#返回卡牌包的所有卡牌的副本
 func get_card_inventory()->Array[Card]:
 	var array:Array[Card]
 	for i in inventory:
@@ -74,3 +76,6 @@ func find_available_inventory()->int:
 		if inventory[i]==null:
 			return i
 	return -1
+
+func load_game(saved_game:Archiving):
+	self.inventory = saved_game.inventory

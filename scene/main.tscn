@@ -578,7 +578,12 @@ one_shot = true
 [node name="WaitTime" type="Timer" parent="Timers"]
 one_shot = true
 
+[node name="ScreenShot" type="Timer" parent="Timers"]
+wait_time = 600.0
+autostart = true
+
 [node name="UI" parent="." instance=ExtResource("7_1p0ws")]
 
 [connection signal="timeout" from="Timers/CanCatchTime" to="." method="_on_can_catch_time_timeout"]
 [connection signal="timeout" from="Timers/WaitTime" to="." method="_on_wait_time_timeout"]
+[connection signal="timeout" from="Timers/ScreenShot" to="." method="_on_screen_shot_timeout"]

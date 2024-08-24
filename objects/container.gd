@@ -2,8 +2,7 @@ class_name BaseContainer
 extends Tool
 
 @export var max_size:int
-
-var inventory:Array[Item]
+@export var inventory:Array[Item]
 
 func get_current_size()->int:
 	var current_size:int=0

@@ -1,0 +1,201 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfkn6j2hi4rlh"]
+
+[ext_resource type="Texture2D" uid="uid://ckvvpt3jqulod" path="res://arts/gui/开始背景.png" id="1_a2chh"]
+[ext_resource type="Script" path="res://scene/ui/start_menu.gd" id="1_bp8dx"]
+[ext_resource type="Script" path="res://scene/ui/create_game.gd" id="3_vdb45"]
+[ext_resource type="Script" path="res://scene/ui/load_game_menu.gd" id="4_wt4ua"]
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_bp8dx")
+
+[node name="Main" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackGround" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a2chh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -39.0
+offset_right = 121.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LoadGame" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "加载游戏"
+
+[node name="CreateGame" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "创建游戏"
+
+[node name="Settings" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "设置"
+
+[node name="About" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "关于"
+
+[node name="Exit" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "退出游戏"
+
+[node name="Information" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -58.0
+offset_right = -26.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateGameMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_vdb45")
+
+[node name="PanelContainer" type="PanelContainer" parent="CreateGameMenu"]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreateGameMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreateGameMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "创建游戏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Name"]
+custom_minimum_size = Vector2(167, 40)
+layout_mode = 2
+text = "游戏名称"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLine" type="LineEdit" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bottom" type="HBoxContainer" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Create" type="Button" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "创建"
+
+[node name="Back" type="Button" parent="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "返回"
+
+[node name="LoadGameMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wt4ua")
+
+[node name="PanelContainer" type="PanelContainer" parent="LoadGameMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -266.0
+offset_right = 304.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LoadGameMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="LoadGameMenu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "返回"
+
+[connection signal="pressed" from="Main/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/CreateGame" to="." method="_on_create_game_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Bottom/Create" to="CreateGameMenu" method="_on_create_pressed"]
+[connection signal="pressed" from="CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Bottom/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="LoadGameMenu/PanelContainer/VBoxContainer/Back" to="." method="_on_load_back_pressed"]

@@ -43,12 +43,12 @@ func on_battle_win():
 	end_time=Time.get_ticks_msec()
 	var fish_item:FishItem=ObjectList.get_item(current_fish.fish_name)
 	final_loots.append(fish_item)
-	get_tree().change_scene_to_file("res://saved_scene/saved_main.tscn")
+	get_tree().change_scene_to_file("res://scene/main.tscn")
 	await main_prepared
 	battle_win.emit(fish_item)
 
 func on_battle_lose():
 	end_time=Time.get_ticks_msec()
-	get_tree().change_scene_to_file("res://saved_scene/saved_main.tscn")
+	get_tree().change_scene_to_file("res://scene/main.tscn")
 	await main_prepared
 	battle_lose.emit()

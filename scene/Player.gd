@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var animation_player = $AnimationPlayer
@@ -17,7 +18,9 @@ var is_moving:bool=false
 var is_fishing:bool=false
 var preparing:bool=false
 var adding:bool=true
+#是否可以钓鱼
 var can_fish:bool=true
+#是否可以钓上鱼
 var can_catch:bool=false
 
 signal fishing_request(pos:Vector2)
@@ -25,24 +28,23 @@ signal cancel_fishing
 signal catch_fish
 
 func _ready():
+	Saver.save_request.connect(process_save_request)
+	Saver.load_request.connect(load_game)
 	EventBus.leave_fishing.connect(leave_fishing)
 	leave_fishing()
 	progress_bar.hide()
-	if(face_direction!=Vector2.ZERO):
-		direction=face_direction
-		animation_tree["parameters/idle/blend_position"]=direction
 
 func _physics_process(delta):
 	if(can_move):
 		move()
 
 func _input(event):
-	if(event.is_action_pressed("left_mouse")&&is_fishing):
+	if(event.is_action_pressed("left_mouse") && is_fishing):
 		if(can_catch):
 			catch_fish.emit()
 		else:
 			leave_fishing()
-	if(event.is_action_released("left_mouse")&&preparing):
+	if(event.is_action_released("left_mouse") && preparing):
 		animation_tree["parameters/fishing/blend_position"]=face_direction
 		is_fishing=true
 		line_2d.clear_points()
@@ -97,3 +99,14 @@ func leave_fishing():
 func add_line():
 	line_2d.add_point(Vector2(18,-45))
 	line_2d.add_point(fishing_point)
+
+func process_save_request():
+	var new_data = PlayerData.new()
+	new_data.face_direction = face_direction
+	new_data.player_position = self.global_position
+	Saver.get_player_data(new_data)
+
+func load_game(saved_game:Archiving):
+	self.global_position = saved_game.player_position
+	self.face_direction = saved_game.face_direction
+	animation_tree["parameters/idle/blend_position"] = face_direction

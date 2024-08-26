@@ -11,9 +11,8 @@ var null_texture:Texture2D=preload("res://arts/gui/null.png")
 
 func _ready():
 	#当物品的聚焦位置改变时更新描述
-	Inventory.focus_changed.connect(update_description)
-	Inventory.focus_changed.emit()
 	self.hide()
+	Inventory.focus_changed.connect(update_description)
 
 func update_description():
 	for i in information_container.get_children():

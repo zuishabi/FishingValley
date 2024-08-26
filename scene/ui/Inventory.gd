@@ -23,6 +23,7 @@ func _input(event:InputEvent):
 			high_light.global_position=inventory_slots.get_child(Inventory.focused_index).global_position
 
 func update_slot(index:int):
+	print("更新背包格")
 	inventory_slots.get_child(index).update_slot(index)
 
 func load_game(saved_game:Archiving):

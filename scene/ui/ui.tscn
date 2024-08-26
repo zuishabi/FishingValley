@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciggg0qhoo6ap"]
+[gd_scene load_steps=19 format=3 uid="uid://ciggg0qhoo6ap"]
 
 [ext_resource type="Script" path="res://scene/ui/ui.gd" id="1_dlvsp"]
 [ext_resource type="Script" path="res://scene/ui/Inventory.gd" id="2_de5v5"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dsfe3mh2f8tio" path="res://arts/gui/equiped.png" id="14_l30rx"]
 [ext_resource type="Script" path="res://scene/ui/WinMenu.gd" id="16_1cqyh"]
 [ext_resource type="Script" path="res://scene/ui/LoseMenu.gd" id="17_2it11"]
+[ext_resource type="Script" path="res://scene/ui/inside_menu.gd" id="17_aa67y"]
 [ext_resource type="Texture2D" uid="uid://bbxcrep5x8nqd" path="res://arts/fishes/missiler.png" id="17_puuw4"]
+[ext_resource type="Script" path="res://scene/ui/talking.gd" id="18_ayw4v"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -658,6 +660,130 @@ offset_bottom = 187.0
 theme_override_font_sizes/font_size = 12
 text = "x"
 
+[node name="InsideMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_aa67y")
+
+[node name="PanelContainer" type="PanelContainer" parent="InsideMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 407.0
+offset_top = 177.0
+offset_right = -407.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InsideMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InsideMenu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "菜单"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="MarginContainer" parent="InsideMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="InsideMenu/PanelContainer/VBoxContainer/Back"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "返回游戏"
+
+[node name="Settings" type="MarginContainer" parent="InsideMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="InsideMenu/PanelContainer/VBoxContainer/Settings"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "设置"
+
+[node name="Save" type="MarginContainer" parent="InsideMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="InsideMenu/PanelContainer/VBoxContainer/Save"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "保存并返回主界面"
+
+[node name="Talking" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_ayw4v")
+
+[node name="PanelContainer" type="PanelContainer" parent="Talking"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = -250.0
+offset_right = -212.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Talking/PanelContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Talking/PanelContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="TextureRect" type="TextureRect" parent="Talking/PanelContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Talking/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Talking/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Talking/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SelectContainer" type="HBoxContainer" parent="Talking/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
 [connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
@@ -668,3 +794,7 @@ text = "x"
 [connection signal="pressed" from="WinMenu/PanelContainer/Information/Main/HBoxContainer/MarginContainer/Right" to="WinMenu" method="_on_right_pressed"]
 [connection signal="pressed" from="WinMenu/Button" to="WinMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="LoseMenu/Button" to="LoseMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="InsideMenu/PanelContainer/VBoxContainer/Back/Button" to="InsideMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="InsideMenu/PanelContainer/VBoxContainer/Settings/Button" to="InsideMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="InsideMenu/PanelContainer/VBoxContainer/Save/Button" to="InsideMenu" method="_on_save_pressed"]
+[connection signal="gui_input" from="Talking/PanelContainer" to="Talking" method="_on_h_box_container_gui_inpust"]

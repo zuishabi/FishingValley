@@ -14,6 +14,11 @@ func _on_create_pressed():
 			add_child(new_pop)
 			new_pop.pop("已存在同名存档",get_global_mouse_position() + Vector2.UP*10)
 			return
+	if name_line.text == "":
+		var new_pop = pop_info.instantiate()
+		add_child(new_pop)
+		new_pop.pop("存档名不为空",get_global_mouse_position() + Vector2.UP*10)
+		return
 	var new_archiving = ArchivingInformation.new()
 	new_archiving.archiving_name = name_line.text
 	Saver.current_archiving_information = new_archiving

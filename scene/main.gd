@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var tile_map = $TileMap
-@onready var player = $Player
+@onready var player = $Bodys/Player
 @onready var ding = $Ui/Ding
 @onready var wait_time = $Timers/WaitTime
 @onready var can_catch_time = $Timers/CanCatchTime
@@ -42,7 +42,8 @@ func process_fishing_request(target_pos:Vector2):
 	else:
 		var timer=get_tree().create_timer(1.5)
 		await timer.timeout
-		player.leave_fishing()
+		if !Input.is_action_pressed("left_mouse"):
+			player.leave_fishing()
 
 func _on_wait_time_timeout():
 	catch_fish()

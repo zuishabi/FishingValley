@@ -1223,6 +1223,7 @@ parameters/prepare/blend_position = Vector2(0, 0)
 parameters/run/blend_position = Vector2(-0.998843, 0.024648)
 
 [node name="playertexture" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -25.7143)
 texture = ExtResource("2_2pg7n")
 hframes = 13

@@ -37,6 +37,7 @@ func load_game():
 	if ResourceLoader.exists("user://archiving_" + current_archiving_information.archiving_name + ".tres"):
 		var saved_game:Archiving = ResourceLoader.load("user://archiving_" + current_archiving_information.archiving_name + ".tres")
 		load_request.emit(saved_game)
+		emit_necessary_signal()
 	else:
 		Saver.save_game()
 
@@ -51,5 +52,10 @@ func save_player_data(saved_game:Archiving):
 	saved_game.face_direction = player_data.face_direction
 	saved_game.inventory = Inventory.inventory
 
+#当保存游戏时调用，更新存档信息
 func update_archiving_information():
 	current_archiving_information.play_time = Time.get_datetime_string_from_system()
+
+#加载完毕后发送一些必要的信号
+func emit_necessary_signal():
+	Inventory.focus_changed.emit()

@@ -28,3 +28,5 @@ func _unhandled_input(event):
 	if(event.is_action_pressed("esc")):
 		if(get_node(focus_array.front()).can_esc):
 			update_ui(focus_array.front())
+		elif focus_array.front() == "Inventory":
+			update_ui("InsideMenu")

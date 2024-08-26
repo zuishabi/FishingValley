@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://2iqgv0bkvx0j"]
+
+[ext_resource type="Script" path="res://scene/npc/test_body.gd" id="1_3s87d"]
+[ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="1_f15wn"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_component.gd" id="3_wugsd"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_pack.gd" id="4_tpf4v"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_unit.gd" id="5_il03y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bybi"]
+size = Vector2(126, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8suu"]
+radius = 131.309
+
+[sub_resource type="Resource" id="Resource_4dedo"]
+script = ExtResource("5_il03y")
+content = "你好啊"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = 2
+id = 1
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_1w8d0"]
+script = ExtResource("5_il03y")
+content = "再见hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 0
+next_id = 3
+id = 2
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_nmca5"]
+script = ExtResource("5_il03y")
+content = "滚"
+dia_type = 0
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = 4
+id = 3
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_uilv4"]
+script = ExtResource("5_il03y")
+content = "再见"
+dia_type = 0
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = 5
+id = 3
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_vvam4"]
+script = ExtResource("5_il03y")
+content = "你怎么这样呜呜呜呜"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = -1
+id = 4
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_1wdr5"]
+script = ExtResource("5_il03y")
+content = "ovo"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = -1
+id = 5
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_qaygm"]
+script = ExtResource("4_tpf4v")
+dia_name = "普通"
+contents = Array[ExtResource("5_il03y")]([SubResource("Resource_4dedo"), SubResource("Resource_1w8d0"), SubResource("Resource_nmca5"), SubResource("Resource_uilv4"), SubResource("Resource_vvam4"), SubResource("Resource_1wdr5")])
+
+[node name="TestBody" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_3s87d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -65)
+texture = ExtResource("1_f15wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_3bybi")
+
+[node name="TalkArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+shape = SubResource("CircleShape2D_q8suu")
+
+[node name="DiaComponent" type="Node" parent="."]
+script = ExtResource("3_wugsd")
+normal_dia = Array[ExtResource("4_tpf4v")]([SubResource("Resource_qaygm")])
+
+[connection signal="body_entered" from="TalkArea" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs72bwukcepl"]
+
+[ext_resource type="Script" path="res://scene/ui/dia_select.gd" id="1_jphsm"]
+
+[node name="DiaSelect" type="Button"]
+custom_minimum_size = Vector2(0, 30)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_jphsm")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var fishing_point:Vector2
 @export var player_stats:PlayerStats
 
+
 var direction:Vector2
 var can_move:bool=true
 var is_moving:bool=false
@@ -35,6 +36,19 @@ func _ready():
 	progress_bar.hide()
 
 func _physics_process(delta):
+	if(Input.is_action_pressed("left_mouse") && can_fish && Inventory.inventory[Inventory.focused_index] is FishingPole):
+		animation_tree["parameters/prepare/blend_position"]=face_direction
+		progress_bar.show()
+		preparing=true
+		can_move=false
+		if(adding):
+			progress_bar.value += 2
+			if(progress_bar.value==100):
+				adding=false
+		else:
+			progress_bar.value -= 2
+			if(progress_bar.value==0):
+				adding=true
 	if(can_move):
 		move()
 
@@ -43,6 +57,7 @@ func _input(event):
 		if(can_catch):
 			catch_fish.emit()
 		else:
+			print("在钓鱼过程中摁下左键")
 			leave_fishing()
 	if(event.is_action_released("left_mouse") && preparing):
 		animation_tree["parameters/fishing/blend_position"]=face_direction
@@ -57,26 +72,12 @@ func _input(event):
 		can_move=true
 		progress_bar.value=0
 
-func _process(delta):
-	if(Input.is_action_pressed("left_mouse") && can_fish && Inventory.inventory[Inventory.focused_index] is FishingPole):
-		animation_tree["parameters/prepare/blend_position"]=face_direction
-		progress_bar.show()
-		preparing=true
-		can_move=false
-		if(adding):
-			progress_bar.value+=0.5
-			if(progress_bar.value==100):
-				adding=false
-		else:
-			progress_bar.value-=0.5
-			if(progress_bar.value==0):
-				adding=true
-
 func move():
 	direction=Input.get_vector("left","right","up","down")
 	velocity=direction*speed
 	if direction!=Vector2.ZERO:
 		if(is_fishing):
+			print("移动了")
 			leave_fishing()
 		is_moving=true
 		animation_tree["parameters/idle/blend_position"]=direction
@@ -86,6 +87,7 @@ func move():
 		is_moving=false
 
 func leave_fishing():
+	print(1)
 	is_fishing = false
 	preparing = false
 	can_fish = false

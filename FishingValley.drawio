@@ -1,14 +1,68 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
   <diagram name="第 1 页" id="mT3qcLbz5z3XiWIKTVK2">
-    <mxGraphModel dx="1221" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1379" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="WxXNPiLiEXBz8Lk3-Tgf-1" value="effect" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="70" y="260" width="60" height="30" as="geometry" />
+        <mxCell id="WxXNPiLiEXBz8Lk3-Tgf-1" value="任务" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="260" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WxXNPiLiEXBz8Lk3-Tgf-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="420" width="120" height="60" as="geometry" />
+        <mxCell id="WxXNPiLiEXBz8Lk3-Tgf-2" value="对话组件" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="240" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-1" value="普通" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="280" as="sourcePoint" />
+            <mxPoint x="220" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-3" value="对话包" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="270" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-4" value="对话内容" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="290" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-5" value="出现条件" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="320" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="310" as="sourcePoint" />
+            <mxPoint x="380" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-7" value="对话体" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="300" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-8" value="详细内容" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-9" value="对话体类型：&lt;div&gt;选择，提交，领取，或普通&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-10" value="结束触发" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="350" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-11" value="对话图片" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="400" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-12" value="下一条编号" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="430" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-13" value="对话管理器先根据当前需要满足的条件获取对应的对话包，从任务到普通，接着改变自身状态，分为处于任务中和普通状态，当处于任务状态中会记录当前的对话包，接着根据获得的对话包依次进行，并根据下一条内容获取下一条编号，如果为选择分支则会根据选择的内容往下寻找，如果下一条编号为-1，则返回当前编号给对话包，触发结束函数，判断继续的操作" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="230" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-14" value="下一条类型" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="460" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-16" value="编号" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="490" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UxXjE_yIKuEjIiL0Ziy9-17" value="物品列表" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="520" width="80" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

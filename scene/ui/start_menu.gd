@@ -1,10 +1,16 @@
 extends CanvasLayer
 
 @onready var information = $Main/Information
-@onready var load_game = $Main/VBoxContainer/LoadGame
 @onready var create_game_menu = $CreateGameMenu
 @onready var load_game_menu = $LoadGameMenu
 @onready var main = $Main
+
+#按钮
+@onready var load_game = $Main/VBoxContainer/LoadGame
+@onready var create_game = $Main/VBoxContainer/CreateGame
+@onready var exit = $Main/VBoxContainer/Exit
+@onready var create_back = $CreateGameMenu/PanelContainer/MarginContainer/VBoxContainer/Bottom/Back
+@onready var load_back = $LoadGameMenu/PanelContainer/VBoxContainer/Back
 
 func _ready():
 	#更新显示

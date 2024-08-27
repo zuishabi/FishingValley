@@ -12,7 +12,6 @@ extends CharacterBody2D
 @export var fishing_point:Vector2
 @export var player_stats:PlayerStats
 
-
 var direction:Vector2
 var can_move:bool=true
 var is_moving:bool=false
@@ -23,6 +22,8 @@ var adding:bool=true
 var can_fish:bool=true
 #是否可以钓上鱼
 var can_catch:bool=false
+#记录可以说话的数组
+var can_talk_array:Array[CharacterBody2D]
 
 signal fishing_request(pos:Vector2)
 signal cancel_fishing
@@ -71,13 +72,14 @@ func _input(event):
 		progress_bar.hide()
 		can_move=true
 		progress_bar.value=0
+	if event.is_action_pressed("f") && can_talk_array.size() != 0:
+		can_talk_array.front().get_dia()
 
 func move():
 	direction=Input.get_vector("left","right","up","down")
 	velocity=direction*speed
 	if direction!=Vector2.ZERO:
 		if(is_fishing):
-			print("移动了")
 			leave_fishing()
 		is_moving=true
 		animation_tree["parameters/idle/blend_position"]=direction
@@ -87,7 +89,6 @@ func move():
 		is_moving=false
 
 func leave_fishing():
-	print(1)
 	is_fishing = false
 	preparing = false
 	can_fish = false
@@ -112,3 +113,11 @@ func load_game(saved_game:Archiving):
 	self.global_position = saved_game.player_position
 	self.face_direction = saved_game.face_direction
 	animation_tree["parameters/idle/blend_position"] = face_direction
+
+func _on_talking_area_body_entered(body:CharacterBody2D):
+	if body.is_in_group("npc") && body.has_method("get_dia"):
+		can_talk_array.push_front(body)
+
+func _on_talking_area_body_exited(body:CharacterBody2D):
+	if can_talk_array.has(body):
+		can_talk_array.erase(body)

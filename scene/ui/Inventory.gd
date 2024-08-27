@@ -9,9 +9,9 @@ func show_ui():
 	get_tree().paused=false
 
 func _ready():
-	high_light.global_position=inventory_slots.get_child(0).global_position
 	Saver.load_request.connect(load_game)
 	Inventory.inventory_changed.connect(update_slot)
+	Inventory.focus_changed.connect(update_highlight)
 	for i in inventory_slots.get_children().size():
 		update_slot(i)
 
@@ -20,10 +20,11 @@ func _input(event:InputEvent):
 		var direction=int(event.is_action_pressed("wheel_down"))-int(event.is_action_pressed("wheel_up"))
 		if(direction!=0):
 			Inventory.change_index(direction)
-			high_light.global_position=inventory_slots.get_child(Inventory.focused_index).global_position
+
+func update_highlight():
+	high_light.global_position=inventory_slots.get_child(Inventory.focused_index).global_position
 
 func update_slot(index:int):
-	print("更新背包格")
 	inventory_slots.get_child(index).update_slot(index)
 
 func load_game(saved_game:Archiving):

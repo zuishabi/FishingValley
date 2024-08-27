@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bobvc005tyxax"]
+[gd_scene load_steps=54 format=3 uid="uid://bobvc005tyxax"]
 
 [ext_resource type="Script" path="res://scene/Player.gd" id="1_7t6c3"]
 [ext_resource type="Texture2D" uid="uid://dafm8un4s8bm0" path="res://arts/player/Download54884.png" id="2_2pg7n"]
@@ -1203,6 +1203,9 @@ graph_offset = Vector2(37, -54)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua1ov"]
 radius = 4.28571
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kaq04"]
+radius = 48.6554
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_7t6c3")
@@ -1254,6 +1257,12 @@ zoom = Vector2(1.8, 1.8)
 scale = Vector2(1.40946, 0.983726)
 width = 1.0
 
+[node name="TalkingArea" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkingArea"]
+shape = SubResource("CircleShape2D_kaq04")
+
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1265,3 +1274,6 @@ offset_top = -59.0
 offset_right = 103.0
 offset_bottom = -32.0
 scale = Vector2(0.4, 0.4)
+
+[connection signal="body_entered" from="TalkingArea" to="." method="_on_talking_area_body_entered"]
+[connection signal="body_exited" from="TalkingArea" to="." method="_on_talking_area_body_exited"]

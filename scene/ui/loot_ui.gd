@@ -24,4 +24,3 @@ func _on_mouse_exited():
 func _on_gui_input(event:InputEvent):
 	if event.is_action_pressed("left_mouse"):
 		get_item_request.emit(id)
-

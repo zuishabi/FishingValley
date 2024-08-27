@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciggg0qhoo6ap"]
+[gd_scene load_steps=20 format=3 uid="uid://ciggg0qhoo6ap"]
 
 [ext_resource type="Script" path="res://scene/ui/ui.gd" id="1_dlvsp"]
 [ext_resource type="Script" path="res://scene/ui/Inventory.gd" id="2_de5v5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scene/ui/inside_menu.gd" id="17_aa67y"]
 [ext_resource type="Texture2D" uid="uid://bbxcrep5x8nqd" path="res://arts/fishes/missiler.png" id="17_puuw4"]
 [ext_resource type="Script" path="res://scene/ui/talking.gd" id="18_ayw4v"]
+[ext_resource type="PackedScene" uid="uid://ciy06pvf60ias" path="res://scene/ui/get_submit.tscn" id="19_8lb53"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -783,6 +784,9 @@ mouse_filter = 2
 [node name="SelectContainer" type="HBoxContainer" parent="Talking/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
+
+[node name="GetSubmit" parent="Talking" instance=ExtResource("19_8lb53")]
+layout_mode = 1
 
 [connection signal="pressed" from="StartMenu/Buttons/Confirm" to="StartMenu" method="_on_confirm_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Cancel" to="StartMenu" method="_on_cancel_pressed"]

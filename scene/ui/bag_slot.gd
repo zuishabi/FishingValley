@@ -10,10 +10,11 @@ signal on_selected
 
 var id:int
 
-func update_slot(item:Item):
+func update_slot(item:BaseObject):
 	if(item!=null):
 		texture_rect.texture=item.object_texture
-		label.text=str(item.amount)
+		if item is Item:
+			label.text=str(item.amount)
 	else:
 		texture_rect.texture=null
 		label.text=""

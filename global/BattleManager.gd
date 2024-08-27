@@ -34,6 +34,7 @@ func load_fight(player:PlayerStats,fish:Fish):
 
 func start_fish():
 	fish_skill_time.clear()
+	has_registered = false
 	final_loots.clear()
 	start_time=Time.get_ticks_msec()
 	cards_inventory=Inventory.get_card_inventory()

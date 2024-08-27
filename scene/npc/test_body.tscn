@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2iqgv0bkvx0j"]
+[gd_scene load_steps=20 format=3 uid="uid://2iqgv0bkvx0j"]
 
 [ext_resource type="Script" path="res://scene/npc/test_body.gd" id="1_3s87d"]
 [ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="1_f15wn"]
@@ -8,9 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bybi"]
 size = Vector2(126, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q8suu"]
-radius = 131.309
 
 [sub_resource type="Resource" id="Resource_4dedo"]
 script = ExtResource("5_il03y")
@@ -62,11 +59,11 @@ items = {}
 
 [sub_resource type="Resource" id="Resource_vvam4"]
 script = ExtResource("5_il03y")
-content = "你怎么这样呜呜呜呜"
+content = "你怎么这样呜呜呜呜,你得赔偿我"
 dia_type = 3
 dia_texture = ExtResource("1_f15wn")
-next_type = 3
-next_id = -1
+next_type = 1
+next_id = 9
 id = 4
 true_id = 0
 false_id = 0
@@ -74,12 +71,92 @@ items = {}
 
 [sub_resource type="Resource" id="Resource_1wdr5"]
 script = ExtResource("5_il03y")
-content = "ovo"
+content = "送你些东西吧"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 2
+next_id = 6
+id = 5
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_uhg05"]
+script = ExtResource("5_il03y")
+content = ""
+dia_type = 2
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = 0
+id = 6
+true_id = 7
+false_id = 8
+items = {
+"bamboo_pole": 0,
+"barrel": 0,
+"biat_bag": 0,
+"cards_bag": 0
+}
+
+[sub_resource type="Resource" id="Resource_2x53y"]
+script = ExtResource("5_il03y")
+content = "下次再见！"
 dia_type = 3
 dia_texture = ExtResource("1_f15wn")
 next_type = 3
 next_id = -1
-id = 5
+id = 7
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_om6iw"]
+script = ExtResource("5_il03y")
+content = "现在不来拿吗？那等会再来吧"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = -1
+id = 8
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_cae1h"]
+script = ExtResource("5_il03y")
+content = ""
+dia_type = 1
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = 0
+id = 9
+true_id = 10
+false_id = 11
+items = {
+"biat": 1,
+"panties": 5
+}
+
+[sub_resource type="Resource" id="Resource_ervm4"]
+script = ExtResource("5_il03y")
+content = "谢谢你，你走吧"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = -1
+id = 10
+true_id = 0
+false_id = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_mapee"]
+script = ExtResource("5_il03y")
+content = "你好坏，不给我555"
+dia_type = 3
+dia_texture = ExtResource("1_f15wn")
+next_type = 3
+next_id = -1
+id = 11
 true_id = 0
 false_id = 0
 items = {}
@@ -87,7 +164,7 @@ items = {}
 [sub_resource type="Resource" id="Resource_qaygm"]
 script = ExtResource("4_tpf4v")
 dia_name = "普通"
-contents = Array[ExtResource("5_il03y")]([SubResource("Resource_4dedo"), SubResource("Resource_1w8d0"), SubResource("Resource_nmca5"), SubResource("Resource_uilv4"), SubResource("Resource_vvam4"), SubResource("Resource_1wdr5")])
+contents = Array[ExtResource("5_il03y")]([SubResource("Resource_4dedo"), SubResource("Resource_1w8d0"), SubResource("Resource_nmca5"), SubResource("Resource_uilv4"), SubResource("Resource_vvam4"), SubResource("Resource_1wdr5"), SubResource("Resource_uhg05"), SubResource("Resource_2x53y"), SubResource("Resource_om6iw"), SubResource("Resource_cae1h"), SubResource("Resource_ervm4"), SubResource("Resource_mapee")])
 
 [node name="TestBody" type="CharacterBody2D" groups=["npc"]]
 script = ExtResource("1_3s87d")
@@ -100,13 +177,6 @@ texture = ExtResource("1_f15wn")
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_3bybi")
 
-[node name="TalkArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
-shape = SubResource("CircleShape2D_q8suu")
-
 [node name="DiaComponent" type="Node" parent="."]
 script = ExtResource("3_wugsd")
 normal_dia = Array[ExtResource("4_tpf4v")]([SubResource("Resource_qaygm")])
-
-[connection signal="body_entered" from="TalkArea" to="." method="_on_area_2d_body_entered"]

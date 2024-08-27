@@ -39,7 +39,10 @@ func load_game():
 		load_request.emit(saved_game)
 		emit_necessary_signal()
 	else:
-		Saver.save_game()
+		var saved_game:Archiving = Archiving.new()
+		ResourceSaver.save(saved_game,"user://archiving_" + current_archiving_information.archiving_name + ".tres")
+		save_settings()
+		load_request.emit(saved_game)
 
 func override_settings():
 	saved_settings.last_version = Utils.version
@@ -58,4 +61,4 @@ func update_archiving_information():
 
 #加载完毕后发送一些必要的信号
 func emit_necessary_signal():
-	Inventory.focus_changed.emit()
+	pass

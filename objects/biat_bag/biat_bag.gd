@@ -23,6 +23,19 @@ func add_item(item:Biat,amount:int)->bool:
 		inventory[get_available_inventory()]=item
 		return true
 
+func find_item(item:Biat,amount:int) -> bool:
+	for i:Biat in inventory:
+		if i != null && i.object_name == item.object_name && i.amount >= amount:
+			return true
+	return false
+
+func delete_item(item:Biat,amount:int):
+	for i:Biat in inventory:
+		if i != null && i.object_name == item.object_name:
+			i.amount -= amount
+			if i.amount == 0:
+				inventory.erase(i)
+
 func equip_biat(id:int):
 	current_biat_id=id
 	current_biat=inventory[id]

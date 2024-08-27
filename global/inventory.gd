@@ -4,7 +4,7 @@ signal focus_changed
 signal inventory_changed
 
 var inventory:Array[BaseObject]
-var focused_index:int=0:
+var focused_index:int:
 	set(value):
 		focused_index=value
 		focus_changed.emit()
@@ -35,6 +35,30 @@ func add_item(object:BaseObject,amount:int=1)->bool:
 				print("成功添加工具")
 		return true
 
+func find_item(item:Item,amount:int) -> bool:
+	if item == null:
+		print("寻找物品传入错误")
+		return false
+	else:
+		if item is Biat:
+			return find_biat(item,amount)
+		elif item is FishItem:
+			return find_fish(item)
+		elif item is Card:
+			return find_card(item)
+	return true
+
+func delete_item(object:BaseObject,amount:int):
+	if object == null:
+		print("删除物品传入错误")
+	else:
+		if object is Biat:
+			delete_biat(object,amount)
+		elif object is FishItem:
+			delete_fish(object)
+		elif object is Card:
+			delete_card(object)
+
 #返回卡牌包的所有卡牌的副本
 func get_card_inventory()->Array[Card]:
 	var array:Array[Card]
@@ -45,8 +69,7 @@ func get_card_inventory()->Array[Card]:
 					array.append(j.duplicate(1))
 	return array
 
-#--------------------------------------------辅助函数-----------------------------------------------#
-
+#-------------------------------------------添加部分-------------------------------------------------
 func add_tool(tool:Tool) -> bool:
 	if tool is BiatBag:
 		for i:Tool in inventory:
@@ -92,6 +115,40 @@ func add_fish(fish:FishItem)->bool:
 			return i.add_item(fish)
 	return false
 
+#-------------------------------------------寻找部分-------------------------------------------------
+func find_biat(biat:Biat,amount:int) -> bool:
+	for i in inventory:
+		if i is BiatBag:
+			return i.find_item(biat,amount)
+	return false
+
+func find_fish(fish:FishItem) -> bool:
+	for i in inventory:
+		if i is Bucket:
+			return i.find_item(fish)
+	return false
+
+func find_card(card:Card) -> bool:
+	for i in inventory:
+		if i is CardsBag:
+			return i.find_item(card)
+	return false
+#-------------------------------------------删除部分-------------------------------------------------
+func delete_biat(biat:Biat,amount:int):
+	for i in inventory:
+		if i is BiatBag:
+			i.delete_item(biat,amount)
+
+func delete_fish(fish:FishItem):
+	for i in inventory:
+		if i is Bucket:
+			i.delete_item(fish)
+
+func delete_card(card:Card):
+	for i in inventory:
+		if i is CardsBag:
+			i.delete_item(card)
+#-------------------------------------------辅助函数-------------------------------------------------
 func get_inventory_size()->int:
 	var current_size:int=0
 	for i in inventory:
@@ -107,3 +164,4 @@ func find_available_inventory()->int:
 
 func load_game(saved_game:Archiving):
 	self.inventory = saved_game.inventory
+	focused_index = 0

@@ -1,0 +1,104 @@
+[gd_scene load_steps=19 format=3 uid="uid://2iqgv0bkvx0j"]
+
+[ext_resource type="Script" path="res://npc/test_body/test_body.gd" id="1_3s87d"]
+[ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="1_f15wn"]
+[ext_resource type="Script" path="res://stats/npc_stats/npc_stats.gd" id="2_4ceyb"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_component.gd" id="3_wugsd"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_pack.gd" id="4_tpf4v"]
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_unit.gd" id="5_il03y"]
+[ext_resource type="Resource" uid="uid://2g8qf1wamkd0" path="res://npc/test_body/dia_packs/mission/mission_1.tres" id="6_kp6hc"]
+[ext_resource type="Texture2D" uid="uid://dookxns07ugso" path="res://arts/gui/talking.png" id="6_rohfr"]
+[ext_resource type="Resource" uid="uid://ct7n28ubnp7pe" path="res://npc/test_body/dia_packs/special/special_1.tres" id="7_rg3p3"]
+[ext_resource type="Script" path="res://npc/test_body/dia_packs/normal/normal_2.gd" id="8_pqcxh"]
+
+[sub_resource type="Resource" id="Resource_qm150"]
+script = ExtResource("2_4ceyb")
+npc_name = "测试人员"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bybi"]
+size = Vector2(126, 20)
+
+[sub_resource type="Resource" id="Resource_peq75"]
+script = ExtResource("5_il03y")
+id = 1
+next_id = -1
+true_id = 0
+false_id = 0
+content = "你好啊，新人"
+dia_texture = ExtResource("1_f15wn")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_e7x4c"]
+script = ExtResource("4_tpf4v")
+dia_name = "日常"
+contents = Array[ExtResource("5_il03y")]([SubResource("Resource_peq75")])
+
+[sub_resource type="Resource" id="Resource_ipxhw"]
+script = ExtResource("5_il03y")
+id = 1
+next_id = -1
+true_id = 0
+false_id = 0
+content = "嘿，别在我眼前晃悠了"
+dia_texture = ExtResource("1_f15wn")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_afml0"]
+script = ExtResource("4_tpf4v")
+dia_name = "日常_2"
+contents = Array[ExtResource("5_il03y")]([SubResource("Resource_ipxhw")])
+
+[sub_resource type="Resource" id="Resource_c4ten"]
+script = ExtResource("5_il03y")
+id = 1
+next_id = -1
+true_id = 0
+false_id = 0
+content = "嘿！天才少年"
+dia_texture = ExtResource("1_f15wn")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_kgkpk"]
+script = ExtResource("8_pqcxh")
+dia_name = "日常_2"
+contents = Array[ExtResource("5_il03y")]([SubResource("Resource_c4ten")])
+
+[node name="TestBody" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_3s87d")
+npc_stats = SubResource("Resource_qm150")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -65)
+texture = ExtResource("1_f15wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_3bybi")
+
+[node name="DiaComponent" type="Node" parent="."]
+script = ExtResource("3_wugsd")
+mission_dia = Array[ExtResource("4_tpf4v")]([ExtResource("6_kp6hc")])
+normal_dia = Array[ExtResource("4_tpf4v")]([SubResource("Resource_e7x4c"), SubResource("Resource_afml0"), SubResource("Resource_kgkpk")])
+special_dia = Array[ExtResource("4_tpf4v")]([ExtResource("7_rg3p3")])
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="CanTalk" type="TextureRect" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_left = -20.0
+offset_top = -177.0
+offset_right = 20.0
+offset_bottom = -137.0
+texture = ExtResource("6_rohfr")

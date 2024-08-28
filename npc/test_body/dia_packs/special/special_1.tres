@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="Special_1" load_steps=10 format=3 uid="uid://ct7n28ubnp7pe"]
+
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_unit.gd" id="1_64feq"]
+[ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="2_i183x"]
+[ext_resource type="Script" path="res://npc/test_body/dia_packs/special/special_1.gd" id="2_vwa5b"]
+
+[sub_resource type="Resource" id="Resource_6f144"]
+script = ExtResource("1_64feq")
+id = 1
+next_id = 2
+true_id = 0
+false_id = 0
+content = "你好啊，新人，需要一些新手装备吗"
+dia_texture = ExtResource("2_i183x")
+dia_type = 3
+next_type = 0
+items = {}
+
+[sub_resource type="Resource" id="Resource_6cjw2"]
+script = ExtResource("1_64feq")
+id = 2
+next_id = 3
+true_id = 0
+false_id = 0
+content = "好的，谢谢你"
+dia_type = 0
+next_type = 2
+items = {}
+
+[sub_resource type="Resource" id="Resource_w6t4x"]
+script = ExtResource("1_64feq")
+id = 3
+next_id = 4
+true_id = 0
+false_id = 0
+content = ""
+dia_type = 2
+next_type = 3
+items = {
+"bamboo_pole": 0,
+"barrel": 0,
+"biat_bag": 0,
+"cards_bag": 0,
+"panties": 5
+}
+
+[sub_resource type="Resource" id="Resource_ad4wc"]
+script = ExtResource("1_64feq")
+id = 4
+next_id = -1
+true_id = 0
+false_id = 0
+content = "哈哈，好好加油吧，如果想要获得我的认可的话，就帮我做一个小任务吧"
+dia_texture = ExtResource("2_i183x")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_1h6go"]
+script = ExtResource("1_64feq")
+id = 2
+next_id = 5
+true_id = 0
+false_id = 0
+content = "不了，谢谢"
+dia_type = 0
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_0n52g"]
+script = ExtResource("1_64feq")
+id = 5
+next_id = -1
+true_id = 0
+false_id = 0
+content = "好吧，那你想好了再来找我吧"
+dia_texture = ExtResource("2_i183x")
+dia_type = 3
+next_type = 3
+items = {}
+
+[resource]
+script = ExtResource("2_vwa5b")
+dia_name = "special_1"
+contents = Array[ExtResource("1_64feq")]([SubResource("Resource_6f144"), SubResource("Resource_6cjw2"), SubResource("Resource_w6t4x"), SubResource("Resource_ad4wc"), SubResource("Resource_1h6go"), SubResource("Resource_0n52g")])

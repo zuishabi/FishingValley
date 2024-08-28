@@ -25,6 +25,7 @@ BattleManager="*res://global/battle_manager.tscn"
 Picker="*res://global/picker.tscn"
 Saver="*res://global/saver.gd"
 Utils="*res://global/utils.gd"
+MissionSystem="*res://global/mission_system.gd"
 
 [display]
 

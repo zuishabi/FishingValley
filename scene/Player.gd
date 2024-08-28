@@ -23,7 +23,7 @@ var can_fish:bool=true
 #是否可以钓上鱼
 var can_catch:bool=false
 #记录可以说话的数组
-var can_talk_array:Array[CharacterBody2D]
+var can_talk_array:Array[NPC]
 
 signal fishing_request(pos:Vector2)
 signal cancel_fishing
@@ -58,7 +58,6 @@ func _input(event):
 		if(can_catch):
 			catch_fish.emit()
 		else:
-			print("在钓鱼过程中摁下左键")
 			leave_fishing()
 	if(event.is_action_released("left_mouse") && preparing):
 		animation_tree["parameters/fishing/blend_position"]=face_direction
@@ -115,9 +114,15 @@ func load_game(saved_game:Archiving):
 	animation_tree["parameters/idle/blend_position"] = face_direction
 
 func _on_talking_area_body_entered(body:CharacterBody2D):
-	if body.is_in_group("npc") && body.has_method("get_dia"):
+	if body is NPC:
 		can_talk_array.push_front(body)
+		for i in can_talk_array:
+			i.hide_talk()
+		body.show_talk()
 
 func _on_talking_area_body_exited(body:CharacterBody2D):
-	if can_talk_array.has(body):
+	if body is NPC:
 		can_talk_array.erase(body)
+		body.hide_talk()
+		if can_talk_array.size() != 0:
+			can_talk_array.front().show_talk()

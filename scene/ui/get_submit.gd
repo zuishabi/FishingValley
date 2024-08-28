@@ -5,6 +5,7 @@ signal result(id:int)
 @onready var grid_container = $PanelContainer/VBoxContainer/MarginContainer/GridContainer
 @onready var _get = $PanelContainer/VBoxContainer/HBoxContainer/Get
 @onready var submit = $PanelContainer/VBoxContainer/HBoxContainer/Submit
+@onready var cancel = $PanelContainer/VBoxContainer/HBoxContainer/Cancel
 
 var slot = preload("res://scene/ui/bag_slot.tscn")
 var item_list:Array[BaseObject]
@@ -23,6 +24,7 @@ func update(item_list:Array[BaseObject],type:DiaUnit.TYPE):
 	if type == DiaUnit.TYPE.GET:
 		_get.show()
 		submit.hide()
+		cancel.hide()
 	elif type == DiaUnit.TYPE.SUBMIT:
 		submit.show()
 		_get.hide()
@@ -35,7 +37,7 @@ func _on_get_pressed():
 			Inventory.add_item(i,i.amount)
 		else:
 			Inventory.add_item(i)
-	result.emit(0)
+	result.emit(3)
 
 func _on_submit_pressed():
 	var flag:bool = true

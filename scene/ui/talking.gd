@@ -24,8 +24,10 @@ func _ready():
 	EventBus.dia_request.connect(process_dia_request)
 	get_submit.result.connect(get_result)
 
+#处理请求，初始化当前对话内容
 func process_dia_request(dia_pack:DiaPack):
 	current_dia_pack = dia_pack
+	current_dia_pack.start_process()
 	get_parent().update_ui("Talking")
 	current_dia_unit = current_dia_pack.contents[0]
 	parse_current_dia_unit()
@@ -104,12 +106,15 @@ func on_selected(dia_unit:DiaUnit):
 func get_result(id:int):
 	if id == 0:
 		current_dia_unit.next_id = current_dia_unit.true_id
-	else:
+	elif id == 1:
 		current_dia_unit.next_id = current_dia_unit.false_id
+	else:
+		pass
 	get_next_dia()
 
-func end_talking():
+func end_talking(id:int):
 	get_parent().update_ui("Talking")
+	current_dia_pack.end_process(id)
 
 func _on_h_box_container_gui_inpust(event:InputEvent):
 	if event.is_action_released("left_mouse"):
@@ -118,7 +123,7 @@ func _on_h_box_container_gui_inpust(event:InputEvent):
 			rich_text_label.visible_characters = -1
 		elif current_dia_unit.dia_type == DiaUnit.TYPE.NORMAL:
 			if current_dia_unit.next_id == -1:
-				end_talking()
+				end_talking(current_dia_unit.id)
 			else:
 				get_next_dia()
 

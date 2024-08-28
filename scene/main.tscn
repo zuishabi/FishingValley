@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scene/main.gd" id="1_ml7cu"]
 [ext_resource type="Texture2D" uid="uid://dquubpq6kjj8a" path="res://arts/tileset/water/gentle water sparkles A v01.png" id="2_2nsxg"]
 [ext_resource type="PackedScene" uid="uid://bobvc005tyxax" path="res://scene/player.tscn" id="3_65381"]
-[ext_resource type="PackedScene" uid="uid://2iqgv0bkvx0j" path="res://scene/npc/test_body.tscn" id="5_5tpvu"]
+[ext_resource type="PackedScene" uid="uid://2iqgv0bkvx0j" path="res://npc/test_body/test_body.tscn" id="5_5tpvu"]
 [ext_resource type="Texture2D" uid="uid://btmeny4f1aghr" path="res://arts/gui/ding.png" id="6_rq5qe"]
 [ext_resource type="PackedScene" uid="uid://ciggg0qhoo6ap" path="res://scene/ui/ui.tscn" id="7_1p0ws"]
 

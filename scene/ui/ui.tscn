@@ -731,6 +731,7 @@ layout_mode = 2
 text = "保存并返回主界面"
 
 [node name="Talking" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

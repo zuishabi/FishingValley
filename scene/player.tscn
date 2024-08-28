@@ -1258,7 +1258,6 @@ scale = Vector2(1.40946, 0.983726)
 width = 1.0
 
 [node name="TalkingArea" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkingArea"]
 shape = SubResource("CircleShape2D_kaq04")

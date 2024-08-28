@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="Mission_1" load_steps=9 format=3 uid="uid://2g8qf1wamkd0"]
+
+[ext_resource type="Script" path="res://dialogue_system/dialogue_elements/dia_unit.gd" id="1_245gb"]
+[ext_resource type="Texture2D" uid="uid://c4t27pxloeg1i" path="res://icon.svg" id="2_lvu2p"]
+[ext_resource type="Script" path="res://npc/test_body/dia_packs/mission/mission_1.gd" id="2_ulp66"]
+
+[sub_resource type="Resource" id="Resource_jscbt"]
+script = ExtResource("1_245gb")
+id = 1
+next_id = 2
+true_id = 0
+false_id = 0
+content = "嘿！怎么样，帮我完成个任务吧！"
+dia_texture = ExtResource("2_lvu2p")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_cg0py"]
+script = ExtResource("1_245gb")
+id = 2
+next_id = 3
+true_id = 0
+false_id = 0
+content = "很简单，来条导弹鱼就好了，你可以去旁边的河钓出来哦"
+dia_texture = ExtResource("2_lvu2p")
+dia_type = 3
+next_type = 1
+items = {}
+
+[sub_resource type="Resource" id="Resource_37leg"]
+script = ExtResource("1_245gb")
+id = 3
+next_id = 0
+true_id = 4
+false_id = 5
+content = ""
+dia_type = 1
+next_type = 3
+items = {
+"missiler": 1
+}
+
+[sub_resource type="Resource" id="Resource_u8kcx"]
+script = ExtResource("1_245gb")
+id = 4
+next_id = -1
+true_id = 0
+false_id = 0
+content = "哈哈，很好啊，谢谢你"
+dia_texture = ExtResource("2_lvu2p")
+dia_type = 3
+next_type = 3
+items = {}
+
+[sub_resource type="Resource" id="Resource_x83u3"]
+script = ExtResource("1_245gb")
+id = 5
+next_id = -1
+true_id = 0
+false_id = 0
+content = "哦，可能有点困难吧，加油！"
+dia_texture = ExtResource("2_lvu2p")
+dia_type = 3
+next_type = 3
+items = {}
+
+[resource]
+script = ExtResource("2_ulp66")
+dia_name = "mission_1"
+contents = Array[ExtResource("1_245gb")]([SubResource("Resource_jscbt"), SubResource("Resource_cg0py"), SubResource("Resource_37leg"), SubResource("Resource_u8kcx"), SubResource("Resource_x83u3")])

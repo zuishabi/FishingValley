@@ -7,5 +7,8 @@ extends Resource
 func can_exist() -> bool:
 	return true
 
-func end_process():
+func start_process():
+	pass
+
+func end_process(id:int):
 	pass
